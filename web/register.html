@@ -1,0 +1,155 @@
+<!DOCTYPE html>
+<!--
+To change this license header, choose License Headers in Project Properties.
+To change this template file, choose Tools | Templates
+and open the template in the editor.
+-->
+<html>
+    <head>
+        <title>TODO supply a title</title>
+        <meta charset="UTF-8">
+        <meta name="viewport" content="width=device-width, initial-scale=1.0">
+        <script>
+            function comfirmPassword() {
+                var x = document.getElementById("password");
+                var y = document.getElementById("cpassword");
+                if (x == y) {
+                    return true;
+                } else {
+                    return false;
+                }
+            }
+            function validateForm() {
+                var msg = "";
+                var name = document.forms["registerForm"]["name"].value;
+                var username = document.forms["registerForm"]["username"].value;
+                var qualification = document.forms["registerForm"]["qualification"].value;
+                var jobrole = document.forms["registerForm"]["jobrile"].value;
+                var experience = document.forms["registerForm"]["experience"].value;
+                var mobile = document.forms["registerForm"]["mobile"].value;
+                var skype = document.forms["registerForm"]["skype"].value;
+                var emailid = document.forms["registerForm"]["emailid"].value;
+                if (emailid === "") {
+                    msg += "No Email given";
+                }
+                if (experience === "") {
+                    msg += "No Experience given";
+                }
+                if (mobile === "") {
+                    msg += "No Mobile/Contact Number given";
+                }
+                if (skype === "") {
+                    msg += "No Skype ID given";
+                }
+                if (qualification === "") {
+                    msg += "No Qualification given";
+                }
+                if (jobrole === "") {
+                    msg += "No Job Role given";
+                }
+                if (name === "") {
+                    msg += "No Blank Name allowed";
+                }
+                if (username === "") {
+                    msg += "No Blank UserName allowed";
+                }
+                if (comfirmPassword()) {
+                    msg += "No matching Password";
+                }
+                if (msg === "") {
+                    alert(msg)
+                    return false;
+                }
+                else {
+                    alert(msg)
+                }
+            }
+            function getWhatsApp() {
+
+                if (document.getElementById("whatsapp").checked === true) {
+                    document.getElementById("txtwhatsapp").disabled = false;
+
+                } else {
+                    document.getElementById("txtwhatsapp").disabled = true;
+                }
+
+            }
+        </script>
+    </head>
+    <body>
+        <div>Register User</div>
+        <form name="registerForm" role="form" action="LoginServlet" method="post" onsubmit="return validateForm()">
+            <center><table>
+                    <tr>
+                        <td>User Type</td>
+                        <td><select class="form-control" name="usertype">
+                                <option value="tp" selected="">Training Partner</option>
+                                <option value="tc">Training Center</option>
+                                <option value="trainer">Trainer</option>
+                                <option value="admin">Administrator</option>
+                            </select></td>
+                    </tr>
+                    <tr>
+                        <td><label class="label-control-a">Name:</label></td>
+                        <td> <input type="text" class="form-control"  placeholder="Name of Candidate" id="name"  name="name" >
+                        </td>
+                    </tr>
+                    <tr>
+                        <td><label class="label-control-a">User Name:</label></td>
+                        <td> <input type="text" class="form-control"  placeholder="User Name" id="txtUname"  name="username" >
+                        </td>
+                    </tr>
+                    <tr>
+                        <td><label class="label-control-a">Password:</label></td>
+                        <td><input type="password" name="password" class="form-control" placeholder="Password" id="txtPassword" require></td>
+                    </tr>
+                    <tr>
+                        <td><label class="label-control-a">Confirm Password:</label></td>
+                        <td><input type="password" name="cpassword" class="form-control" placeholder="Confirm Password" id="ctxtPassword" require></td>
+                    </tr>
+                    <tr>
+                        <td><label class="label-control-a">Qualification</label></td>
+                        <td><input type="text" name="qualification" class="form-control" placeholder="Qualification" id="qualification" require></td>
+                    </tr>
+                    <tr>
+                        <td><label class="label-control-a">Job Role</label></td>
+                        <td><input type="text" name="jobrole" class="form-control" placeholder="Job Role" id="jobrole" require></td>
+                    </tr>
+                    <tr>
+                        <td><label class="label-control-a">Experience</label></td>
+                        <td><input type="text" name="experience" class="form-control" placeholder="Experience" id="experience" require></td>
+                    </tr><tr>
+                        <td><label class="label-control-a">Mobile Number</label></td>
+                        <td><input type="text" name="mobile" class="form-control" placeholder="Mobile Number" id="mobile" require></td>
+
+                    </tr>
+                    <tr>
+                        <td>Another Number on WhatsApp<input onclick="getWhatsApp();" type="checkbox" name="another" class="form-control" placeholder="WhatsApp" id="whatsapp" require></td>
+                        <td>
+                            <input type="text" name="txtwhatsapp" class="form-control" placeholder="WhatsApp Number" id="txtwhatsapp" require disabled> 
+                        </td>
+                    </tr>
+
+                    <tr>
+                        <td><label class="label-control-a">Skype ID</label></td>
+                        <td><input type="text" name="skype" class="form-control" placeholder="Skype ID" id="skype" require></td>
+                    </tr><tr>
+                        <td><label class="label-control-a">Email ID</label></td>
+                        <td><input type="text" name="emailid" class="form-control" placeholder="Email ID" id="emailid" require></td>
+                    </tr>
+                    <tr>
+                        <td><label class="label-control-a">Photograph</label></td>
+                        <td><input type="file" name="photo" class="form-control" placeholder="Photo" id="photo" require></td>
+                    </tr>
+                    <tr>
+                        <td><input type="reset" name="" id="btnlogin" class="btn-3" value="reset" style="float: right;"></td>
+                        <td><input type="submit" name="" id="btnlogin" class="btn-3" value="Login" style="float: right;" onclick="formValidation();">
+                        </td>
+                    </tr>
+                </table>
+            </center>
+
+        </form>
+
+    </body>
+</html>

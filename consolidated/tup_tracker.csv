@@ -1,0 +1,217 @@
+1,Completed,TUP-JNU-01, TOP000049,JNU,Dhaka,Dhaka,Gaurav ,1793066959,Rubina,1712580496,CS&M,Dot Net,23/May,22,19,3,14,5,Dhrubajyoti,60,kaushik / Kamal,240,Dec'15,0
+2,Completed,TUP-DIU-01,TOP000017,DIU,Dhaka,Dhaka,Surya,1728509177,Hasan,1731770171,CSE,Java,01/Jun,30,25,5,17,8,Devjani,60,Shankar / Pankaj,240,May'16,August 2016.
+3,Completed,TUP-EWU-01,TOP000019,EWU,Dhaka,Dhaka,Surya,1728509177,Hasan,1731770171,All Engg,Java,19/Jun,25,20,5,15,5,Sarita Saini,60,Titas,240,May'16,December 2016.
+4,Completed,TUP-EWU-02,TOP000007,EWU,Dhaka,Dhaka,Surya,1728509177,Hasan,1731770171,All Engg,Web Development,19/Jun,25,22,3,15,7,Edwin,60,Waqar,240,May'16,December 2016.
+5,Completed,TUP-EWU-04,TOP000006,EWU,Dhaka,Dhaka,Surya,1728509177,Hasan,1731770171,All Engg,Java,21/Aug,25,20,5,13,7,Neetu,60,Tarun,240,May'16,December 2016.
+6,Completed,TUP-BRAC-01,TOP000012,BRAC,Dhaka,Dhaka,Surya,1728509177,Hasan,1731770171,CSE+EEE,Java,28/Jun,13,13,0,10,3,Ankit Tiwari,60,Pankaj,240,May'16,August 2016.
+7,Completed,TUP-BRAC-02,TOP000041,BRAC,Dhaka,Dhaka,Surya,1728509177,Hasan,1731770171,CSE+EEE,Dot Net,28/Jun,13,13,0,10,3,Devjani,60,Kamal,240,May'16,August 2016.
+8,Completed,TUP-BRAC-03,TOP000011,BRAC,Dhaka,Dhaka,Surya,1728509177,Hasan,1731770171,CSE+EEE,Android,28/Jun,13,13,0,10,3,Ankit Tiwari,60,Abrar,240,May'16,August 2016.
+9,Completed,TUP-BRAC-04,TOP000018 ,BRAC,Dhaka,Dhaka,Surya,1728509177,Hasan,1731770171,CSE+EEE,Web Development,28/Jun,13,13,0,10,3,Devjani,60,Maung,240,April'16,August 2016.
+10,Completed,TUP-UAP-01,TOP000005,UAP,Dhaka,Dhaka,Surya,1728509177,Hasan,1731770171,CSE+EEE,Java,03/Aug,35,20,15,12,8,Dhrubajyoti,60,Pankaj,240,May'16,December 2016.
+11,Completed,TUP-UAP-02,TOP000008,UAP,Dhaka,Dhaka,Surya,1728509177,Hasan,1731770171,CSE+EEE,Web Development,03/Aug,35,30,5,17,13,Dhrubajyoti,60,Afroj,240,May'16,December 2016.
+12,Completed,TUP-DU-01,TOP000023,DU,Dhaka,Dhaka,Surya,1728509177,Rubina,1712580496,MIS,Java,22/Jun,30,26,4,20,6,Anindya,60,Titas,240,April'16,December 2016.
+13,Completed,TUP-DU-03,TOP000016,DU,Dhaka,Dhaka,Surya,1728509177,Rubina,1712580496,Maths,Java,02/Aug,35,30,5,18,12,Subramaniam,60,Titas,240,April'16,December 2016.
+14,Completed,TUP-DU-06,TOP000025,DU,Dhaka,Dhaka,Surya,1728509177,Rubina,1712580496,Statistics,Java,18/Aug,31,26,5,20,6,Anindya,60,Sachin,240,April'16,December 2016.
+15,Completed,TUP-DU-07,TOP000004,DU,Dhaka,Dhaka,Surya,1728509177,Rubina,1712580496,Statistics,Java,18/Aug,42,35,7,23,12,Sandip,60,Sachin,240,May'16,December 2016.
+16,Completed,TUP-DU-08,TOP000003,DU,Dhaka,Dhaka,Surya,1728509177,Rubina,1712580496,Economics,Java,23/Aug,29,25,4,17,9,Subramaniam,60,Sachin,240,May'16,December 2016.
+17,Completed,TUP-DU-09,TOP000043,DU,Dhaka,Dhaka,Surya,1728509177,Rubina,1712580496,Economics,Web Development,24/Aug,38,35,3,21,14,Subramaniam,60,Waqar,240,Sep'16,Dec'16
+18,Completed,TUP-NSU-01,TOP000009,NSU,Dhaka,Dhaka,Surya,1728509177,Hasan,1731770171,Engg,Web Development,16/Sep,30,30,0,20,10,Sugata,60,Maung,240,April'16,December 2016.
+19,Completed,TUP-NSU-02A/B,TOP000014,NSU,Dhaka,Dhaka,Surya,1728509177,Hasan,1731770171,Engg,Android,16/Sep,45,35,10,21,14,sai,60,Abrar,240,May'16,December 2016.
+20,Completed,TUP-NSU-03,TOP000022,NSU,Dhaka,Dhaka,Surya,1728509177,Hasan,1731770171,Engg,Web Development,16/Sep,30,30,0,20,10,Sai,60,Maung,240,May'16,December 2016.
+21,Completed,TUP-NSU-04,TOP000021,NSU,Dhaka,Dhaka,Surya,1728509177,Hasan,1731770171,Engg,Java,16/Sep,30,30,0,20,10,Sugata,60,Tarun,240,May'16,December 2016.
+22,Completed,TUP-NSU-05,TOP000013,NSU,Dhaka,Dhaka,Surya,1728509177,Hasan,1731770171,Engg,Dot Net,16/Sep,12,12,0,8,4,Sugata,60,Kamal,240,May'16,December 2016.
+23,Completed,TUP-DU-10,TOP000001,DU,Dhaka,Dhaka,Surya,1728509177,Rubina,1712580496,Physics,Android,29/Aug,31,31,0,20,11,David,60,Vinayak,240,May'16,Feb'17
+24,Completed,TUP-DU-11,TOP000002,DU,Dhaka,Dhaka,Surya,1728509177,Rubina,1712580496,Physics,Android,29/Aug,32,32,0,20,12,David,60,Vinayak,240,May'16,Feb'17
+25,Completed,TUP-DU-12,TOP000026,DU,Dhaka,Dhaka,Surya,1728509177,Rubina,1712580496,Maths,Big Data,06/Sep,37,30,7,16,14,Ankit,60,Titas,240,May'16,June'16
+26,Completed,TUP-DCC-01,TOP000033,DCC,Dhaka,Dhaka,Surya,1728509177,Hasan,1731770171,Science,Web Development,27/Oct,29,29,0,4,25,Edwin,60,Afroj,240,June'16,July 2016.
+27,Completed,TUP-DCC-02,TOP000034,DCC,Dhaka,Dhaka,Surya,1728509177,Hasan,1731770171,Science,Java,27/Oct,44,40,4,25,15,Raj / Sarita,60,Tarun,240,June'16,July 2016.
+28,Completed,TUP-IUB-01,TOP000093,IUB,Dhaka,Dhaka,Surya,1728509177,Afrida/Hasan,1731770171,CSE,Android,June'16,25,18,7,14,4,Sanchita Sen,60,K M Sarwar Miral,240,Dec'16,April'17
+29,Completed,TUP-UIU-01,TOP000042,UIU,Dhaka,Dhaka,Surya,1728509177,Hasan,1731770171,CSE+EEE,Web Development,Jan'16,30,30,0,20,10,Neetu,60,Waqar,240,May'16,September  2016.
+30,Completed,TUP-AIUB-01,TOP000032,AIUB,Dhaka,Dhaka,Surya,1728509177,Hasan,1731770171,All Engg,Dot Net,20/Nov,25,25,0,20,10,Neetu,60,Kamal,240,May'16,September  2016.
+31,Completed,TUP-AIUB-02,TOP000029,AIUB,Dhaka,Dhaka,Surya,1728509177,Hasan,1731770171,All Engg,Java,21/Nov,25,25,0,20,5,Neetu,60,Pankaj,240,May'16,September  2016.
+32,Completed,TUP-AIUB-03,TOP000030,AIUB,Dhaka,Dhaka,Surya,1728509177,Hasan,1731770171,All Engg,Web Development,18/Nov,30,30,0,20,5,David / Neetu,60,Maung,240,May'16,September  2016.
+33,Completed,TUP-AIUB-04,TOP000031,AIUB,Dhaka,Dhaka,Surya,1728509177,Hasan,1731770171,All Engg,Web Development,21/Nov,25,25,0,20,5,David / Neetu,60,Maung,240,May'16,September  2016.
+34,Completed,TUP-BRU-01,TOP000048,BRU,Rangpur,Rangpur,Sugata,1757117925,Akram,1737889529,Multiple,Java,Jan'16,43,35,8,20,15,Shakif,60,Shariar,240,June'16,June'16
+35,Completed,TUP-AIUB-05,TOP000027,AIUB,Dhaka,Dhaka,Surya,1728509177,Hasan,1731770171,All Engg,Android,17/Nov,25,25,0,20,5,David,60,Vinayak,240,May'16,December 2016.
+36,Completed,TUP-AIUB-06,TOP000028,AIUB,Dhaka,Dhaka,Surya,1728509177,Hasan,1731770171,All Engg,Android,21/Nov,30,30,0,25,5,David/Subbu,60,Vinayak,240,May'16,December 2016.
+37,Completed,TUP-SUST-01,TOP000046,SUST,Sylhet,Sylhet,Rahul,1780004462,Salma,198478977,Multiple(Maths &Physics),Java,May'16,37,22,15,33,4,Abhishek Sen Gupta,60,Tasnim Haider Chowdhury,240,Dec'16,06/16
+38,Completed,TUP-SUST-02,TOP000047,SUST,Sylhet,Sylhet,Rahul,1780004462,Salma,198478977,Statistics,Web Development,May'16,21,8,13,12,9,Abhishek Sen Gupta,60,Alaka Bhattacharjee,240,Dec'16,06/16
+39,Completed,TUP-KUET-01,TOP000060,KUET,Khulna,Khulna,Shakif,1734984756,Khalid,1713380039,CSE,Java,29/03/2016,20,20,0,20,0,Khalid,60,Kashif,240,August'16,0
+40,Ongoing,TUP-KUET-02,TOP000138,KUET,Khulna,Khulna,Shakif,1734984756,Khalid,1713380039,CSE,Java,Oct'16,35,30,5,25,5,Khaled Mahmood  Mustafa,8,Kashif Hussain,167,April'17,Dec'16
+41,Ongoing,TUP-RU-01,TOP000107,RU,Rajshahi,Rajshahi,Sugata,1757117925,Nusrat,1784397878,ICE,Android,August'16,26,18,8,18,0,TBD,0,Mithun Kumar Ghose,204,Mar'17,Dec'17
+42,Ongoing,TUP-RU-02,TOP000059,RU,Rajshahi,Rajshahi,Sugata,1757117925,Nusrat,1784397878, Math,Web Development,April'16,44,4,40,3,1,TBD,0,Jannatul Haque,164,Mar'17,Dec'17
+43,Ongoing,TUP-RU-03,TOP000070,RU,Rajshahi,Rajshahi,Sugata,1757117925,Nusrat,1784397878,Applied Math,Web Development,June'16,21,18,3,13,5,TBD,0,Faize Ahmed,165,Mar'17,Dec'17
+44,Ongoing,TUP-RU-04,TOP000087,RU,Rajshahi,Rajshahi,Sugata,1757117925,Nusrat,1784397878,Geology and mining,Web Development,June'16,42,14,28,10,4,TBD,0,Faize Ahmed,122,May'17,Dec'17
+45,Ongoing,TUP-RU-05,TOP000088,RU,Rajshahi,Rajshahi,Sugata,1757117925,Nusrat,1784397878,Population Science,Web Development,May'16,45,10,35,8,2,TBD,0,Jannatul Haque,164,Mar'17,Dec'17
+46,Ongoing,TUP-RU-06,TOP000072,RU,Rajshahi,Rajshahi,Sugata,1757117925,Nusrat,1784397878,Statistics 4th year,Web Development,May'16,47,32,15,22,10,TBD,0,Jannatul Haque,114,April'17,Dec'17
+47,Ongoing,TUP-RU-08,TOP000089,RU,Rajshahi,Rajshahi,Sugata,1757117925,Nusrat,1784397878,Physics,Web Development,May'16,30,16,14,12,4,TBD,0,Jannatul Haque,171,Mar'17,Dec'17
+48,Completed,TUP-SUST-03,TOP000211,SUST,Sylhet,Sylhet,Rahul,1780004462,Salma,198478977,Chemical Eng.,Web Development,May'16,18,3,15,8,10,Abhishek Sen Gupta,60,Tasnim Haider Chowdhury,240,Dec'16,Dec'16
+49,Completed,TUP-SUST-04,TOP000063,SUST,Sylhet,Sylhet,Rahul,1780004462,Salma,198478977,Civil Engineering,Web Development,May'16,16,16,0,12,4,Prabhu James,60,Alaka Bhattacharjee,240,Dec'16,Dec'16
+50,Ongoing,TUP-VU-01,TOP000198,VU,Rajshahi,Rajshahi,Sugata,1757117925,Nusrat,1784397878,CSE,Java,Jan'17,32,32,0,23,9,TBD,0,Mithun Kumar Ghose,92,May'17,Dec'17
+51,Ongoing,TUP-PUST-01,TOP000203,PUST,Pabna,Rajshahi,Sugata,1757117925,Nusrat,1784397878,Multiple,Web Development,Jan'17,40,40,0,33,7,TBD,0,Md Abdul Hakim,36,May'17,Dec'17
+52,Ongoing,TUP-PUST-02,TOP000204,PUST,Pabna,Rajshahi,Sugata,1757117925,Nusrat,1784397878,Multiple,Web Development,Jan'17,29,29,0,28,1,TBD,0,Md Abdul Hakim,32,May'17,Dec'17
+53,Ongoing,TUP-RU-09,TOP000234,RU,Rajshahi,Rajshahi,Sugata,1757117925,Nusrat,1784397878,Statistics new 4th year-02,Web Development,Jan'17,43,43,0,26,17,TBD,0,Jannatul Haque,24,May'17,Dec'17
+54,Completed,TUP-MBST-01,TOP000079,MBSTU,Tangail,Dhaka,Surya,1728509177,Hasan,1731770171,ICT and CSE,Java,May1'16,50,45,5,30,15,simmer,60,Ziaur Rahman,240,Nov'16,December'16
+55,Completed,TUP-IST-01,TOP000071,IST,Dhaka,Dhaka,Surya,1728509177,Afrida/Hasan,1731770171,CSE,Android,May'16,30,24,6,18,6,Sugata Choudhary,57,Shivam Kumar,121,04/17,Dec'16
+56,Completed,TUP-BDJ-01,TOP000069,BD Jobs,Dhaka,Dhaka,Anwar,1687045596,Saleehin,1926673096,Multiple,Dot Net,July'16,46,27,19,18,9,Shirajul Mamun,60,Shirajul Mamun,240,Dec'16,0
+57,Completed,TUP-BDJ-02,TOP000074,BD Jobs,Dhaka,Dhaka,Anwar,1687045596,Saleehin,1926673096,Multiple,Android,June'16,42,42,0,30,12,Tanvir Faraby,60,Tanvir Faraby,240,Nov'16,0
+58,Completed,TUP-NSTU-02,TOP000150,NSTU,Noakhali,Chittagong,Rahul,1780004462,Saidul,1791808535,CSE,Web Development,Oct'16,24,9,15,20,4,Naresh Kumar,18,Milind Ruparel,131,Feb' 17,April'17
+59,Completed,TUP-HSTU-01,TOP000157,HSTU,Dinajpur,Rangpur,Sugata,1757117925,Faruk,1973146142,CSE,Java,16/Oct,23,17,6,8,9,Gaurav ,60,Moni Sankar,240,17/Mar,17/Mar
+60,Completed,TUP-HSTU-02,TOP000158,HSTU,Dinajpur,Rangpur,Sugata,1757117925,Faruk,1973146142,ECE,Java,16/Oct,15,5,10,2,3,Gaurav ,60,Moni Sankar,240,18/Mar,17/Mar
+61,Ongoing,TUP-HSTU-03,TOP000235,HSTU,Dinajpur,Rangpur,Sugata,1757117926,Faruk,1973146143,CSE,Java,Feb'17,32,32,0,18,14,TBD,0,Moni Sankar,15,17/Jun,17/Mar
+62,Ongoing,TUP-HSTU-04,TOP000250,HSTU,Dinajpur,Rangpur,Sugata,1757117927,Faruk,1973146144,EEE+ECE,Web Development,Feb'17,52,52,0,34,18,Nitin Kausal,9,Shaharia Sarker,0,April'17,March'17
+63,Completed,TUP-BRAC-05,TOP000124,BRAC,Dhaka,Dhaka,Surya,1728509177,Afrida/Hasan,1731770171,Engg,Android,August'16,21,20,1,14,7,Sanchita Sen,60,Tarkeshwar Barua,240,Dec'16,April'17
+64,Completed,TUP-BDJ-03,TOP000081,BD Jobs,Dhaka,Dhaka,Anwar,1687045596,Saleehin,1926673096,Multiple,Web Development,June'16,41,41,0,28,13,Md. Shofiul ,60,Md. Shofiul ,240,Nov'16,0
+65,Completed,TUP-IUB-02,TOP000094,IUB,Dhaka,Dhaka,Surya,1728509177,Afrida/Hasan,1731770172,Engg,Web Development,June'16,23,16,7,15,1,Sanchita Sen,60,Maung Then Line,240,Dec'16,April'17
+66,Completed,TUP-NSU-06,TOP000068,NSU,Dhaka,Dhaka,Surya,1728509177,Afrida/Hasan,1731770172,Multiple,Augmedix,August'16,18,18,0,10,8, Priti,60,Edwin paul,240,Dec'16,Dec'16
+67,Completed,TUP-NSU-07,TOP000128,NSU,Dhaka,Dhaka,Surya,1728509177,Afrida/Hasan,1731770172,Engg,Java,August'16,25,24,1,22,2,Sarita Saini,60,Pankaj Sharma,240,Dec'16,April'17
+68,Ongoing,TUP-EWU-06,TOP000152,EWU,Dhaka,Dhaka,Surya,1728509177,Afrida ,1731770171,Engg,Web Development,Oct'16,58,20,38,16,14,TBD,0,Niyamul Ahsan,120,Feb'17,April'17
+69,Completed,TUP-BDJ-04,TOP000178,BD Jobs,Dhaka,Dhaka,Anwar,1687045596,Saleehin,1926673096,Multiple,Dot Net,Oct'16,42,35,7,26,9,Shirajul Mamun,60,Shirajul Mamun,240,Jan'16,0
+70,Ongoing,TUP-UAP-05,TOP000115,UAP,Dhaka,Dhaka,Surya,1728509177,Afrida ,1672467988,Engg-3,Java,June'16,25,10,15,9,1,TBD,0,Deepa Basantani,110,Feb'17,April'17
+71,Completed,TUP-Mass-01,TOP000140,Mass Associates,Dhaka,Dhaka,Anwar,1687045596,Bappy,1707110444,Engineering & Science,Web Development,July'16,25,18,7,19,6,Shomvob,60,Shomvob,240,Oct'16,0
+72,Completed,TUP-IUBAT-01,TOP000111,IUBAT,Dhaka,Dhaka,Surya,1728509177,Hasan,1731770171,CSE-1,Web Development,July'16,50,50,0,28,22,Sanchita Sen,60,Suman Gangopadhay,240,Dec'16,April'17
+73,Completed,TUP-IUBAT-02,TOP000112,IUBAT,Dhaka,Dhaka,Surya,1728509177,Hasan,1731770171,CSE-2,Android,July'16,42,42,0,22,20,Wajid Shafi,3,K M Sarwar Miral,240,Dec'16,April'17
+74,Completed,TUP-IUBAT-03,TOP000113,IUBAT,Dhaka,Dhaka,Surya,1728509177,Hasan,1731770171,CSE-3,Dot Net,July'16,32,32,0,22,10,Wajid Shafi,60,Asaduzzaman Arif,240,Dec'16,April'17
+75,Completed,TUP-IUBAT-04,TOP000114,IUBAT,Dhaka,Dhaka,Surya,1728509177,Hasan,1731770171,Engg,Java,July'16,35,32,3,15,17,Sanchita Sen,60,Tarun Rathi,240,Dec'16,April'17
+76,Completed,TUP-NSU-08,TOP000130,NSU,Dhaka,Dhaka,Surya,1728509177,Afrida/Hasan,1731770173,Engg,Web Development,August'16,20,20,0,17,3,Sarita Saini,60,Arunava Sarkar,240,Dec'16,April'17
+77,Completed,TUP-NSU-09,TOP000131,NSU,Dhaka,Dhaka,Surya,1728509177,Afrida/Hasan,1731770172,All Engg,Web Development,August'16,18,18,0,15,3,Sarita Saini,60,Arunava Sarkar,240,Dec'16,April'17
+78,Completed,TUP-NSU-10,TOP000132,NSU,Dhaka,Dhaka,Surya,1728509177,Afrida/Hasan,1731770172,All Engg,Android,August'16,26,20,6,19,4,Naresh Kumar,60,Badenawaz / Tarkeswar,240,Dec'16,April'17
+79,Completed,TUP-NSU-11,TOP000133,NSU,Dhaka,Dhaka,Surya,1728509177,Afrida/Hasan,1731770172,All Engg,Dot Net,August'16,25,23,2,21,2,Sarita Saini,60,Asaduzzaman Arif,240,Dec'16,April'17
+80,Completed,TUP-BRAC-06,TOP000125,BRAC,Dhaka,Dhaka,Surya,1728509177,Afrida/Hasan,1731770172,All Engg,Web Development,August'16,15,13,2,10,5,Sanchita Sen,60,Md. Afroj Al Azad,240,Dec'16,April'17
+81,Completed,TUP-BRAC-07,TOP000126,BRAC,Dhaka,Dhaka,Surya,1728509177,Afrida/Hasan,1731770172,All Engg,Web Development,August'16,17,15,2,12,5,Sanchita Sen,60,Md.Ruhul Amin,240,Dec'16,April'17
+82,Completed,TUP-AIUB-07,TOP000141,AIUB,Dhaka,Dhaka,Surya,1728509177,Afrida ,1672467988,CSE,Android,July'16,20,6,14,6,0,Sarita Saini,60,K M Sarwar Miral,240,Dec'16,April'17
+83,Completed,TUP-AIUB-08,TOP000142,AIUB,Dhaka,Dhaka,Surya,1728509177,Afrida ,1731770172,CSE,Big Data,July'16,12,5,7,5,0,Sarita Saini,60,Ashok Rangashwami,240,Dec'16,April'17
+84,Completed,TUP-AIUB-09,TOP000143,AIUB,Dhaka,Dhaka,Surya,1728509177,Afrida/Hasan,1731770172,CSE,Java,July'16,16,14,2,11,5,TBD,60,Tarun Rathi,240,Dec'16,April'17
+85,Completed,TUP-DU-13,TOP000116,DU,Dhaka,Dhaka,Surya,1728509177,Rubina,1712580496,Maths,Web Development,July'16,35,16,19,0,16,Sanchita Sen,60,Prabhat Jonathan,240,Feb'17,0
+86,Ongoing,TUP-DU-14,TOP000117,DU,Dhaka,Dhaka,Surya,1728509177,Rubina,1712580496,Statistics,Web Development,August'16,18,14,4,11,7,TBD,0,Waqar Ahmed,64,Feb'17,0
+87,Ongoing,TUP- CU- 07,TOP000097,Chittagong University,Chittagong,Chittagong,Rahul,1780004462,Muntasir,1680100046,Marine Science,Web Development,June'16,44,28,16,22,6,Sugata Choudhary,57,Shivam Kumar,121,Apr'17,Dec'16
+88,Ongoing,TUP-BarU-01,TOP000195,Barisal University,Barisal,Barisal,Shakif,1734984756,Shihab,1723566726,Maths,Web Development,Dec'16,44,34,10,20,14,TBD,0,Sunil Gorai,48,Apri'17,17/Dec
+89,Ongoing,TUP-DIU-02,TOP000146,DIU,Dhaka,Dhaka,Surya,1728509177,Afrida ,1672467988,CSE,Web Development,Oct'16,44,44,0,35,9,TBD,0,Md.Ruhul Amin,89,Apri'17,17/Dec
+90,Ongoing,TUP-DIU-03,TOP000147,DIU,Dhaka,Dhaka,Surya,1728509177,Afrida ,1672467988,CSE,Java,Oct'16,28,11,17,10,1,TBD,0,Deepa Basantani,71,March'17,Dec'16
+91,Ongoing,TUP-DIU-04,TOP000155,DIU,Dhaka,Dhaka,Surya,1728509177,Afrida ,1672467988,CSE,Dot Net,Oct'16,27,18,9,16,2,TBD,0,Kamal Pratap,149,March'17,0
+92,Completed,TUP-BRAC-08,TOP000127,BRAC,Dhaka,Dhaka,Surya,1728509177,Afrida/Hasan,1731770172,CSE,Java,August'16,22,19,3,13,6,Sanchita Sen,60,Tarun Rathi,240,Dec'16,April'17
+93,Ongoing,TUP-BarU-02,TOP000196,Barisal University,Barisal,Barisal,Shakif,1734984756,Shihab,1723566726,Maths ,Web Development,Dec'16,44,30,14,25,5,TBD,0,Sunil Gorai,57,Apri'17,17/Dec
+94,Completed,TUP-Talha-01,TOP000110,Talha Training,Dhaka,Dhaka,Sohel Rana,1747454600,Sumaiya,1534305516,Web Development,Web Development,July'16,42,42,0,33,9,Shafiul Alam,60,Shafiul Alam,240,Oct'16,0
+95,Completed,TUP-Desktop-03,TOP000137,Desktop IT,Dhaka,Dhaka,Param,1747454600,Param,1747454600,Engineering & Science,Web Development,July'16,16,16,0,13,3,Qadirul Muktadir,60,Qadirul Muktadir,240,Oct'16,0
+96,Completed,TUP-US-01,TOP000119,US Software,Dhaka,Dhaka,Param,1747454600,Param,1747454600,Engineering & Science,Web Development,July'16,30,30,0,25,5,Kamruz Zaman,60,Kamruz Zaman,240,Sep'16,0
+97,Completed,TUP-US-04,TOP000136,US Software,Dhaka,Dhaka,Param,1747454600,Param,1747454600,Engineering & Science,Web Development,July'16,30,30,0,24,6,Kamruz Zaman,60,Kamruz Zaman,240,Sep'16,0
+98,Completed,TUP-HTS-01,TOP000121,Hypertag Solutions,Dhaka,Dhaka,Param,1747454600,Param,1747454600,Engineering & Science,Java,July'16,45,38,7,23,15,Hasanuzzaman,60,Hasanuzzaman,240,Sep'16,0
+99,Completed,TUP-HTS-02,TOP000122,Hypertag Solutions,Dhaka,Dhaka,Param,1747454600,Param,1747454600,Engineering & Science,Web Development,July'16,30,25,5,17,8,Anowar Hossain,60,Anowar Hossain,240,Sep'16,0
+100,Completed,TUP-HTS-03,TOP000123,Hypertag Solutions,Dhaka,Dhaka,Param,1747454600,Param,1747454600,Engineering & Science,Web Development,July'16,30,25,5,16,9,Anowar Hossain,60,Anowar Hossain,240,Sep'16,0
+101,Completed,TUP-US-02,TOP000120,US Software,Dhaka,Dhaka,Param,1747454600,Param,1747454600,Engineering & Science,Java,Aug'16,15,15,0,11,4,Abul Kalam,60,Abul Kalam,240,Sep'16,0
+102,Completed,TUP-US-03,TOP000135,US Software,Dhaka,Dhaka,Param,1747454600,Param,1747454600,Engineering & Science,Android,Aug'16,20,20,0,20,0,Sajal,60,Sajal,240,Sep'16,0
+103,Completed,TUP-Desktop-02,TOP000134,Desktop IT,Dhaka,Dhaka,Param,1747454600,Param,1747454600,Engineering & Science,Android,July'16,19,19,0,19,0,Tariqul Islam,60,Tariqul Islam,240,Oct'16,0
+104,Completed,TUP-Desktop-01,TOP000118,Desktop IT,Dhaka,Dhaka,Param,1747454600,Param,1747454600,Engineering & Science,Java,July'16,19,19,0,19,0,Bappy Mazumder,60,Muktadir,240,Oct'16,0
+105,Completed,TUP-US-05,TOP000159,US Software,Dhaka,Dhaka,Param,1747454600,Param,1747454600,Engineering & Science,Java,Oct'16,16,14,2,14,0,Abul kalam,60,Abul kalam,240,Jan'17,0
+106,Completed,TUP-US-06,TOP000160,US Software,Dhaka,Dhaka,Param,1747454601,Param,1747454601,Engineering & Science,Web Development,Oct'16,30,30,0,20,10,Mizanur Rahman,60,Mizanur Rahman,240,Jan'17,0
+107,Completed,TUP-US-07,TOP000161,US Software,Dhaka,Dhaka,Param,1747454602,Param,1747454602,Engineering & Science,Web Development,Oct'16,30,30,0,24,6,Mizanur Rahman,60,Kamrul Huda,240,Jan'17,0
+108,Completed,TUP-US-08,TOP000162,US Software,Dhaka,Dhaka,Param,1747454603,Param,1747454603,Engineering & Science,Android,Oct'16,18,18,0,15,3,Rashedul Hoque,60,Abul Kalam,240,Jan'17,0
+109,Ongoing,TUP-BSMRSTU-01,TOP000212,BSMRSTU,Gopalgonj,Dhaka,Surya,1728509177,Hasan,1731770171,CSE,Java,Jan'17,37,34,3,30,7,TBD,0,Mohamed Raffic Rasul,178,March'17,April'17
+110,Completed,TUP-BJIT-01,TOP000166,BJIT,Dhaka,Dhaka,Param,1747454603,Param,1747454603,Engineering & Science,Java,Sep'16,20,15,5,10,5,Masud,60,Masud,240,Dec'16,0
+111,Completed,TUP-HTS-04,TOP000148,Hypertag Solutions,Dhaka,Dhaka,Param,1747454600,Param,1747454600,Engineering & Science,Web Development,Oct'16,40,25,15,30,2,Amanur Rahman,60,Amanur Rahman,240,Dec'16,0
+112,Completed,TUP-HTS-05,TOP000164,Hypertag Solutions,Dhaka,Dhaka,Param,1747454600,Param,1747454600,Engineering & Science,Web Development,Sep'16,27,14,13,25,2,Amanur Rahman,60,Amanur Rahman,240,Nov'16,0
+113,Ongoing,TUP-PSTU-01,TOP000156,PSTU,Patuakhali,Barisal,Shakif,1734984756,Shihab,1723566726,CSE,Java,Oct'16,42,41,1,32,9,TBD,0,Irfan Khan,159,April'17,Feb'17
+114,Completed,TUP-Talha-02,TOP000165,Talha Training,Dhaka,Dhaka,Sohel Rana,1747454600,Sumaiya,1534305516,Engg,Web Development,Sep'16,37,37,0,28,9,Shafiul Alam,60,Shafiul Alam,240,Dec'16,0
+115,Completed,TUP-HTS-06,TOP000167,Hypertag Solutions,Dhaka,Dhaka,Surya,1747454600,Hasan,1747454600,Engineering & Science,Big Data,Oct'16,31,24,7,28,3,Ashok Rangashwami,60,Ashok Rangashwami,240,Dec'16,April'17
+116,Completed,TUP-Talha-03,TOP000262,Talha Training,Dhaka,Dhaka,Anwar,1687045596,Sumaiya,1534305516,Multiple,Web Development,Oct'16,40,27,13,25,2,Sanchita Sen,60,MD. Shafiul Alam' Habibur Rahman,240,Feb'17,0
+117,Completed,TUP-HTS-07,TOP000168,Hypertag Solutions,Dhaka,Dhaka,Param,1747454600,Param,1747454600,Engineering & Science,Web Development,Nov'16,41,21,20,30,7,Amanur Rahman,60,Amanur Rahman,240,Dec'16,0
+118,Ongoing,TUP-JUST-01,TOP000192,JUST,Jessore,khulna,Shakif,1734984756,Palash,1913595513,CSE,Java,Dec'16,33,33,0,23,10,TBD,0,Sachine Hariher,99,April'17,Dec'17
+119,Ongoing,TUP-IU-01,TOP000171,Islamic University,Kushtia,khulna,Shakif,1734984756,Palash,1913595513,CSE,Java,Nov'16,59,58,1,48,11,Karthik Govind,31,Anirudha Gaikwad,45,Feb'17,Nov'17
+120,Ongoing,TUP-IU-02,TOP000172,Islamic University,Kushtia,khulna,Shakif,1734984756,Palash,1913595513,ECE,Java,Nov'16,48,44,4,38,6,Karthik Govind,42,Anirudha Gaikwad,5,Feb'17,Nov'17
+121,Ongoing,TUP-IU-03,TOP000173,Islamic University,Kushtia,khulna,Shakif,1734984756,Palash,1913595513,ICE,Java,Nov'16,58,53,5,47,11,Karthik Govind,42,Anirudha Gaikwad,44,Feb'17,Nov'17
+122,Ongoing,TUP-SFUB-01,TOP000213,Stamford University,Dhaka,Dhaka,Surya,1728509185,Afrida,1731770172,CSE,Android,Jan'17,25,25,0,20,5,Abid Hossain,45,Tarun Rathi,36,April'17,April'17
+123,Ongoing,TUP-InsightBD-01,TOP000244,Insight Bangladesh,Dhaka,Dhaka,Anwar,1687045596,Param,1747454600,Multiple,Web Development,Nov'16,24,19,5,22,3,TBD,0,Md. Asif-Ur- Rahman,110,April'17,0
+124,Completed,TUP-HTS-08,TOP000183,Hypertag Solutions,Dhaka,Dhaka,Param,1747454600,Param,1747454600,Engineering & Science,Web Development,Nov'16,31,19,12,26,3,Amanur Rahman,60,Amanur Rahman,240,Jan'16,0
+125,Completed,TUP-HTS-09,TOP000184,Hypertag Solutions,Dhaka,Dhaka,Anwar,1687045596,Mouri,1682129625,Multiple,Web Development(WordPress),Dec'16,45,33,12,34,4,Mehadi Hasan Ovi,60,Mehadi Hasan Ovi,240,Feb'17,0
+126,Completed,TUP-HTS-11,TOP000186,Hypertag Solutions,Dhaka,Dhaka,Anwar,1687045596,Mouri,1682129625,Multiple,Web Development(WordPress),Nov'16,44,30,14,33,5,Mehadi Hasan Ovi,60,Mehadi Hasan Ovi,240,Feb'17,0
+127,Ongoing,TUP-HTS-12,TOP000187,Hypertag Solutions,Dhaka,Dhaka,Anwar,1687045596,Mouri,1682129625,Multiple,Dot Net,Nov'16,34,12,22,30,3,Sarita Saini,21,Amanur Rahman,140,Mar'17,0
+128,Ongoing,TUP-HTS-17,TOP000208,Hypertag Solutions,Dhaka,Dhaka,Anwar,1687045596,Mouri,1682129625,Multiple,Web Development,Jan'17,36,36,0,29,7,Sarita Saini,0,Amanur Rahman,60,Apr'17,0
+129,Ongoing,TUP-HTS-18,TOP000216,Hypertag Solutions,Dhaka,Dhaka,Anwar,1687045596,Mouri,1682129625,Multiple,Web Development,Dec'16,38,38,0,31,7,Sarita Saini,0,Amanur Rahman,96,Mar'17,0
+130,Completed,TUP-JNU-02,TOP000193,JNU,Dhaka,Dhaka,Surya,1728509177,Rubina,1712580496,CSE,Android,June'16,28,15,13,8,7,Mir Abid,60,Bandenamaz Bagwan ,240,Dec'16,Dec'16
+131,Ongoing,TUP-Mass-02,TOP000177,Mass Associates,Dhaka,Dhaka,Sohel Rana,1672857084,Bappy,1707110444,Multiple,Web Development,Nov'16,20,19,1,18,2,TBD,0,Jamiul Hasan,108,April'17,0
+132,Ongoing,TUP-US-09,TOP000189,US Software,Dhaka,Dhaka,Sohel Rana,1672857084,Mahmudul,1744795448,Multiple,Web Development,Dec'16,31,14,17,26,5,Sanchita Sen,3,Md. Ibrahim Arafat,102,April'17,0
+133,Ongoing,TUP-US-10,TOP000190,US Software,Dhaka,Dhaka,Sohel Rana,1672857084,Mahmudul,1744795448,Multiple,Android,Dec'16,22,10,12,18,4,Sanchita Sen,12,Emdad Hossain,158,April'17,0
+134,Completed,TUP-BDJ-05,TOP000179,BD Jobs,Dhaka,Dhaka,Anwar,1687045596,Saleehin,1926673096,Multiple,Web Development,Aug'16,40,36,4,28,8,0,0,Shafiul Alam,60,Dec'16,0
+135,Completed,TUP-BDJ-06,TOP000180,BD Jobs,Dhaka,Dhaka,Anwar,1687045596,Saleehin,1926673096,Multiple,Web Development,Oct'16,44,35,9,28,7,0,0,Md. Shofiul ,60,Jan'16,0
+136,Completed,TUP-BDJ-07,TOP000181,BD Jobs,Dhaka,Dhaka,Anwar,1687045596,Saleehin,1926673096,Multiple,Android,Sep'16,48,12,36,9,3,0,0,Tanvir Farabi,60,Jan'16,0
+137,Ongoing,TUP-US-11,TOP000191,US Software,Dhaka,Dhaka,Sohel Rana,1672857084,Mahmudul,1744795448,Multiple,Java,Dec'16,26,15,11,22,4,Sanchita Sen,9,Rezaul Huda,98,April'17,0
+138,Ongoing,TUP-CoU-01,TOP000202,CoU,Comilla,Chittagong,Rahul,1780004462,Saidul,1791808535,CSE & ICT Old,Web Development,Nov'16,15,13,2,9,4,Sultan Singh,6,Billal Hossain,105,March'17,June'17
+139,Ongoing,TUP-EWU-08,TOP000194,EWU,Dhaka,Dhaka,Surya,1728509177,Afrida ,1672467988,CSE,Dot Net,Oct'16,34,34,0,33,1,TBD,0,Kamal Pratap,113,Feb'17,April'17
+140,Ongoing,TUP-BarU-03,TOP000197,Barisal University,Barisal,Barisal,Shakif,1734984756,Shihab,1723566726,Economics,Web Development,Dec'16,47,33,14,22,11,TBD,0,Sunil Gorai,54,Apri'17,17/Dec
+141,Ongoing,TUP-US-12,TOP000199,US Software,Dhaka,Dhaka,Sohel Rana,1672857084,Mahmudul,1744795448,Multiple,Web Development,Dec'16,29,10,19,25,4,Sanchita Sen,3,Md. Ibrahim Arafat,91,April'17,0
+142,Ongoing,TUP-US-13,TOP000200,US Software,Dhaka,Dhaka,Sohel Rana,1672857084,Mahmudul,1744795448,Multiple,Dot Net,Dec'16,17,15,2,13,4,Sanchita Sen,9,Md Rezaul Huda,94,April'17,0
+143,Ongoing,TUP-Talha-04,TOP000201,Talha Training,Dhaka,Dhaka,Anwar,1687045596,Sumaiya,1534305517,Multiple,Web Development,Dec'16,40,28,12,33,7,Sanchita Sen,33,MD. Shafiul Alam' Habibur Rahman,200,March'17,0
+144,Ongoing,TUP-SFUB-02,TOP000214,Stamford University,Dhaka,Dhaka,Surya,1728509177,Afrida,1672467988,CSE,Dot Net,Jan'17,30,27,3,18,9,TBD,0,Assaduzzaman Arif,69,April'17,April'17
+145,Ongoing,TUP-SFUB-03,TOP000215,Stamford University,Dhaka,Dhaka,Surya,1728509177,Afrida,1672467988,All Engg,Web Development,Jan'17,32,30,2,20,12,TBD,0,Hasan Mahmood,42,April'17,April'17
+146,Completed,TUP-UITS-01,TOP000051,UITS,Dhaka,Dhaka,Surya,1728509177,Afrida/Hasan,1731770171,Multiple,Web Development,March'16,34,26,8,25,1,Neetu,60,Maung Then Line,240,Dec'16,Dec'16
+147,Ongoing,TUP-UITS-02,TOP000237,UITS,Dhaka,Dhaka,Surya,1728509177,Hasan,1731770171,CSE,Java,Feb'17,18,11,7,16,1,TBD,0,Tarkeshwar Barua,40,May'17,June'17
+148,Ongoing,TUP-GSL-01,TOP000218,Genuity Systems Ltd,Dhaka,Dhaka,Anwar,1687045596,Swaty,1714020389,Multiple,Web Development,Jan'17,21,14,7,17,4,TBD,0,Md. Anwar Hossain,72,April'17,0
+149,Ongoing,TUP-GSL-02,TOP000219,Genuity Systems Ltd,Dhaka,Dhaka,Anwar,1687045596,Swaty,1714020389,Multiple,Java,Jan'17,10,8,2,10,0,TBD,0,Abul Kalam Azad,68,April'17,0
+150,Ongoing,TUP-ITBAN-02,TOP000221,IT Bangla,Dhaka,Dhaka,Sohel Rana,1672857084,Rasel,1735815127,Multiple,Web Development,Jan'17,20,2,18,18,2,TBD,0,SUMAN KRISHNA BHOWMIK,58,April'17,0
+151,Ongoing,TUP-ITBAN-03,TOP000222,IT Bangla,Dhaka,Dhaka,Sohel Rana,1672857084,Rasel,1735815128,Multiple,Web Development,Jan'17,21,5,16,19,1,TBD,0,MD.SALMAN FAHAD ,62,April'17,0
+152,Ongoing,TUP-Rosetta-01,TOP000223,Rosetta Technologies ,Dhaka,Dhaka,Sohel Rana,1672857084,Asik,1977732555,Multiple,Web Development,Jan'17,25,15,10,18,6,TBD,0,M.M. G. Faisal ,52,April'17,0
+153,Ongoing,TUP-Rosetta-02,TOP000224,Rosetta Technologies ,Dhaka,Dhaka,Sohel Rana,1672857084,Asik,1977732555,Multiple,Java,Jan'17,25,15,10,16,9,TBD,0,Mohd Iqbal Hossain,54,April'17,0
+154,Ongoing,TUP-Rosetta-03,TOP000225,Rosetta Technologies ,Dhaka,Dhaka,Sohel Rana,1672857084,Asik,1977732555,Multiple,Dot Net,Jan'17,26,8,18,20,5,TBD,0,Mozaffar Rahman Sebu,62,April'17,0
+155,Ongoing,TUP-KUET-03,TOP000163,KUET,Khulna,Khulna,Shakif,1734984756,Khalid,1713380039,Engineering & Science,Java,Nov'16,36,30,6,29,5,Khaled Mahmud Mutafa,0,Kashif Hussain,67,April's17,Dec'17
+156,Ongoing,TUP-KUET-04,TOP000209,KUET,khulna,khulna,Shakif,1734984756,Khalid,1713380039,Engineering & Science,Web Development,Jan'17,32,32,0,29,3,TBD,0,Mihirlal Sarkar,33,May'16,May'17
+157,Ongoing,TUP-JUST-02,TOP000226,JUST,Jessore,Khulna,Shakif,1734984756,Palash,1913595513,CSE,Java,Jan'17,25,23,2,17,8,TBD,0,Sachine Hariher,115,April's17,Dec'17
+158,Ongoing,TUP-JUST-03,TOP000227,JUST,Jessore,Khulna,Shakif,1734984756,Palash,1713380039,Engineering & Science,Java,Jan'17,43,43,0,36,7,TBD,0,Sachine Hariher,45,April's17,Dec'17
+159,Ongoing,TUP-IU-04,TOP000228,Islamic University,Kushtia,Khulna,Shakif,1734984756,Palash,1713380039,Engineering & Science,Java,Jan'17,57,38,19,27,11,Karthik Govind,10,Jagadesswaran,24,May'17,Dec'17
+160,Ongoing,TUP-IU-05,TOP000229,Islamic University,Kushtia,Khulna,Shakif,1734984756,Palash,1713380039,Mathemetics,Big Data,Jan'17,45,38,7,26,12,Karthik Govind,25,Jagadesswaran,41,May'17,Dec'17
+161,Ongoing,TUP-IU-06,TOP000230,Islamic University,Kushtia,Khulna,Shakif,1734984756,Palash,1713380039,Statistics,Big Data,Jan'17,28,23,5,18,5,Karthik Govind,12,Jagadesswaran,24,May'17,Dec'17
+162,Ongoing,TUP-DU-15,TOP000231,DU,Dhaka,Dhaka,Surya,1728509177,Rubina,1712580496,MIS G1(Internship),Big Data,Jan'17,25,25,0,10,15,Ms Sharmin Ahmed,60,Anil Anchan,36,April'17,0
+163,Ongoing,TUP-DU-16,TOP000232,DU,Dhaka,Dhaka,Surya,1728509177,Rubina,1712580496,MIS G2(Internship),Big Data,jan'17,26,26,0,14,12,Ms Sharmin Ahmed,60,Anil Anchan,36,April'17,0
+164,Ongoing,TUP-NSU-12,TOP000245,NSU,Dhaka,Dhaka,Surya,1728509177,Afrida,1672467988,CSE,Java,Feb'17,35,21,14,20,5,TBD,0,Tarkeshwar Barua,21,06/17,Dec'17
+165,Ongoing,TUP-NSU-13,TOP000246,NSU,Dhaka,Dhaka,Surya,1728509177,Afrida,1672467988,CSE,Android,Feb'17,36,36,0,29,7,TBD,0,K M Sarwar Miral,21,06/17,Dec'17
+166,Ongoing,TUP-NSU-14,TOP000247,NSU,Dhaka,Dhaka,Surya,1728509177,Afrida,1672467988,All Engg,Web Development,Feb'17,35,35,0,24,11,TBD,0,Rafiq Quarishy,21,06/17,Dec'17
+167,Ongoing,TUP-NSU-15,TOP000248,NSU,Dhaka,Dhaka,Surya,1728509177,Afrida,1672467988,All Engg,Web Development,Feb'17,35,35,0,25,10,TBD,0,Rafiq Quarishy,21,06/17,Dec'17
+168,Ongoing,TUP-Mass-03,TOP000233,Mass Associates,Dhaka,Dhaka,Sohel Rana,1672857084,Bappy,1707110445,Multiple,Web Development,Jan'17,20,19,1,12,8,TBD,0,Md.Abdur Rahman,54,May'17,0
+169,Ongoing,TUP-IUBAT-05,TOP000255,IUBAT,Dhaka,Dhaka,Surya,1728509177,Hasan,1731770171,CSE,Web Development,Feb'17,44,44,0,21,23,Wajid Shafi,15,TBD,10,TBD,TBD
+170,Ongoing,TUP-IUBAT-06,TOP000256,IUBAT,Dhaka,Dhaka,Surya,1728509177,Hasan,1731770171,CSE,Java,Feb'17,32,32,0,18,14,Wajid Shafi,15,TBD,10,TBD,TBD
+171,Ongoing,TUP-IUBAT-07,TOP000257,IUBAT,Dhaka,Dhaka,Surya,1728509177,Hasan,1731770171,CSE,Android,Feb'17,23,23,0,14,9,Wajid Shafi,15,TBD,10,TBD,TBD
+172,Ongoing,TUP-IUBAT-08,TOP000258,IUBAT,Dhaka,Dhaka,Surya,1728509177,Hasan,1731770171,CSE,Dot Net,Feb'17,43,43,0,23,20,TBD,0,Asaduzzaman Arif,15,TBD,TBD
+173,Ongoing,TUP-CU-01,TOP000057,Chittagong University,Chittagong,Chittagong,Rahul,1780004462,Muntasir,1680100046,Appiled Physics,Web Development,March'16,31,22,9,10,12,Gaurav,33,Shivam Kumar,153,Apr'17,Dec'16
+174,Ongoing,TUP-CU-02,TOP000058,Chittagong University,Chittagong,Chittagong,Rahul,1780004462,Muntasir,1680100046,Physics,Web Development,March'16,43,21,22,10,11,Sugata Choudhary,36,Shivam Kumar,151,Apr'17,Feb'17
+175,Ongoing,TUP-CU-03,TOP000064,Chittagong University,Chittagong,Chittagong,Rahul,1780004462,Muntasir,1680100046,Appiled Physics,Java,Sep'16,12,12,0,7,5,TBD,0,Nilay Das,143,Mar'17,Mar'17
+176,Completed,TUP-CU-05,TOP000095,Chittagong University,Chittagong,Chittagong,Rahul,1780004462,Muntasir,1680100046,CSE,Java,June'16,31,31,0,21,10,Llewellyun,60,Bandenewaz,276,Dec'16,Dec'16
+177,Completed,TUP-CUET-01,TOP000053,CUET,Chittagong,Chittagong,Rahul,1780004462,Muntasir,1680100046,CSE & EEE,Java,August'16,35,23,12,17,4,Nitin Shukla,60,Nilay Das,240,Feb'17,Feb'17
+178,Ongoing,TUP-CUET-02,TOP000054,CUET,Chittagong,Chittagong,Rahul,1780004462,Muntasir,1680100046,CSE & EEE,Dot Net,August'16,38,21,17,21,0,TBD,0,Imran Khan,198,Mar'17,Feb'17
+179,Completed,TUP-CUET-03,TOP000055,CUET,Chittagong,Chittagong,Rahul,1780004462,Muntasir,1680100046,EEE,Web Development,August'16,16,11,5,10,1,TBD,60,Rafiq Quarishy,240,Feb'17,Feb'17
+180,Completed,TUP-CUET-04,TOP000056,CUET,Chittagong,Chittagong,Rahul,1780004462,Muntasir,1680100046,CE,Web Development,August'16,16,7,9,7,0,TBD,60,Rafiq Quarishy,240,Feb'17,Feb'17
+181,Completed,TUP-JNU-04,TOP000084,JNU,Dhaka,Dhaka,Surya,1728509177,Rubina,1712580496,Statistics 1,Web Development,June'16,30,30,0,22,8,Priti Malaviya,60,Prabhat Jonathan,240,Dec'16,0
+182,Completed,TUP-SUST-05,TOP000241,SUST,Sylhet,Sylhet,Rahul,1780004462,Salma,198478977,Multiple (Chemistry & Maths),Web Development,April'16,23,15,8,17,6,Prabhu James,60,Alaka Bhattacharjee,240,Dec'16,06/16
+183,Completed,TUP-UAP-03,TOP000091,UAP,Dhaka,Dhaka,Surya,1728509177,Afrida ,1731770172,Engg-1,Web Development,May'16,27,10,17,10,0,0,0,Hasan Mahmood,240,Dec'16,April'17
+184,Completed,TUP-UAP-04,TOP000092,UAP,Dhaka,Dhaka,Surya,1728509177,Afrida ,1731770172,Engg-2,Web Development,May'16,21,16,5,11,5,0,0,Hasan Mahmood,240,Dec'16,April'17
+185,Completed,TUP-RUET-01,TOP000078,RUET,Rajshahi,Rajshahi,Sugata,1757117925,Nusrat,1784397878,Multiple,Web Development,05/Oct,10,10,0,6,4,Jose paul,60,Jannatul Haque,240,31/11/2016,Dec'16
+186,Ongoing,TUP-UYS-01,TOP000176,UY Systems,Dhaka,Dhaka,Anwar,1687045596,Tanima,1742622275,Multiple,Web Development,Nov'16,20,18,2,18,2,TBD,0,Sharif Mia' Md Tauhidul Islam,50,Feb'17,0
+187,Completed,TUP-ULAB-01,TOP000080,ULAB,Dhaka,Dhaka,Surya,1728509177,Afrida/Hasan,1731770171,Multiple,Web Development,May'16,25,12,13,6,6,0,0,Md. Afroj Al Azad,240,Dec'16,April'17
+188,Completed,TUP-EWU-05,TOP000067,EWU,Dhaka,Dhaka,Surya,1728509177,Hasan,1731770171,Multiple,Augmedix,21/Aug,36,33,3,20,13,0,0,Edwin paul,240,Dec'16,0
+189,Ongoing,TUP-IST-02,TOP000242,IST,Dhaka,Dhaka,Surya,1728509177,Afrida,1672467988,All Engg,Web Development,Feb'17,22,22,0,22,0,TBD,0,Aseef Ahmed,52,06/17,Dec'17
+190,Ongoing,TUP-UITS-03,TOP000249,UITS,Dhaka,Dhaka,Surya,1728509177,Hasan,1731770171,All Engg,Web Development,March'17,24,24,0,19,5,TBD,0,TBD,0,TBD,TBD
+191,Ongoing,TUP-PSTU-02,TOP000238,PSTU,Patuakhali,Barisal,Shakif,1734984756,Shihab,1723566726,CSE,Java,Jan '17,47,47,0,38,9,TBD,0,Irfan Khan,6,May'17,Dec'17
+192,Ongoing,TUP-BarU-04,TOP000239,Barisal University,Barisal,Barisal,Shakif,1734984756,Shihab,1723566726,Multiple,TBD,Jan '17,52,52,0,30,12,Vivek Bhapkar,24,TBD,0,May'17,Dec'17
+193,Scheduled,0,0,RU,Rajshahi,Rajshahi,Sugata,1757117925,Nusrat,1784397878,ICE 2,Android,TBD,20,20,0,0,0,TBD,0,TBD,0,0,Dec'17
+194,Scheduled,0,0,RUET,Rajshahi,Rajshahi,Sugata,1757117925,Nusrat,1784397878,CSE,Java,TBD,39,39,0,0,0,TBD,0,TBD,0,0,Dec'17
+195,Scheduled,0,0,RUET,Rajshahi,Rajshahi,Sugata,1757117925,Nusrat,1784397878,EEE 1,Web Development,TBD,43,43,0,0,0,TBD,0,TBD,0,0,Dec'17
+196,Scheduled,0,0,RUET,Rajshahi,Rajshahi,Sugata,1757117925,Nusrat,1784397878,EEE 2,Java,TBD,28,28,0,0,0,TBD,0,TBD,0,0,Dec'17
+197,Scheduled,0,0,RUET,Rajshahi,Rajshahi,Sugata,1757117925,Nusrat,1784397878,ETE,Java,TBD,47,47,0,0,0,TBD,0,TBD,0,0,Dec'17
+198,Scheduled,0,0,RUET,Rajshahi,Rajshahi,Sugata,1757117925,Nusrat,1784397878,Civil,Web Development,TBD,32,32,0,0,0,TBD,0,TBD,0,0,Dec'17
+199,Ongoing,TUP-CoU-02,TOP000240,CoU,Comilla,Chittagong,Rahul,1780004462,Saidul,1791808535,CSE & ICT ,Web Development,Feb'17,36,29,7,28,7,TBD,0,Billal Hossain,27,April'17,March'17
+200,Ongoing,TUP-BRAC-09,TOP000251,BRAC,Dhaka,Dhaka,Surya,1728509177,Afrida,1672467988,CSE,Java,March'17,36,36,0,28,8,TBD,0,Deepa Basantani,16,06/17,Dec'17
+201,Ongoing,TUP-BRAC-10,TOP000252,BRAC,Dhaka,Dhaka,Surya,1728509177,Afrida,1672467988,CSE,Android,March'17,37,37,0,30,7,TBD,0,Sudeep Jha,17,06/17,Dec'17
+202,Ongoing,TUP-BRAC-11,TOP000253,BRAC,Dhaka,Dhaka,Surya,1728509177,Afrida,1672467988,All Engg,Web Development,March'17,38,38,0,24,11,TBD,0,Hasan Mahmood,17,06/17,Dec'17
+203,Ongoing,TUP-BRAC-12,TOP000254,BRAC,Dhaka,Dhaka,Surya,1728509177,Afrida,1672467988,All Engg,Web Development,March'17,42,42,0,26,12,TBD,0,Md.Ruhul Amin,18,06/17,Dec'17
+204,Ongoing,TUP-BCC-01,TOP000243,BCC,Dhaka,Dhaka,Surya,1728509177,Arman,1626287929,Multiple,iOS,15/02/2017,29,28,1,22,6,Wajid Shafi,9,Sudeep Jha,36,April'17,NA
+205,Projected,0,0,UAP,Dhaka,Dhaka,Surya,1728509177,Afrida,1672467988,All Engg,TBD,March'17,29,29,0,20,9,TBD,0,TBD,0,06/17,Dec'17
+206,Scheduled,0,0,Premier University,Chittagong,Chittagong,Rahul,1780004462,Muntasir,1680100046,Electrical Honors,Java,TBD,32,32,0,0,0,TBD,0,TBD,0,0,0
+207,Scheduled,0,0,Premier University,Chittagong,Chittagong,Rahul,1780004462,Muntasir,1680100046,CSE Honors,Java,TBD,59,59,0,0,0,TBD,0,TBD,0,0,0
+208,Ongoing,TUP-JNU-07,TOP000175,JNU,Dhaka,Dhaka,Surya,1728509177,Rubina,1712580496,Statistics 3,Web Development,Nov'16,18,18,0,23,12,Priti Malaviya,60,Prabhat Jonathan,60,Dec'16,Dec'16
+209,Ongoing,TUP-JNU-08,TOP000259,JNU,Dhaka,Dhaka,Surya,1728509177,Rubina,1712580496,CSE,Web Development,Feb'17,33,33,0,0,0,TBD,0,Hasan Mahmood,14,0,0
+210,Ongoing,TUP-MEC-01,TOP000260,Mymensingh Engineering College,Mymensingh,Dhaka,Surya,1728509177,Hasan,1731770171,All Eng,TBD,Feb'17,36,36,0,31,5,0,0,Hasibur Rahman,0,0,0
+211,Ongoing,TUP-JUST-04,TOP000261,JUST,Jessore,Khulna,Shakif,1734984756,Palash,1913595513,Multiple,Web Development,Mar17,32,28,4,26,2,TBD,0,Thirumala Rao Madaka,8,May'17,Dec'17
+212,Scheduled,0,0,Premier University,Chittagong,Chittagong,Rahul,1780004462,Muntasir,1680100046,CSE,Java,March'17,38,38,0,0,0,0,0,0,0,0,0
+213,Scheduled,0,0,Premier University,Chittagong,Chittagong,Rahul,1780004462,Muntasir,1680100046,CSE,Java,March'17,39,39,0,0,0,0,0,0,0,0,0
+214,Scheduled,0,0,Premier University,Chittagong,Chittagong,Rahul,1780004462,Muntasir,1680100046,EEE,Java,March'17,38,38,0,0,0,0,0,0,0,0,0
+215,Scheduled,0,0,Premier University,Chittagong,Chittagong,Rahul,1780004462,Muntasir,1680100046,CSE,Java,March'17,39,39,0,0,0,0,0,0,0,0,0
+216,Scheduled,0,0,Premier University,Chittagong,Chittagong,Rahul,1780004462,Muntasir,1680100046,CSE,Java,March'17,38,38,0,0,0,0,0,0,0,0,0
+217,Scheduled,0,0,Premier University,Chittagong,Chittagong,Rahul,1780004462,Muntasir,1680100046,CSE,Java,March'17,38,38,0,0,0,0,0,0,0,0,0
