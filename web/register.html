@@ -31,38 +31,45 @@ and open the template in the editor.
                 var emailid = document.forms["registerForm"]["emailid"].value;
                 if (emailid === "") {
                     msg += "No Email given";
+                    return false;
                 }
                 if (experience === "") {
                     msg += "No Experience given";
+                    return false;
                 }
                 if (mobile === "") {
                     msg += "No Mobile/Contact Number given";
+                    return false;
                 }
                 if (skype === "") {
                     msg += "No Skype ID given";
+                    return false;
                 }
                 if (qualification === "") {
                     msg += "No Qualification given";
+                    return false;
                 }
                 if (jobrole === "") {
                     msg += "No Job Role given";
+                    return false;
                 }
                 if (name === "") {
                     msg += "No Blank Name allowed";
+                    return false;
                 }
                 if (username === "") {
                     msg += "No Blank UserName allowed";
+                    return false;
                 }
                 if (comfirmPassword()) {
                     msg += "No matching Password";
-                }
-                if (msg === "") {
-                    alert(msg)
                     return false;
                 }
-                else {
+                if (m!== "") {
                     alert(msg)
+                    return true;
                 }
+                
             }
             function getWhatsApp() {
 
