@@ -1,6 +1,6 @@
 package com.tarkesh.operation;
 
-import com.tarkesh.entity.TraingCenter;
+import com.tarkesh.entity.TrainingCenter;
 import java.io.BufferedReader;
 import java.io.File;
 import java.io.FileNotFoundException;
@@ -24,7 +24,7 @@ public class ReadingCSV {
     private File file;
     private String data;
     private String[] split;
-    private TraingCenter universiry;
+    private TrainingCenter universiry;
 
     public ReadingCSV(File csvFile) {
         file = csvFile;
@@ -32,7 +32,7 @@ public class ReadingCSV {
 
     public void csvUniversity() {
         try {
-            universiry = new TraingCenter();
+            universiry = new TrainingCenter();
             BufferedReader br = new BufferedReader(new FileReader(file));
             while ((data = br.readLine()) != null) {
                 split = data.split(",");

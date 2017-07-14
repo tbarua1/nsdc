@@ -29,9 +29,25 @@ public class Register implements Serializable {
     @GeneratedValue(strategy = GenerationType.AUTO)
     private Long id;
     private String name, qualification, jobRole, experience, nationality, mobile, 
-            skype, username, password, emailid, usertype,whatsapp,photo;
+            skype, username, password, emailid, usertype,whatsapp,photo,state,district;
     @Temporal(TemporalType.DATE)
     private Date registeredDate;
+
+    public String getState() {
+        return state;
+    }
+
+    public void setState(String state) {
+        this.state = state;
+    }
+
+    public String getDistrict() {
+        return district;
+    }
+
+    public void setDistrict(String district) {
+        this.district = district;
+    }
 
     public String getJobRole() {
         return jobRole;

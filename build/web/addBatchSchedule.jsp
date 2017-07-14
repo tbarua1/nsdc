@@ -4,9 +4,9 @@
     Author     : data1
 --%>
 
+<%@page import="com.tarkesh.entity.TrainingCenter"%>
 <%@page import="java.util.Calendar"%>
 <%@page import="com.tarkesh.entity.BatchSchedule"%>
-<%@page import="com.tarkesh.entity.University"%>
 <%@page import="com.tarkesh.entity.Trainer"%>
 <%@page import="com.tarkesh.entity.BatchCodes"%>
 <%@page import="com.tarkesh.operation.Operations"%>
@@ -61,8 +61,8 @@
                     <td>
                         <select name="university">
                             <%
-                                List<University> list2 = Operations.getUniversity();
-                                for (University university : list2) {
+                                List<TrainingCenter> list2 = Operations.getTrainingCenterAll();
+                                for (TrainingCenter university : list2) {
                             %>
                             <option value="<%=university.getName()%>"><%=university.getName()%></option>
                             <%

@@ -3,12 +3,15 @@ package com.tarkesh.operation;
 import com.tarkesh.entity.BatchCodes;
 import com.tarkesh.entity.BatchSchedule;
 import com.tarkesh.entity.CompletedTraining;
+import com.tarkesh.entity.Districts;
 import com.tarkesh.entity.tracker;
-import com.tarkesh.entity.TraingCenter;
+import com.tarkesh.entity.TrainingCenter;
 import com.tarkesh.entity.GetSetFinalAssessment;
 import com.tarkesh.entity.GetSetPlacementGraph;
 import com.tarkesh.entity.GetSetTopup;
+import com.tarkesh.entity.JobRole;
 import com.tarkesh.entity.Register;
+import com.tarkesh.entity.Trainer;
 import java.io.IOException;
 import java.sql.Timestamp;
 import java.text.ParseException;
@@ -108,7 +111,7 @@ public class Operations {
         }
     }
 
-    public static boolean addUniversity(TraingCenter university) {
+    public static boolean addTrainingCenter(TrainingCenter university) {
 
         openSession = Operations.getsessionFactory().openSession();
         beginTransaction = openSession.beginTransaction();
@@ -117,11 +120,52 @@ public class Operations {
         openSession.close();
         return false;
     }
+public static boolean addDistrict(Districts university) {
 
-    public static List<TraingCenter> getUniversity() {
         openSession = Operations.getsessionFactory().openSession();
         beginTransaction = openSession.beginTransaction();
-        Criteria createCriteria = openSession.createCriteria(TraingCenter.class);
+        openSession.save(university);
+        beginTransaction.commit();
+        openSession.close();
+        return false;
+    }
+public static List<Districts> getDistrict(String state) {
+        openSession = Operations.getsessionFactory().openSession();
+        beginTransaction = openSession.beginTransaction();
+        Criteria createCriteria = openSession.createCriteria(Districts.class);
+       // createCriteria.addOrder(Order.asc("name"));
+       createCriteria.add(Restrictions.eq("scode", state));    
+        List list = createCriteria.list();
+        beginTransaction.commit();
+        openSession.close();
+        return list;
+    }
+    public static List<Districts> getDistrictAll() {
+        openSession = Operations.getsessionFactory().openSession();
+        beginTransaction = openSession.beginTransaction();
+        Criteria createCriteria = openSession.createCriteria(Districts.class);
+        createCriteria.addOrder(Order.asc("district"));
+       //createCriteria.add(Restrictions.eq("district", state));    
+        List list = createCriteria.list();
+        beginTransaction.commit();
+        openSession.close();
+        return list;
+    }
+    public static List<TrainingCenter> getTrainingCenterAll() {
+        openSession = Operations.getsessionFactory().openSession();
+        beginTransaction = openSession.beginTransaction();
+        Criteria createCriteria = openSession.createCriteria(TrainingCenter.class);
+        createCriteria.addOrder(Order.asc("district"));
+       //createCriteria.add(Restrictions.eq("district", state));    
+        List list = createCriteria.list();
+        beginTransaction.commit();
+        openSession.close();
+        return list;
+    }
+    public static List<TrainingCenter> getUniversity() {
+        openSession = Operations.getsessionFactory().openSession();
+        beginTransaction = openSession.beginTransaction();
+        Criteria createCriteria = openSession.createCriteria(TrainingCenter.class);
         createCriteria.addOrder(Order.asc("name"));
         List list = createCriteria.list();
         beginTransaction.commit();
@@ -137,7 +181,14 @@ public class Operations {
         openSession.close();
         return false;
     }
-
+public static boolean addJobRole(JobRole university) {
+        openSession = Operations.getsessionFactory().openSession();
+        beginTransaction = openSession.beginTransaction();
+        openSession.save(university);
+        beginTransaction.commit();
+        openSession.close();
+        return false;
+    }
     public static void addBatchCode(BatchCodes batchCodes) {
         openSession = Operations.getsessionFactory().openSession();
         beginTransaction = openSession.beginTransaction();
@@ -156,11 +207,20 @@ public class Operations {
         openSession.close();
         return list;
     }
-
-    public static List<Register> getBatchTrainer() {
+public static List<JobRole> getJobRole() {
         openSession = Operations.getsessionFactory().openSession();
         beginTransaction = openSession.beginTransaction();
-        Criteria createCriteria = openSession.createCriteria(Register.class);
+        Criteria createCriteria = openSession.createCriteria(JobRole.class);
+        createCriteria.addOrder(Order.asc("name"));
+        List list = createCriteria.list();
+        beginTransaction.commit();
+        openSession.close();
+        return list;
+    }
+    public static List<Trainer> getBatchTrainer() {
+        openSession = Operations.getsessionFactory().openSession();
+        beginTransaction = openSession.beginTransaction();
+        Criteria createCriteria = openSession.createCriteria(Trainer.class);
         createCriteria.addOrder(Order.asc("name"));
         List list = createCriteria.list();
         beginTransaction.commit();
@@ -322,14 +382,14 @@ public class Operations {
         openSession.close();
         return false;
     }
-//     public boolean addUniversity(University university) {
-//        openSession = sessionFactory.openSession();
-//        beginTransaction = openSession.beginTransaction();
-//        openSession.save(university);
-//        beginTransaction.commit();
-//        beginTransaction.commit();openSession.close();
-//        return false;
-//    }
+     public static boolean addUniversity(TrainingCenter university) {
+        openSession = sessionFactory.openSession();
+        beginTransaction = openSession.beginTransaction();
+        openSession.save(university);
+        beginTransaction.commit();
+        beginTransaction.commit();openSession.close();
+        return false;
+    }
 
     public static boolean addTracker(tracker tracker) {
         openSession = Operations.getsessionFactory().openSession();
@@ -540,15 +600,15 @@ public class Operations {
         createCriteria.add(Restrictions.between("date", fromDate, toDate));
         // createCriteria.add(Restrictions.eq("Status", "scheduled"));
         List<BatchSchedule> list = createCriteria.list();
-        List<TraingCenter> list1 = openSession.createQuery("from University f ORDER BY f.name").list();
-        List<TraingCenter> listUniversity = new ArrayList<TraingCenter>();
+        List<TrainingCenter> list1 = openSession.createQuery("from University f ORDER BY f.name").list();
+        List<TrainingCenter> listUniversity = new ArrayList<TrainingCenter>();
         System.out.println("Scheduleded Batches " + list.size());
         System.out.println("Total University " + list1.size());
         for (int i = 0; i < list.size(); i++) {
             for (int j = 0; j < list1.size(); j++) {
                 if (list1.get(j).getName().equalsIgnoreCase(list.get(i).getUniversity())) {
-                    TraingCenter get = list1.get(i);
-                    get.setStatus(list.get(i).getStatus());
+                    TrainingCenter get = list1.get(i);
+//                    get.setStatus(list.get(i).getStatus());
                     listUniversity.add(get);
 
                 }
@@ -580,7 +640,7 @@ public class Operations {
         //Map<Integer, University> linkedHashMap = new LinkedHashMap<Integer, University>();
         openSession = Operations.getsessionFactory().openSession();
         beginTransaction = openSession.beginTransaction();
-        Criteria createCriteria = openSession.createCriteria(TraingCenter.class);
+        Criteria createCriteria = openSession.createCriteria(TrainingCenter.class);
         createCriteria.add(Restrictions.eq("division", division));
         createCriteria.addOrder(Order.asc("name"));
         List<Register> list = createCriteria.list();
@@ -718,17 +778,17 @@ public class Operations {
                 System.out.println("University to get " + s);
                 //Transaction beginTransaction1 = openSession.beginTransaction();
                 //List<University> list1 = openSession.createQuery("from University where name='"+s+"'").list();
-                Criteria createCriteria1 = openSession.createCriteria(TraingCenter.class);
+                Criteria createCriteria1 = openSession.createCriteria(TrainingCenter.class);
 
                 createCriteria1.add(Restrictions.eq("name", s));
 
-                List<TraingCenter> list1 = createCriteria1.list();
+                List<TrainingCenter> list1 = createCriteria1.list();
                 // beginTransaction1.commit();
                 System.out.println("Scheduled Record - " + list.get(i));
                 System.out.println("University Going to Update" + list1.get(0));
-                list1.get(0).setStatus(list.get(i).getStatus());
-                list1.get(0).setDate(list.get(i).getDate().getTime());
-                System.out.println("Date From Schedule " + list1.get(0).getDate());
+//                list1.get(0).setStatus(list.get(i).getStatus());
+//                list1.get(0).setDate(list.get(i).getDate().getTime());
+//                System.out.println("Date From Schedule " + list1.get(0).getDate());
                 l.add(list1);
                 //list1.clear();
                 // l.add(list1.get(0));

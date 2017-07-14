@@ -5,9 +5,8 @@ package com.tarkesh.operation;
  * To change this template file, choose Tools | Templates
  * and open the template in the editor.
  */
-
 import com.tarkesh.entity.CompletedTraining;
-import com.tarkesh.entity.TraingCenter;
+import com.tarkesh.entity.TrainingCenter;
 import java.io.IOException;
 import java.io.PrintWriter;
 import java.util.Date;
@@ -35,25 +34,24 @@ public class OneTimeUniversityAdd extends HttpServlet {
      */
     protected void processRequest(HttpServletRequest request, HttpServletResponse response)
             throws ServletException, IOException {
-       // String division = request.getParameter("division");
-        
+        // String division = request.getParameter("division");
+
 //        CompletedTraining university = new CompletedTraining ();
-TraingCenter university=new TraingCenter();
+        TrainingCenter university = new TrainingCenter();
 //        university.setCompleting_year("dfdf");
 //        university.setDepartment("dfdf");
 //        university.setNumber_of_students_trained(100);
-       // university.setDivision("Rangpur");Chittagong
-       // university.setDivision("Dhaka");
-       //Rajshahi
-      university.setDivision(request.getParameter("division"));
-     // university.setDivision("Sylhet");
+        // university.setDivision("Rangpur");Chittagong
+        // university.setDivision("Dhaka");
+        //Rajshahi
+        university.setDivision(request.getParameter("division"));
+        // university.setDivision("Sylhet");
         university.setName(request.getParameter("name"));
         university.setLatitude(Double.parseDouble(request.getParameter("latitute")));
         university.setLongitude(Double.parseDouble(request.getParameter("longitute")));
-        
-        
+
         Operations.addUniversity(university);
-response.sendRedirect("addUniversity.jsp");
+        response.sendRedirect("addUniversity.jsp");
         response.setContentType("text/html;charset=UTF-8");
         try (PrintWriter out = response.getWriter()) {
             /* TODO output your page here. You may use following sample code. */

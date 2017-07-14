@@ -6,6 +6,7 @@
 package com.tarkesh.entity;
 
 import java.io.Serializable;
+import java.util.Objects;
 import javax.persistence.Entity;
 import javax.persistence.GeneratedValue;
 import javax.persistence.GenerationType;
@@ -22,39 +23,8 @@ public class BatchCodes implements Serializable {
     @Id
     @GeneratedValue(strategy = GenerationType.AUTO)
     private Long id;
-    private String batchCode,scheduledDay,jobrole;
-    private int batchSize;
-
-    public int getBatchSize() {
-        return batchSize;
-    }
-
-    public void setBatchSize(int batchSize) {
-        this.batchSize = batchSize;
-    }
-    
-    public String getContent() {
-        return jobrole;
-    }
-
-    public void setContent(String content) {
-        this.jobrole = content;
-    }
-
-    public String getScheduledDay() {
-        return scheduledDay;
-    }
-
-    public void setScheduledDay(String scheduledDay) {
-        this.scheduledDay = scheduledDay;
-    }
- public String getBatchCode() {
-        return batchCode;
-    }
-
-    public void setBatchCode(String batchCode) {
-        this.batchCode = batchCode;
-    }
+    private String batchCode,ssc,jobrole, trainer_name,trainer_contact;
+    private Integer batchSize_start,batchSize_ondate, completed_hours;
 
     public Long getId() {
         return id;
@@ -64,21 +34,122 @@ public class BatchCodes implements Serializable {
         this.id = id;
     }
 
+    public String getBatchCode() {
+        return batchCode;
+    }
+
+    public void setBatchCode(String batchCode) {
+        this.batchCode = batchCode;
+    }
+
+    public String getSsc() {
+        return ssc;
+    }
+
+    public void setSsc(String ssc) {
+        this.ssc = ssc;
+    }
+
+    public String getJobrole() {
+        return jobrole;
+    }
+
+    public void setJobrole(String jobrole) {
+        this.jobrole = jobrole;
+    }
+
+    public String getTrainer_name() {
+        return trainer_name;
+    }
+
+    public void setTrainer_name(String trainer_name) {
+        this.trainer_name = trainer_name;
+    }
+
+    public String getTrainer_contact() {
+        return trainer_contact;
+    }
+
+    public void setTrainer_contact(String trainer_contact) {
+        this.trainer_contact = trainer_contact;
+    }
+
+    public Integer getBatchSize_start() {
+        return batchSize_start;
+    }
+
+    public void setBatchSize_start(Integer batchSize_start) {
+        this.batchSize_start = batchSize_start;
+    }
+
+    public Integer getBatchSize_ondate() {
+        return batchSize_ondate;
+    }
+
+    public void setBatchSize_ondate(Integer batchSize_ondate) {
+        this.batchSize_ondate = batchSize_ondate;
+    }
+
+    public Integer getCompleted_hours() {
+        return completed_hours;
+    }
+
+    public void setCompleted_hours(Integer completed_hours) {
+        this.completed_hours = completed_hours;
+    }
+
     @Override
     public int hashCode() {
-        int hash = 0;
-        hash += (id != null ? id.hashCode() : 0);
+        int hash = 3;
+        hash = 79 * hash + Objects.hashCode(this.id);
+        hash = 79 * hash + Objects.hashCode(this.batchCode);
+        hash = 79 * hash + Objects.hashCode(this.ssc);
+        hash = 79 * hash + Objects.hashCode(this.jobrole);
+        hash = 79 * hash + Objects.hashCode(this.trainer_name);
+        hash = 79 * hash + Objects.hashCode(this.trainer_contact);
+        hash = 79 * hash + Objects.hashCode(this.batchSize_start);
+        hash = 79 * hash + Objects.hashCode(this.batchSize_ondate);
+        hash = 79 * hash + Objects.hashCode(this.completed_hours);
         return hash;
     }
 
     @Override
-    public boolean equals(Object object) {
-        // TODO: Warning - this method won't work in the case the id fields are not set
-        if (!(object instanceof BatchCodes)) {
+    public boolean equals(Object obj) {
+        if (this == obj) {
+            return true;
+        }
+        if (obj == null) {
             return false;
         }
-        BatchCodes other = (BatchCodes) object;
-        if ((this.id == null && other.id != null) || (this.id != null && !this.id.equals(other.id))) {
+        if (getClass() != obj.getClass()) {
+            return false;
+        }
+        final BatchCodes other = (BatchCodes) obj;
+        if (!Objects.equals(this.batchCode, other.batchCode)) {
+            return false;
+        }
+        if (!Objects.equals(this.ssc, other.ssc)) {
+            return false;
+        }
+        if (!Objects.equals(this.jobrole, other.jobrole)) {
+            return false;
+        }
+        if (!Objects.equals(this.trainer_name, other.trainer_name)) {
+            return false;
+        }
+        if (!Objects.equals(this.trainer_contact, other.trainer_contact)) {
+            return false;
+        }
+        if (!Objects.equals(this.id, other.id)) {
+            return false;
+        }
+        if (!Objects.equals(this.batchSize_start, other.batchSize_start)) {
+            return false;
+        }
+        if (!Objects.equals(this.batchSize_ondate, other.batchSize_ondate)) {
+            return false;
+        }
+        if (!Objects.equals(this.completed_hours, other.completed_hours)) {
             return false;
         }
         return true;
@@ -86,7 +157,7 @@ public class BatchCodes implements Serializable {
 
     @Override
     public String toString() {
-        return "com.tarkesh.entity.BatchCodes[ id=" + id + " ]";
+        return "BatchCodes{" + "id=" + id + ", batchCode=" + batchCode + ", ssc=" + ssc + ", jobrole=" + jobrole + ", trainer_name=" + trainer_name + ", trainer_contact=" + trainer_contact + ", batchSize_start=" + batchSize_start + ", batchSize_ondate=" + batchSize_ondate + ", completed_hours=" + completed_hours + '}';
     }
     
 }
