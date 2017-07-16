@@ -30,12 +30,13 @@
     <mapping class="com.tarkesh.entity.GetSetTrainer"/>
     <mapping class="com.tarkesh.entity.BatchCodes"/>
     <mapping class="com.tarkesh.entity.BatchSchedule"/>
-    <mapping class="com.tarkesh.entity.Register"/>
     <mapping class="com.tarkesh.entity.Districts"/>
     <mapping class="com.tarkesh.entity.TrainingCenter"/>
     <mapping class="com.tarkesh.entity.JobRole"/>
     <mapping class="com.tarkesh.entity.Address"/>
     <mapping class="com.tarkesh.entity.Trainer"/>
     <mapping class="com.tarkesh.entity.TrainingPartner"/>
+    <mapping class="com.tarkesh.entity.RegisterAdmin"/>
+    <mapping class="com.tarkesh.entity.RegisterTrainer"/>
   </session-factory>
 </hibernate-configuration>

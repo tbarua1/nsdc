@@ -5,9 +5,9 @@
  */
 package com.tarkesh.validation;
 
+import com.tarkesh.operation.Operations;
 import java.io.IOException;
 import java.io.PrintWriter;
-import javax.servlet.RequestDispatcher;
 import javax.servlet.ServletException;
 import javax.servlet.annotation.WebServlet;
 import javax.servlet.http.HttpServlet;
@@ -32,20 +32,44 @@ public class LoginServlet extends HttpServlet {
      */
     protected void processRequest(HttpServletRequest request, HttpServletResponse response)
             throws ServletException, IOException {
-        request.getParameter("uname");
-        request.getParameter("password");
-        request.getParameter("usertype");       
-        response.sendRedirect("partner.html");
-        response.sendRedirect("center.html");
-        response.sendRedirect("admin.html");
-        response.sendRedirect("trainer.html");
+        String username = request.getParameter("username");
+        String password = request.getParameter("password");
+        String usertype = request.getParameter("usertype");
+        boolean checkLogin = Operations.loginCheck(username, password, usertype);
+        System.out.println(password+" "+username+" "+usertype+" Login Status " + checkLogin);
+        request.setAttribute("workList", checkLogin);
+
+        if (checkLogin==true) {
+            System.out.println("i am going to find type of user");
+            if (usertype.equalsIgnoreCase("admin")) {
+                request.getRequestDispatcher("/admin.jsp").forward(request, response);
+               
+                //response.sendRedirect("admin.jsp");
+            }
+            if (usertype.equalsIgnoreCase("tp")) {
+                request.getRequestDispatcher("/partner.jsp").forward(request, response);
+                //response.sendRedirect(".html");
+            }
+            if (usertype.equalsIgnoreCase("tc")) {
+                request.getRequestDispatcher("/center.jsp").forward(request, response);
+                
+                //response.sendRedirect("center.html");
+            }
+            if (usertype.equalsIgnoreCase("trainer")) {
+                request.getRequestDispatcher("/trainer.jsp").forward(request, response);
+                
+                //response.sendRedirect("trainer.html");
+            }
+        } else {
+            response.sendRedirect("error.html");
+        }
         response.setContentType("text/html;charset=UTF-8");
         try (PrintWriter out = response.getWriter()) {
             /* TODO output your page here. You may use following sample code. */
             out.println("<!DOCTYPE html>");
             out.println("<html>");
             out.println("<head>");
-            out.println("<title>Servlet LoginServlet</title>");            
+            out.println("<title>Servlet LoginServlet</title>");
             out.println("</head>");
             out.println("<body>");
             out.println("<h1>Servlet LoginServlet at " + request.getContextPath() + "</h1>");

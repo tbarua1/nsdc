@@ -5,7 +5,7 @@
  */
 package com.tarkesh.operation;
 
-import com.tarkesh.entity.Register;
+import com.tarkesh.entity.RegisterTrainer;
 import java.io.IOException;
 import java.io.PrintWriter;
 import javax.servlet.ServletException;
@@ -34,14 +34,14 @@ public class OneTimeTrainerUpload extends HttpServlet {
             throws ServletException, IOException {
         response.setContentType("text/html;charset=UTF-8");
         //new UploadData().readFromFileTrainer("/home/tarkeshwar/EY/bht/consolidated/trainer.csv");
-        Register trainer = new Register();
+        RegisterTrainer trainer = new RegisterTrainer();
         trainer.setMobile("+8801632261076");
         trainer.setName("Rohit Singh");
         trainer.setWhatsapp("+918960370370");
         trainer.setSkype("8960370370");
        //trainer.setSkillset("Graphics Designer");
       // trainer.setSkillset("Web Designer");
-trainer.setSkillset("Graphics Design");
+//trainer.setSkillset("Graphics Design");
 //trainer.setSkillset("BPM A and F");
 
         Operations.addTrainer(trainer);

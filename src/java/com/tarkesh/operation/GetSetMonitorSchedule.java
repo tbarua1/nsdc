@@ -6,7 +6,7 @@
 package com.tarkesh.operation;
 
 import com.tarkesh.entity.BatchSchedule;
-import com.tarkesh.entity.Register;
+import com.tarkesh.entity.RegisterTrainer;
 import java.util.List;
 import java.util.Objects;
 
@@ -16,12 +16,12 @@ import java.util.Objects;
  */
 class GetSetMonitorSchedule {
     private BatchSchedule schedule;
-    private Register trainer;  
+    private RegisterTrainer trainer;  
 
     public GetSetMonitorSchedule() {
     }
 
-    public GetSetMonitorSchedule(BatchSchedule schedule, Register trainer) {
+    public GetSetMonitorSchedule(BatchSchedule schedule, RegisterTrainer trainer) {
         this.schedule = schedule;
         this.trainer = trainer;
     }
@@ -34,11 +34,11 @@ class GetSetMonitorSchedule {
         this.schedule = schedule;
     }
 
-    public Register getTrainer() {
+    public RegisterTrainer getTrainer() {
         return trainer;
     }
 
-    public void setTrainer(Register trainer) {
+    public void setTrainer(RegisterTrainer trainer) {
         this.trainer = trainer;
     }
 

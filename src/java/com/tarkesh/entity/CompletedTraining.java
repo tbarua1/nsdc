@@ -5,8 +5,6 @@ package com.tarkesh.entity;
  * To change this template file, choose Tools | Templates
  * and open the template in the editor.
  */
-
-
 import java.io.Serializable;
 import java.util.Objects;
 import javax.persistence.Entity;
@@ -26,7 +24,8 @@ public class CompletedTraining implements Serializable {
     @GeneratedValue(strategy = GenerationType.AUTO)
     private Long id;
     private int number_of_students_trained;
-private String division, university, program_type, department, completing_year_month_academic, track, training, completing_year,_month_academic,  date;
+    private String division, university, program_type, department, completing_year_month_academic, track, training, completing_year, _month_academic, date;
+
     public Long getId() {
         return id;
     }
@@ -197,6 +196,4 @@ private String division, university, program_type, department, completing_year_m
         return "CompetedTraining{" + "id=" + id + ", division=" + division + ", university=" + university + ", program_type=" + program_type + ", department=" + department + ", completing_year_month_academic=" + completing_year_month_academic + ", track=" + track + ", training=" + training + ", completing_year=" + completing_year + ", _month_academic=" + _month_academic + ", number_of_students_trained=" + number_of_students_trained + ", date=" + date + '}';
     }
 
-
-    
 }

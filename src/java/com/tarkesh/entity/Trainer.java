@@ -28,10 +28,35 @@ public class Trainer implements Serializable {
     @Id
     @GeneratedValue(strategy = GenerationType.AUTO)
     private Long id;
-    private String name, qualification, skillset, experience, natianality, mobile, 
-            skype, username, password, emailid, usertype,whatsapp,photo;
+    private String name, qualification,experience, natianality, mobile, 
+            skype, username, password, emailid, usertype,whatsapp,photo,state,district;
+    private String totQualification;
     @Temporal(TemporalType.DATE)
-    private Date registeredDate,date;
+    private Date registeredDate;
+
+    public String getState() {
+        return state;
+    }
+
+    public void setState(String state) {
+        this.state = state;
+    }
+
+    public String getDistrict() {
+        return district;
+    }
+
+    public void setDistrict(String district) {
+        this.district = district;
+    }
+
+    public String getTotQualification() {
+        return totQualification;
+    }
+
+    public void setTotQualification(String totQualification) {
+        this.totQualification = totQualification;
+    }
 
     public String getPhoto() {
         return photo;
@@ -102,15 +127,7 @@ public class Trainer implements Serializable {
         this.qualification = qualification;
     }
 
-    public String getSkillset() {
-        return skillset;
-    }
-
-    public void setSkillset(String skillset) {
-        this.skillset = skillset;
-    }
-
-    public String getExperience() {
+       public String getExperience() {
         return experience;
     }
 
@@ -168,7 +185,7 @@ public class Trainer implements Serializable {
 
     @Override
     public String toString() {
-        return "Trainer{" + "id=" + id + ", name=" + name + ", qualification=" + qualification + ", skillset=" + skillset + ", experience=" + experience + ", natianality=" + natianality + ", mobile=" + mobile + ", skype=" + skype + ", username=" + username + ", password=" + password + ", emailid=" + emailid + ", usertype=" + usertype + ", date=" + registeredDate + '}';
+        return "Trainer{" + "id=" + id + ", name=" + name + ", qualification=" + qualification + ", skillset=, experience=" + experience + ", natianality=" + natianality + ", mobile=" + mobile + ", skype=" + skype + ", username=" + username + ", password=" + password + ", emailid=" + emailid + ", usertype=" + usertype + ", date=" + registeredDate + '}';
     }
 
     @Override
@@ -177,7 +194,7 @@ public class Trainer implements Serializable {
         hash = 29 * hash + Objects.hashCode(this.id);
         hash = 29 * hash + Objects.hashCode(this.name);
         hash = 29 * hash + Objects.hashCode(this.qualification);
-        hash = 29 * hash + Objects.hashCode(this.skillset);
+     
         hash = 29 * hash + Objects.hashCode(this.experience);
         hash = 29 * hash + Objects.hashCode(this.natianality);
         hash = 29 * hash + Objects.hashCode(this.mobile);
@@ -208,9 +225,7 @@ public class Trainer implements Serializable {
         if (!Objects.equals(this.qualification, other.qualification)) {
             return false;
         }
-        if (!Objects.equals(this.skillset, other.skillset)) {
-            return false;
-        }
+        
         if (!Objects.equals(this.experience, other.experience)) {
             return false;
         }

@@ -60,7 +60,42 @@
                 <tr>
                 <tr>
                     <td>SSC Name</td>
-                    <td><INPUT type=”text” name="ssc" value="" size=”24″ placeholder="SSC"></td></tr>
+                    <td> <select name="ssc" onchange="downloadJSON(this.value);">
+                                    <option value="Agriculture">Agriculture</option>
+                                    <option value="Apparel, Madeups & Home Furnishing">Apparel, Madeups & Home Furnishing</option>
+                                    <option value="Automotive">Automotive</option>
+                                    <option value="Beauty and Wellness">Beauty and Wellness</option>
+                                    <option value="BFSI">BFSI</option>
+                                    <option value="Capital Goods">Capital Goods</option>
+                                    <option value="Construction">Construction</option>
+                                    <option value="Domestic Workers">Domestic Workers</option>
+                                    <option value="Earthmoving & Infrastructure Building">Earthmoving & Infrastructure Building</option>
+                                    <option value="Electronics & Hardware">Electronics & Hardware</option>
+                                    <option value="Food Processing">Food Processing</option>
+                                    <option value="Furniture & Fittings">Furniture & Fittings</option>
+                                    <option value="Gems and Jewellery">Gems and Jewellery</option>
+                                    <option value="Green Jobs">Green Jobs</option>
+                                    <option value="Handicrafts">Handicrafts</option>
+                                    <option value="Healthcare">Healthcare</option>
+                                    <option value="Iron and Steel">Iron and Steel</option>
+                                    <option value="IT/ITes">IT/ITes</option>
+                                    <option value="Leather">Leather</option>
+                                    <option value="Life Sciences">Life Sciences</option>
+                                    <option value="Logistics">Logistics</option>
+                                     <option value="Media & Entertainment">Media & Entertainment</option>
+                                     <option value="Mining">Mining</option>
+                                     <option value="Paints & Coatings">Paints & Coatings</option>
+                                     <option value="People with Disability">People with Disability</option>
+                                     <option value="Plumbing">Plumbing</option>
+                                     <option value="Power">Power</option>
+                                     <option value="Retail">Retail</option>
+                                     <option value="Rubber">Rubber</option>
+                                     <option value="Security">Security</option> 
+                                     <option value="Sports">Sports</option>
+                                     <option value="Telecom">Telecom</option>
+                                     <option value="Textiles & Handloom">Textiles & Handloom</option>
+                                     <option value="Tourism and Hospitality">Tourism and Hospitality</option>
+                                </select></td></tr>
                 <tr>
                     <td>Job Role</td>
                     <td><INPUT type=”text” name="jobrole" value="" size=”24″ placeholder="Job Role"></td>
@@ -116,19 +151,19 @@
                     <th>QP Code</th>
                     <th>Training Type</th>
                     <th>Industry Type</th>
-<th>Total</th>
-<th>Extra</th>
-<th>Theory</th>
-<th>Practical</th>
-<th>Digital Literacy</th>
-<th>Industry Visit</th>
-<th>NSQF Level</th>
-<th>Paid/Free</th>
+                    <th>Total</th>
+                    <th>Extra</th>
+                    <th>Theory</th>
+                    <th>Practical</th>
+                    <th>Digital Literacy</th>
+                    <th>Industry Visit</th>
+                    <th>NSQF Level</th>
+                    <th>Paid/Free</th>
                 </tr>
                 <% List<JobRole> list1 = Operations.getJobRole();
                     for (JobRole u1 : list1) {
                         //if((request.getParameter(“cbousername")!=null)&&(request.getParameter(“cbousername").trim().equalsIgnoreCase(u1.getUserID().trim()))){
-%><tr>
+                %><tr>
                     <td><%=u1.getSsc()%> </td>
                     <td><%=u1.getName()%></td>
                     <td><%=u1.getQp_code()%></td>

@@ -2,7 +2,7 @@ package com.tarkesh.operation;
 
 import com.tarkesh.entity.FinalAssessment;
 import com.tarkesh.entity.PlacementOpportunities;
-import com.tarkesh.entity.Register;
+import com.tarkesh.entity.RegisterTrainer;
 import com.tarkesh.entity.placementes;
 import com.tarkesh.entity.tracker;
 import java.io.BufferedReader;
@@ -27,7 +27,7 @@ public class UploadData {
     private static Transaction tr;
     private static tracker information;
     private static placementes placement;
-    private static Register trainer;
+    private static RegisterTrainer trainer;
     private static PlacementOpportunities po;
     private static int count = 0;
     private tracker tracker;
@@ -182,7 +182,7 @@ public class UploadData {
         try {
             bufferedReader = new BufferedReader(new FileReader(new File(fileName)));
             while ((s = bufferedReader.readLine()) != null) {
-                Register splitString = splitStringTrainer(s);
+                RegisterTrainer splitString = splitStringTrainer(s);
 
                 session = factory.openSession();
                 //session.flush();
@@ -296,21 +296,21 @@ public class UploadData {
         return finalAssessment;
     }
 
-    private Register splitStringTrainer(String str) {
+    private RegisterTrainer splitStringTrainer(String str) {
         String[] split = str.split(",");
         // String[] split = new String[26];
         System.out.println(split.length + " " + str);
 
         //FormData data=new FormData();
-        trainer = new Register();
+        trainer = new RegisterTrainer();
         // information.setId(Long.parseLong(split[0]));
         // information = new tracker();
         // trainer.setId(Long.parseLong(split[0]));
         trainer.setName(split[1]);
         trainer.setQualification(split[2]);
-        trainer.setSkillset(split[3]);
+      //  trainer.setSkillset(split[3]);
         trainer.setExperience(split[4]);
-        trainer.setNatianality(split[5]);
+        //trainer.setNatianality(split[5]);
         //updated on 26 March 2017       
         trainer.setMobile(split[6]);
         trainer.setSkype(split[7]);

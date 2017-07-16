@@ -10,8 +10,10 @@ import com.tarkesh.entity.GetSetFinalAssessment;
 import com.tarkesh.entity.GetSetPlacementGraph;
 import com.tarkesh.entity.GetSetTopup;
 import com.tarkesh.entity.JobRole;
-import com.tarkesh.entity.Register;
+import com.tarkesh.entity.RegisterAdmin;
+import com.tarkesh.entity.RegisterTrainer;
 import com.tarkesh.entity.Trainer;
+import com.tarkesh.entity.TrainingPartner;
 import java.io.IOException;
 import java.sql.Timestamp;
 import java.text.ParseException;
@@ -19,7 +21,10 @@ import java.text.SimpleDateFormat;
 import java.util.ArrayList;
 import java.util.Calendar;
 import java.util.Date;
+import java.util.HashSet;
+import java.util.Iterator;
 import java.util.List;
+import java.util.Set;
 import java.util.logging.Level;
 import java.util.logging.Logger;
 import org.codehaus.jackson.map.ObjectMapper;
@@ -34,6 +39,7 @@ import org.hibernate.cfg.Configuration;
 import org.hibernate.criterion.Expression;
 import org.hibernate.criterion.Order;
 import org.hibernate.criterion.Restrictions;
+import org.jboss.weld.util.collections.ArraySet;
 
 public class Operations {
 
@@ -56,14 +62,14 @@ public class Operations {
     }
 
     public static List<BatchSchedule> getBatchSchedule(String trainerName, String sday, String smonth, String syear, String eday, String emonth, String eyear) {
-        Calendar from=Calendar.getInstance();
+        Calendar from = Calendar.getInstance();
         from.set(Calendar.DAY_OF_MONTH, Integer.parseInt(sday));
         from.set(Calendar.MONTH, Integer.parseInt(smonth));
         from.set(Calendar.YEAR, Integer.parseInt(syear));
         from.set(Calendar.HOUR_OF_DAY, 0);
         from.set(Calendar.MINUTE, 0);
         from.set(Calendar.SECOND, 0);
-         Calendar to=Calendar.getInstance();
+        Calendar to = Calendar.getInstance();
         to.set(Calendar.DAY_OF_MONTH, Integer.parseInt(eday));
         to.set(Calendar.MONTH, Integer.parseInt(emonth));
         to.set(Calendar.YEAR, Integer.parseInt(eyear));
@@ -73,19 +79,42 @@ public class Operations {
         openSession = Operations.getsessionFactory().openSession();
         beginTransaction = openSession.beginTransaction();
         Criteria createCriteria = openSession.createCriteria(BatchSchedule.class);
-       // createCriteria.add(Restrictions.)
+        // createCriteria.add(Restrictions.)
         createCriteria.addOrder(Order.asc("date"));
         createCriteria.add(Restrictions.eq("trainer", trainerName.replace(" ", "_")));
         List<BatchSchedule> temp = createCriteria.list();
-        List<BatchSchedule> list=new ArrayList<>();
-        for(BatchSchedule b:temp){
-        if(b.getDate().after(from) && b.getTill().before(to)){
-        list.add(b);
+        List<BatchSchedule> list = new ArrayList<>();
+        for (BatchSchedule b : temp) {
+            if (b.getDate().after(from) && b.getTill().before(to)) {
+                list.add(b);
+            }
         }
-        }        
         beginTransaction.commit();
         openSession.close();
-        return list; 
+        return list;
+    }
+
+    public static JobRole getJobRolebyQP(String qp_code) {
+         openSession = Operations.getsessionFactory().openSession();
+        beginTransaction = openSession.beginTransaction();
+        Criteria createCriteria = openSession.createCriteria(JobRole.class);        
+        createCriteria.add(Restrictions.eq("qp_code", qp_code));
+        List<JobRole> list = createCriteria.list();
+        Set<JobRole> setlist=new ArraySet<>(list);
+        Iterator<JobRole> iterator = setlist.iterator();
+        beginTransaction.commit();
+        openSession.close();
+        return iterator.next();
+    }
+    public static List<JobRole> getJobRolebySSC(String ssc) {
+         openSession = Operations.getsessionFactory().openSession();
+        beginTransaction = openSession.beginTransaction();
+        Criteria createCriteria = openSession.createCriteria(JobRole.class);        
+        createCriteria.add(Restrictions.eq("ssc", ssc));
+        List<JobRole> list = createCriteria.list();        
+        beginTransaction.commit();
+        openSession.close();
+        return list;
     }
 
     private Operations() {
@@ -118,9 +147,61 @@ public class Operations {
         openSession.save(university);
         beginTransaction.commit();
         openSession.close();
+        return true;
+    }
+
+    public static boolean addAdmin(RegisterAdmin university) {
+        openSession = Operations.getsessionFactory().openSession();
+        beginTransaction = openSession.beginTransaction();
+        openSession.save(university);
+        beginTransaction.commit();
+        openSession.close();
         return false;
     }
-public static boolean addDistrict(Districts university) {
+
+//    public static boolean addTrainingCenter(RegisterTC university) {
+//        openSession = Operations.getsessionFactory().openSession();
+//        beginTransaction = openSession.beginTransaction();
+//        openSession.save(university);
+//        beginTransaction.commit();
+//        openSession.close();
+//        return true;
+//    }
+ public static boolean addTrainingPartner(TrainingPartner university) {
+        openSession = Operations.getsessionFactory().openSession();
+        beginTransaction = openSession.beginTransaction();
+        openSession.save(university);
+        beginTransaction.commit();
+        openSession.close();
+        return false;
+    }
+//    public static boolean addTrainingPartner(RegisterTP university) {
+//        openSession = Operations.getsessionFactory().openSession();
+//        beginTransaction = openSession.beginTransaction();
+//        openSession.save(university);
+//        beginTransaction.commit();
+//        openSession.close();
+//        return false;
+//    }
+
+    public static boolean addTrainer(RegisterTrainer university) {
+        openSession = Operations.getsessionFactory().openSession();
+        beginTransaction = openSession.beginTransaction();
+        openSession.save(university);
+        beginTransaction.commit();
+        openSession.close();
+        return false;
+    }
+     public static boolean addTrainer(Trainer university) {
+        openSession = Operations.getsessionFactory().openSession();
+        beginTransaction = openSession.beginTransaction();
+        openSession.save(university);
+        beginTransaction.commit();
+        openSession.close();
+        return false;
+    }
+
+    public static boolean addDistrict(Districts university) {
 
         openSession = Operations.getsessionFactory().openSession();
         beginTransaction = openSession.beginTransaction();
@@ -129,39 +210,43 @@ public static boolean addDistrict(Districts university) {
         openSession.close();
         return false;
     }
-public static List<Districts> getDistrict(String state) {
+
+    public static List<Districts> getDistrict(String state) {
         openSession = Operations.getsessionFactory().openSession();
         beginTransaction = openSession.beginTransaction();
         Criteria createCriteria = openSession.createCriteria(Districts.class);
-       // createCriteria.addOrder(Order.asc("name"));
-       createCriteria.add(Restrictions.eq("scode", state));    
+        // createCriteria.addOrder(Order.asc("name"));
+        createCriteria.add(Restrictions.eq("scode", state));
         List list = createCriteria.list();
         beginTransaction.commit();
         openSession.close();
         return list;
     }
+
     public static List<Districts> getDistrictAll() {
         openSession = Operations.getsessionFactory().openSession();
         beginTransaction = openSession.beginTransaction();
         Criteria createCriteria = openSession.createCriteria(Districts.class);
         createCriteria.addOrder(Order.asc("district"));
-       //createCriteria.add(Restrictions.eq("district", state));    
+        //createCriteria.add(Restrictions.eq("district", state));    
         List list = createCriteria.list();
         beginTransaction.commit();
         openSession.close();
         return list;
     }
+
     public static List<TrainingCenter> getTrainingCenterAll() {
         openSession = Operations.getsessionFactory().openSession();
         beginTransaction = openSession.beginTransaction();
         Criteria createCriteria = openSession.createCriteria(TrainingCenter.class);
         createCriteria.addOrder(Order.asc("district"));
-       //createCriteria.add(Restrictions.eq("district", state));    
+        //createCriteria.add(Restrictions.eq("district", state));    
         List list = createCriteria.list();
         beginTransaction.commit();
         openSession.close();
         return list;
     }
+
     public static List<TrainingCenter> getUniversity() {
         openSession = Operations.getsessionFactory().openSession();
         beginTransaction = openSession.beginTransaction();
@@ -173,7 +258,7 @@ public static List<Districts> getDistrict(String state) {
         return list;
     }
 
-    public static boolean addTrainer(Register university) {
+       public static boolean addJobRole(JobRole university) {
         openSession = Operations.getsessionFactory().openSession();
         beginTransaction = openSession.beginTransaction();
         openSession.save(university);
@@ -181,14 +266,7 @@ public static List<Districts> getDistrict(String state) {
         openSession.close();
         return false;
     }
-public static boolean addJobRole(JobRole university) {
-        openSession = Operations.getsessionFactory().openSession();
-        beginTransaction = openSession.beginTransaction();
-        openSession.save(university);
-        beginTransaction.commit();
-        openSession.close();
-        return false;
-    }
+
     public static void addBatchCode(BatchCodes batchCodes) {
         openSession = Operations.getsessionFactory().openSession();
         beginTransaction = openSession.beginTransaction();
@@ -207,16 +285,18 @@ public static boolean addJobRole(JobRole university) {
         openSession.close();
         return list;
     }
-public static List<JobRole> getJobRole() {
+
+    public static List<JobRole> getJobRole() {
         openSession = Operations.getsessionFactory().openSession();
         beginTransaction = openSession.beginTransaction();
         Criteria createCriteria = openSession.createCriteria(JobRole.class);
-        createCriteria.addOrder(Order.asc("name"));
+        createCriteria.addOrder(Order.asc("ssc"));
         List list = createCriteria.list();
         beginTransaction.commit();
         openSession.close();
         return list;
     }
+
     public static List<Trainer> getBatchTrainer() {
         openSession = Operations.getsessionFactory().openSession();
         beginTransaction = openSession.beginTransaction();
@@ -260,9 +340,9 @@ public static List<JobRole> getJobRole() {
         System.out.println("Looking for the trainer " + skypeid);
         openSession = Operations.getsessionFactory().openSession();
         beginTransaction = openSession.beginTransaction();
-        Criteria createCriteria = openSession.createCriteria(Register.class);
+        Criteria createCriteria = openSession.createCriteria(RegisterTrainer.class);
         createCriteria.add(Restrictions.eq("skype", skypeid));
-        List<Register> list = createCriteria.list();
+        List<RegisterTrainer> list = createCriteria.list();
         System.out.println("First Method Done " + list.size());
         if (list.size() > 0) {
             try {
@@ -322,6 +402,34 @@ public static List<JobRole> getJobRole() {
         openSession.close();
     }
 
+    public static boolean loginCheck(String username, String password, String usertype) {
+        openSession = Operations.getsessionFactory().openSession();
+        beginTransaction = openSession.beginTransaction();
+        Criteria createCriteria = null;
+        if (usertype.equalsIgnoreCase("tp")) {
+            createCriteria = openSession.createCriteria(TrainingPartner.class);
+        }
+        if (usertype.equalsIgnoreCase("tc")) {
+            createCriteria = openSession.createCriteria(TrainingCenter.class);
+        }
+        if (usertype.equalsIgnoreCase("trainer")) {
+            createCriteria = openSession.createCriteria(RegisterTrainer.class);
+        }
+        if (usertype.equalsIgnoreCase("admin")) {
+            createCriteria = openSession.createCriteria(RegisterAdmin.class);
+        }
+
+        System.out.println("Looking for mobile Number");
+        createCriteria.add(Restrictions.eq("username", username));
+        createCriteria.add(Restrictions.eq("password", password));
+        List list = createCriteria.list();
+        if (list.size() > 0) {
+            return true;
+        } else {
+            return false;
+        }
+    }
+
     public static String checkLogin(String emailid, String password, String usertype) throws IOException {
 
         //Starts with the criteria...!!
@@ -336,7 +444,7 @@ public static List<JobRole> getJobRole() {
         openSession = Operations.getsessionFactory().openSession();
         beginTransaction = openSession.beginTransaction();
         Criteria createCriteria = null;
-        createCriteria = openSession.createCriteria(Register.class);
+        createCriteria = openSession.createCriteria(RegisterTrainer.class);
         System.out.println("Looking for mobile Number");
         createCriteria.add(Restrictions.eq("mobile", emailid));
         createCriteria.add(Restrictions.eq("password", password));
@@ -382,12 +490,14 @@ public static List<JobRole> getJobRole() {
         openSession.close();
         return false;
     }
-     public static boolean addUniversity(TrainingCenter university) {
+
+    public static boolean addUniversity(TrainingCenter university) {
         openSession = sessionFactory.openSession();
         beginTransaction = openSession.beginTransaction();
         openSession.save(university);
         beginTransaction.commit();
-        beginTransaction.commit();openSession.close();
+        beginTransaction.commit();
+        openSession.close();
         return false;
     }
 
@@ -643,7 +753,7 @@ public static List<JobRole> getJobRole() {
         Criteria createCriteria = openSession.createCriteria(TrainingCenter.class);
         createCriteria.add(Restrictions.eq("division", division));
         createCriteria.addOrder(Order.asc("name"));
-        List<Register> list = createCriteria.list();
+        List<RegisterTrainer> list = createCriteria.list();
         // = openSession.createQuery("from University f ORDER BY f.name where f.division='"+division+"'").list();
 
         ObjectMapper mapper = new ObjectMapper();
@@ -658,7 +768,7 @@ public static List<JobRole> getJobRole() {
         //sessionFactory = Operations.getsessionFactory();
         openSession = Operations.getsessionFactory().openSession();
         beginTransaction = openSession.beginTransaction();
-        List<Register> list = openSession.createQuery("from Trainer f ORDER BY f.name").list();
+        List<RegisterTrainer> list = openSession.createQuery("from Trainer f ORDER BY f.name").list();
         ObjectMapper mapper = new ObjectMapper();
         openSession.close();
         return mapper.writeValueAsString(list);
@@ -697,9 +807,9 @@ public static List<JobRole> getJobRole() {
             if (b.getDate().after(calendar1) && b.getTill().before(calendar2)) {
                 String trainer = b.getTrainer();
                 String replace1 = trainer.replace("_", " ");
-                createCriteria = openSession.createCriteria(Register.class);
+                createCriteria = openSession.createCriteria(RegisterTrainer.class);
                 createCriteria.add(Restrictions.eq("name", replace1));
-                List<Register> list1 = createCriteria.list();
+                List<RegisterTrainer> list1 = createCriteria.list();
                 GetSetMonitorSchedule m = new GetSetMonitorSchedule();
                 m.setSchedule(b);
                 m.setTrainer(list1.get(0));
@@ -852,8 +962,26 @@ public static List<JobRole> getJobRole() {
         }
         return l;
     }
-    public boolean loginVarify(String userType,String uname, String password){
-        
+
+    public boolean loginVarify(String userType, String uname, String password) {
+
         return false;
+    }
+    public static Object[] getAllSSCJSON() throws IOException{
+        //Map<Integer, University> linkedHashMap = new LinkedHashMap<Integer, University>();
+        //sessionFactory = Operations.getsessionFactory();
+        openSession = Operations.getsessionFactory().openSession();
+        beginTransaction = openSession.beginTransaction();
+        Criteria createCriteria = openSession.createCriteria(JobRole.class); 
+        createCriteria.addOrder(Order.asc("ssc"));
+        List<JobRole> list = createCriteria.list();
+        Set<String> set=new HashSet<>();
+        for(JobRole j:list){
+        set.add(j.getSsc());
+        }        
+        beginTransaction.commit();
+        openSession.close();
+        return set.toArray();
+
     }
 }

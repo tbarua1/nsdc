@@ -36,9 +36,9 @@ public class AddBatchCode extends HttpServlet {
         System.out.println("i have been clicked");
         BatchCodes batchCodes = new BatchCodes();
         batchCodes.setBatchCode(request.getParameter("batchCode"));
-        batchCodes.setContent(request.getParameter("content"));
+        //batchCodes.setContent(request.getParameter("content"));
        // batchCodes.setFacebookGroup(request.getParameter("facebookGroup"));
-        batchCodes.setScheduledDay(request.getParameter("scheduledDay"));
+       // batchCodes.setScheduledDay(request.getParameter("scheduledDay"));
         Operations.addBatchCode(batchCodes);
         System.out.println("Yes We have Added Data");
         response.sendRedirect("addBatchCode.jsp");

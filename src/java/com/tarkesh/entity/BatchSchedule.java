@@ -2,7 +2,6 @@ package com.tarkesh.entity;
 
 import java.io.Serializable;
 import java.util.Calendar;
-import java.util.Date;
 import java.util.Objects;
 import javax.persistence.Entity;
 import javax.persistence.GeneratedValue;
@@ -18,15 +17,14 @@ public class BatchSchedule implements Serializable {
     @Id
     @GeneratedValue(strategy = GenerationType.AUTO)
     private Long id;
-   @Temporal(TemporalType.TIMESTAMP)  
-    
+    @Temporal(TemporalType.TIMESTAMP)
     private Calendar date;
-   @Temporal(TemporalType.TIMESTAMP)
+    @Temporal(TemporalType.TIMESTAMP)
     private Calendar till;
 // @Temporal(TemporalType.TIMESTAMP)
 //  private Date time;
     private String Status, trainer, batchcode, comment, university, program, facebookURL, location, department, spoc_university, contact, ey_spoc, ey_contact, local_spoc, local_phone, track, schedule;
-private int startAttendence, endAttendence;
+    private int startAttendence, endAttendence;
 
     public int getStartAttendence() {
         return startAttendence;
@@ -51,7 +49,7 @@ private int startAttendence, endAttendence;
     public void setDate(Calendar date) {
         this.date = date;
     }
-   
+
     public Calendar getTill() {
         return till;
     }
@@ -60,13 +58,11 @@ private int startAttendence, endAttendence;
         this.till = till;
     }
 
-    
     @Override
     public String toString() {
         return "BatchSchedule{" + "id=" + id + ", date=" + date + ", till=" + till + ", Status=" + Status + ", trainer=" + trainer + ", batchcode=" + batchcode + ", comment=" + comment + ", university=" + university + ", program=" + program + ", facebookURL=" + facebookURL + ", location=" + location + ", department=" + department + ", spoc_university=" + spoc_university + ", contact=" + contact + ", ey_spoc=" + ey_spoc + ", ey_contact=" + ey_contact + ", local_spoc=" + local_spoc + ", local_phone=" + local_phone + ", track=" + track + ", schedule=" + schedule + '}';
     }
 
-  
     public Long getId() {
         return id;
     }
@@ -191,7 +187,6 @@ private int startAttendence, endAttendence;
 //    public void setTill(Date till) {
 //        this.till = till;
 //    }
-
     public String getStatus() {
         return Status;
     }
@@ -328,5 +323,4 @@ private int startAttendence, endAttendence;
         this.schedule = schedule;
     }
 
-  
 }

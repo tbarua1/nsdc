@@ -37,8 +37,8 @@ public class ReadingCSV {
             while ((data = br.readLine()) != null) {
                 split = data.split(",");
                 universiry.setName(split[1]);
-                universiry.setProgram_fs(true);
-                universiry.setProgram_topup(true);
+//                universiry.setProgram_fs(true);
+               // universiry.setProgram_topup(true);
                 universiry.setUniversity_type("Public");
             }
 

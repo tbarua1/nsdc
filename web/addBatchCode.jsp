@@ -12,7 +12,7 @@
 <html>
     <head>
         <meta http-equiv=”Content-Type” content=”text/html; charset=ISO-8859-1″>
-        <title>Add Batch Code</title>
+        <title>Add Batch</title>
         <script type=”text/javascript”>
             function ValidateForm()
                     {
@@ -52,7 +52,7 @@
     <body><center>
         <form name=frm method="post" action="AddBatchCode">
             <table border=”1″>
-                <font size=”3″>Add Batch Code</font>
+                <font size=”3″>Add Batch</font>
                 <tr><td>State</td>
                     <td><select class="form-control" name="state" onchange="jsFunction(this.value);">
                                 <option value="AN">Andaman and Nicobar</option>
@@ -90,15 +90,21 @@
                                 <option value="UP">Uttar Pradesh</option>
                                 <option value="UK">Uttarakhand</option>
                                 <option value="WB">West Bengal</option>
-                            </select><a href="addDistrict.jsp">Add District</a></td></tr>
+                            </select><br>
+                        <a href="addDistrict.jsp">Add District</a>
+                    </td>
+                </tr>
                 <tr><td>District</td>
-                    <td><INPUT type=”text” name=facebookGroup value="" size=”24″></td>
+                    <td><INPUT  type=”text” name="district" value="" size=”24″></td>
                 </tr>
                 <tr><td>Training Center</td>
-                    <td><INPUT type=”text” name=scheduledDay value="" size=”24″></td>
+                    <td><INPUT type=”text” name="tariningcenter" value="" size=”24″></td>
                 </tr>
                 <tr><td>Job Role</td>
-                    <td><INPUT type=”text” name=content value="" size=”24″></td>
+                    <td><INPUT type=”text” name="jobrole" value="" size=”24″></td>
+                </tr>
+                <tr><td>Trainer</td>
+                    <td><INPUT type=”text” name="trainer" value="" size=”24″></td>
                 </tr>
                 <tr><td></td><TD> <input type="submit" value="Add"> 
                         <!--<BUTTON type=button value=save name=cmdsave onclick=”save()” >Add</BUTTON>-->

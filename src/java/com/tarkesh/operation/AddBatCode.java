@@ -38,8 +38,8 @@ public class AddBatCode extends HttpServlet {
             BatchCodes batchCodes=new BatchCodes();
             batchCodes.setBatchCode("TUP-EWU-08");
             //batchCodes.setFacebookGroup("https://www.facebook.com/groups/189667731458318/");
-            batchCodes.setScheduledDay("6,7");
-            batchCodes.setContent("Web Development");
+        //    batchCodes.setScheduledDay("6,7");
+          //  batchCodes.setContent("Web Development");
             /* TODO output your page here. You may use following sample code. */
             Operations.addBatchCode(batchCodes);
             out.println("Done");

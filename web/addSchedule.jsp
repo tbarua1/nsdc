@@ -66,8 +66,7 @@
                 for (BatchCodes u1 : list1) {
             //if((request.getParameter(“cbousername")!=null)&&(request.getParameter(“cbousername").trim().equalsIgnoreCase(u1.getUserID().trim()))){
             %><tr>
-                <td><%=u1.getBatchCode()%> </td><td><%=u1.getScheduledDay()%></td>
-                <td><%=u1.getContent()%></td></tr>
+                <td><%=u1.getBatchCode()%> </td></tr>
                 <%}
                 %>
 

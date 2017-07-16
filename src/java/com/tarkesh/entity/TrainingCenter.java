@@ -9,6 +9,7 @@ import java.io.Serializable;
 import java.util.Date;
 import java.util.List;
 import java.util.Objects;
+import javax.persistence.CascadeType;
 import javax.persistence.Entity;
 import javax.persistence.GeneratedValue;
 import javax.persistence.GenerationType;
@@ -30,13 +31,45 @@ public class TrainingCenter implements Serializable {
     @GeneratedValue(strategy = GenerationType.AUTO)
     private Long id;
     private String name, university_type,nameSPOC,contactSPOC;
-    private String buildingNo,streetNo,locality,city,district,state;
+    private String buildingNo,streetNo,locality,city,district,state,username,password,usertype;
     private Integer pin;
     @Temporal(TemporalType.DATE)
     private Date rdate;   
-    @OneToMany
+ @OneToMany(cascade = CascadeType.ALL)
     private List<JobRole> jobrole;    
     private double latitude, longitude;
+
+    public List<JobRole> getJobrole() {
+        return jobrole;
+    }
+
+    public void setJobrole(List<JobRole> jobrole) {
+        this.jobrole = jobrole;
+    }
+
+    public String getUsername() {
+        return username;
+    }
+
+    public void setUsername(String username) {
+        this.username = username;
+    }
+
+    public String getPassword() {
+        return password;
+    }
+
+    public void setPassword(String password) {
+        this.password = password;
+    }
+
+    public String getUsertype() {
+        return usertype;
+    }
+
+    public void setUsertype(String usertype) {
+        this.usertype = usertype;
+    }
 
     public Long getId() {
         return id;
@@ -142,13 +175,7 @@ public class TrainingCenter implements Serializable {
         this.rdate = rdate;
     }
 
-    public List<JobRole> getJobrole() {
-        return jobrole;
-    }
-
-    public void setJobrole(List<JobRole> jobrole) {
-        this.jobrole = jobrole;
-    }
+    
 
     public double getLatitude() {
         return latitude;
@@ -182,7 +209,7 @@ public class TrainingCenter implements Serializable {
         hash = 67 * hash + Objects.hashCode(this.state);
         hash = 67 * hash + Objects.hashCode(this.pin);
         hash = 67 * hash + Objects.hashCode(this.rdate);
-        hash = 67 * hash + Objects.hashCode(this.jobrole);
+       // hash = 67 * hash + Objects.hashCode(this.jobrole);
         hash = 67 * hash + (int) (Double.doubleToLongBits(this.latitude) ^ (Double.doubleToLongBits(this.latitude) >>> 32));
         hash = 67 * hash + (int) (Double.doubleToLongBits(this.longitude) ^ (Double.doubleToLongBits(this.longitude) >>> 32));
         return hash;
@@ -245,15 +272,15 @@ public class TrainingCenter implements Serializable {
         if (!Objects.equals(this.rdate, other.rdate)) {
             return false;
         }
-        if (!Objects.equals(this.jobrole, other.jobrole)) {
-            return false;
-        }
+//        if (!Objects.equals(this.jobrole, other.jobrole)) {
+//            return false;
+//        }
         return true;
     }
 
     @Override
     public String toString() {
-        return "TrainingCenter{" + "id=" + id + ", name=" + name + ", university_type=" + university_type + ", nameSPOC=" + nameSPOC + ", contactSPOC=" + contactSPOC + ", buildingNo=" + buildingNo + ", streetNo=" + streetNo + ", locality=" + locality + ", city=" + city + ", district=" + district + ", state=" + state + ", pin=" + pin + ", rdate=" + rdate + ", jobrole=" + jobrole + ", latitude=" + latitude + ", longitude=" + longitude + '}';
+        return "TrainingCenter{" + "id=" + id + ", name=" + name + ", university_type=" + university_type + ", nameSPOC=" + nameSPOC + ", contactSPOC=" + contactSPOC + ", buildingNo=" + buildingNo + ", streetNo=" + streetNo + ", locality=" + locality + ", city=" + city + ", district=" + district + ", state=" + state + ", pin=" + pin + ", rdate=" + rdate + ", jobrole=, latitude=" + latitude + ", longitude=" + longitude + '}';
     }
   
 }

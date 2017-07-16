@@ -44,7 +44,7 @@ public class OneTimeUniversityAdd extends HttpServlet {
         // university.setDivision("Rangpur");Chittagong
         // university.setDivision("Dhaka");
         //Rajshahi
-        university.setDivision(request.getParameter("division"));
+      //  university.setDivision(request.getParameter("division"));
         // university.setDivision("Sylhet");
         university.setName(request.getParameter("name"));
         university.setLatitude(Double.parseDouble(request.getParameter("latitute")));

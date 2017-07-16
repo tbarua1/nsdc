@@ -6,7 +6,7 @@
 package com.tarkesh.trainer;
 
 import com.tarkesh.entity.GetSetTrainer;
-import com.tarkesh.entity.Register;
+import com.tarkesh.entity.RegisterTrainer;
 import com.tarkesh.operation.Operations;
 import java.io.IOException;
 import java.io.PrintWriter;
