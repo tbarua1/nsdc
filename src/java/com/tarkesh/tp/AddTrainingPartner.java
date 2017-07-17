@@ -38,21 +38,23 @@ public class AddTrainingPartner extends HttpServlet {
             throws ServletException, IOException {
         response.setContentType("text/html;charset=UTF-8");
         TrainingPartner tp = new TrainingPartner();
-        List<Address> add = new ArrayList<>();
-        Address address = new Address();
-        address.setBuildingNo("650");
-        address.setCity_village("Shikohabad");
-        address.setDistrict("Firozabad");
-        address.setLat(24.234555);
-        address.setLat(33.565756);
-        address.setLocality("saraswati Nagar");
-        address.setPin("283135");
-        address.setState("UP");
-        add.add(address);
-        tp.setUsername("partner");
-        tp.setPassword("partner");
+        tp.setUsername(request.getParameter("username"));
+        tp.setPassword(request.getParameter("password"));
         tp.setUsertype("tp");
-        Operations.addTrainingPartner(tp);;
+        tp.setTp_smart_id(request.getParameter("tpsmartid"));
+        tp.setName(request.getParameter("name"));
+        tp.setMobile(request.getParameter("mobile"));
+        tp.setWhatsapp(request.getParameter("txtwhatsapp"));
+        tp.setSkype(request.getParameter("skype"));
+        tp.setEmail(request.getParameter("emailid"));
+        tp.setBuilding(request.getParameter("building"));
+        tp.setCity(request.getParameter("city"));
+        tp.setLocality(request.getParameter("locality"));
+        tp.setDistrict(request.getParameter("district"));
+        tp.setState(request.getParameter("state"));
+        tp.setPin(request.getParameter("pin"));
+        Operations.addTrainingPartner(tp);
+        response.sendRedirect("addTrainingPartner.jsp");
         try (PrintWriter out = response.getWriter()) {
             /* TODO output your page here. You may use following sample code. */
             out.println("<!DOCTYPE html>");

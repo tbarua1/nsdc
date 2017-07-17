@@ -23,8 +23,91 @@ public class BatchCodes implements Serializable {
     @Id
     @GeneratedValue(strategy = GenerationType.AUTO)
     private Long id;
-    private String batchCode,ssc,jobrole, trainer_name,trainer_contact;
+    private String batchCode,ssc,jobrole, trainer_name,trainer_contact,state,
+            district,smarttcid,tariningcentername,qpcode;
     private Integer batchSize_start,batchSize_ondate, completed_hours;
+
+    @Override
+    public String toString() {
+        return "BatchCodes{" + "id=" + id + ", batchCode=" + batchCode + ", ssc=" + ssc + ", jobrole=" + jobrole + ", trainer_name=" + trainer_name + ", trainer_contact=" + trainer_contact + ", state=" + state + ", district=" + district + ", smarttcid=" + smarttcid + ", tariningcentername=" + tariningcentername + ", qpcode=" + qpcode + ", batchSize_start=" + batchSize_start + ", batchSize_ondate=" + batchSize_ondate + ", completed_hours=" + completed_hours + '}';
+    }
+
+    @Override
+    public int hashCode() {
+        int hash = 5;
+        hash = 89 * hash + Objects.hashCode(this.id);
+        hash = 89 * hash + Objects.hashCode(this.batchCode);
+        hash = 89 * hash + Objects.hashCode(this.ssc);
+        hash = 89 * hash + Objects.hashCode(this.jobrole);
+        hash = 89 * hash + Objects.hashCode(this.trainer_name);
+        hash = 89 * hash + Objects.hashCode(this.trainer_contact);
+        hash = 89 * hash + Objects.hashCode(this.state);
+        hash = 89 * hash + Objects.hashCode(this.district);
+        hash = 89 * hash + Objects.hashCode(this.smarttcid);
+        hash = 89 * hash + Objects.hashCode(this.tariningcentername);
+        hash = 89 * hash + Objects.hashCode(this.qpcode);
+        hash = 89 * hash + Objects.hashCode(this.batchSize_start);
+        hash = 89 * hash + Objects.hashCode(this.batchSize_ondate);
+        hash = 89 * hash + Objects.hashCode(this.completed_hours);
+        return hash;
+    }
+
+    @Override
+    public boolean equals(Object obj) {
+        if (this == obj) {
+            return true;
+        }
+        if (obj == null) {
+            return false;
+        }
+        if (getClass() != obj.getClass()) {
+            return false;
+        }
+        final BatchCodes other = (BatchCodes) obj;
+        if (!Objects.equals(this.batchCode, other.batchCode)) {
+            return false;
+        }
+        if (!Objects.equals(this.ssc, other.ssc)) {
+            return false;
+        }
+        if (!Objects.equals(this.jobrole, other.jobrole)) {
+            return false;
+        }
+        if (!Objects.equals(this.trainer_name, other.trainer_name)) {
+            return false;
+        }
+        if (!Objects.equals(this.trainer_contact, other.trainer_contact)) {
+            return false;
+        }
+        if (!Objects.equals(this.state, other.state)) {
+            return false;
+        }
+        if (!Objects.equals(this.district, other.district)) {
+            return false;
+        }
+        if (!Objects.equals(this.smarttcid, other.smarttcid)) {
+            return false;
+        }
+        if (!Objects.equals(this.tariningcentername, other.tariningcentername)) {
+            return false;
+        }
+        if (!Objects.equals(this.qpcode, other.qpcode)) {
+            return false;
+        }
+        if (!Objects.equals(this.id, other.id)) {
+            return false;
+        }
+        if (!Objects.equals(this.batchSize_start, other.batchSize_start)) {
+            return false;
+        }
+        if (!Objects.equals(this.batchSize_ondate, other.batchSize_ondate)) {
+            return false;
+        }
+        if (!Objects.equals(this.completed_hours, other.completed_hours)) {
+            return false;
+        }
+        return true;
+    }
 
     public Long getId() {
         return id;
@@ -74,6 +157,46 @@ public class BatchCodes implements Serializable {
         this.trainer_contact = trainer_contact;
     }
 
+    public String getState() {
+        return state;
+    }
+
+    public void setState(String state) {
+        this.state = state;
+    }
+
+    public String getDistrict() {
+        return district;
+    }
+
+    public void setDistrict(String district) {
+        this.district = district;
+    }
+
+    public String getSmarttcid() {
+        return smarttcid;
+    }
+
+    public void setSmarttcid(String smarttcid) {
+        this.smarttcid = smarttcid;
+    }
+
+    public String getTariningcentername() {
+        return tariningcentername;
+    }
+
+    public void setTariningcentername(String tariningcentername) {
+        this.tariningcentername = tariningcentername;
+    }
+
+    public String getQpcode() {
+        return qpcode;
+    }
+
+    public void setQpcode(String qpcode) {
+        this.qpcode = qpcode;
+    }
+
     public Integer getBatchSize_start() {
         return batchSize_start;
     }
@@ -98,66 +221,4 @@ public class BatchCodes implements Serializable {
         this.completed_hours = completed_hours;
     }
 
-    @Override
-    public int hashCode() {
-        int hash = 3;
-        hash = 79 * hash + Objects.hashCode(this.id);
-        hash = 79 * hash + Objects.hashCode(this.batchCode);
-        hash = 79 * hash + Objects.hashCode(this.ssc);
-        hash = 79 * hash + Objects.hashCode(this.jobrole);
-        hash = 79 * hash + Objects.hashCode(this.trainer_name);
-        hash = 79 * hash + Objects.hashCode(this.trainer_contact);
-        hash = 79 * hash + Objects.hashCode(this.batchSize_start);
-        hash = 79 * hash + Objects.hashCode(this.batchSize_ondate);
-        hash = 79 * hash + Objects.hashCode(this.completed_hours);
-        return hash;
-    }
-
-    @Override
-    public boolean equals(Object obj) {
-        if (this == obj) {
-            return true;
-        }
-        if (obj == null) {
-            return false;
-        }
-        if (getClass() != obj.getClass()) {
-            return false;
-        }
-        final BatchCodes other = (BatchCodes) obj;
-        if (!Objects.equals(this.batchCode, other.batchCode)) {
-            return false;
-        }
-        if (!Objects.equals(this.ssc, other.ssc)) {
-            return false;
-        }
-        if (!Objects.equals(this.jobrole, other.jobrole)) {
-            return false;
-        }
-        if (!Objects.equals(this.trainer_name, other.trainer_name)) {
-            return false;
-        }
-        if (!Objects.equals(this.trainer_contact, other.trainer_contact)) {
-            return false;
-        }
-        if (!Objects.equals(this.id, other.id)) {
-            return false;
-        }
-        if (!Objects.equals(this.batchSize_start, other.batchSize_start)) {
-            return false;
-        }
-        if (!Objects.equals(this.batchSize_ondate, other.batchSize_ondate)) {
-            return false;
-        }
-        if (!Objects.equals(this.completed_hours, other.completed_hours)) {
-            return false;
-        }
-        return true;
-    }
-
-    @Override
-    public String toString() {
-        return "BatchCodes{" + "id=" + id + ", batchCode=" + batchCode + ", ssc=" + ssc + ", jobrole=" + jobrole + ", trainer_name=" + trainer_name + ", trainer_contact=" + trainer_contact + ", batchSize_start=" + batchSize_start + ", batchSize_ondate=" + batchSize_ondate + ", completed_hours=" + completed_hours + '}';
-    }
-    
 }

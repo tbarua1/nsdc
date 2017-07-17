@@ -7,14 +7,11 @@ package com.tarkesh.entity;
  */
 import java.io.Serializable;
 import java.util.Date;
-import java.util.List;
 import java.util.Objects;
-import javax.persistence.CascadeType;
 import javax.persistence.Entity;
 import javax.persistence.GeneratedValue;
 import javax.persistence.GenerationType;
 import javax.persistence.Id;
-import javax.persistence.OneToMany;
 import javax.persistence.Temporal;
 import javax.persistence.TemporalType;
 
@@ -30,20 +27,20 @@ public class TrainingCenter implements Serializable {
     @Id
     @GeneratedValue(strategy = GenerationType.AUTO)
     private Long id;
-    private String name, university_type,nameSPOC,contactSPOC;
-    private String buildingNo,streetNo,locality,city,district,state,username,password,usertype;
+    private String name, university_type, nameSPOC, contactSPOC;
+    private String buildingNo, streetNo, locality, city, district, state, username, password, usertype;
     private Integer pin;
-    @Temporal(TemporalType.DATE)
-    private Date rdate;   
- @OneToMany(cascade = CascadeType.ALL)
-    private List<JobRole> jobrole;    
+    @Temporal(TemporalType.TIMESTAMP)
+    private Date rdate;
+    //@OneToMany(cascade = CascadeType.ALL)
+    private String jobrole;
     private double latitude, longitude;
 
-    public List<JobRole> getJobrole() {
+    public String getJobrole() {
         return jobrole;
     }
 
-    public void setJobrole(List<JobRole> jobrole) {
+    public void setJobrole(String jobrole) {
         this.jobrole = jobrole;
     }
 
@@ -175,8 +172,6 @@ public class TrainingCenter implements Serializable {
         this.rdate = rdate;
     }
 
-    
-
     public double getLatitude() {
         return latitude;
     }
@@ -209,7 +204,7 @@ public class TrainingCenter implements Serializable {
         hash = 67 * hash + Objects.hashCode(this.state);
         hash = 67 * hash + Objects.hashCode(this.pin);
         hash = 67 * hash + Objects.hashCode(this.rdate);
-       // hash = 67 * hash + Objects.hashCode(this.jobrole);
+        // hash = 67 * hash + Objects.hashCode(this.jobrole);
         hash = 67 * hash + (int) (Double.doubleToLongBits(this.latitude) ^ (Double.doubleToLongBits(this.latitude) >>> 32));
         hash = 67 * hash + (int) (Double.doubleToLongBits(this.longitude) ^ (Double.doubleToLongBits(this.longitude) >>> 32));
         return hash;
@@ -282,5 +277,5 @@ public class TrainingCenter implements Serializable {
     public String toString() {
         return "TrainingCenter{" + "id=" + id + ", name=" + name + ", university_type=" + university_type + ", nameSPOC=" + nameSPOC + ", contactSPOC=" + contactSPOC + ", buildingNo=" + buildingNo + ", streetNo=" + streetNo + ", locality=" + locality + ", city=" + city + ", district=" + district + ", state=" + state + ", pin=" + pin + ", rdate=" + rdate + ", jobrole=, latitude=" + latitude + ", longitude=" + longitude + '}';
     }
-  
+
 }

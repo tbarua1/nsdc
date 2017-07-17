@@ -191,7 +191,8 @@
                             </tr>
                             <tr>
                                 <td>District</td>
-                                <td><INPUT type=”text” name="district" value=""  ></td>
+                                <td><select name>
+                                        <INPUT type=”text” name="district" value=""  ></td>
                             </tr>
                             <tr>
                                 <td>State</td>

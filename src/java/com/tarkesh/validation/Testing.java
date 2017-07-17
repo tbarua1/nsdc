@@ -5,14 +5,15 @@
  */
 package com.tarkesh.validation;
 
-import com.tarkesh.operation.Operations;
+
 import java.io.IOException;
 import java.util.ArrayList;
 import java.util.HashSet;
-import java.util.Iterator;
 import java.util.List;
 import java.util.Set;
-import org.codehaus.jackson.map.ObjectMapper;
+import org.hibernate.Session;
+import org.hibernate.SessionFactory;
+import org.hibernate.cfg.AnnotationConfiguration;
 
 
 /**
@@ -20,10 +21,24 @@ import org.codehaus.jackson.map.ObjectMapper;
  * @author Abhishek.Sehgal
  */
 public class Testing {
-    public static void main(String[] args) throws IOException {
-        Object[] allSSCJSON = Operations.getAllSSCJSON();
-        for(Object o:allSSCJSON){
-        System.out.println(o);
+    private static SessionFactory sessionFactory;
+    private static Session openSession;
+    public static SessionFactory getsessionFactory() {
+        if (sessionFactory == null) {
+            sessionFactory = new AnnotationConfiguration().configure().buildSessionFactory();
+            //sessionFactory = new Configuration().configure().buildSessionFactory();
+            return sessionFactory;
+        } else {
+            return sessionFactory;
         }
+    }
+    public static void main(String[] args) throws IOException {
+        
+        System.out.println("Hibernate one to many (Annotation)");
+	Session session = Testing.getsessionFactory().openSession();
+
+	session.beginTransaction();
+	session.getTransaction().commit();
+	System.out.println("Done");
     }
 }

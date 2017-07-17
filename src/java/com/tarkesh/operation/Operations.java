@@ -401,32 +401,105 @@ public class Operations {
         beginTransaction.commit();
         openSession.close();
     }
+    public static List<TrainingCenter> loginCheckTC(String username, String password, String usertype) {
+        openSession = Operations.getsessionFactory().openSession();
+        beginTransaction = openSession.beginTransaction();
+        Criteria createCriteria = null;
+        createCriteria = openSession.createCriteria(TrainingCenter.class);
+        createCriteria.add(Restrictions.eq("username", username));
+        createCriteria.add(Restrictions.eq("password", password));
+        List<TrainingCenter> list = createCriteria.list();
+         System.out.println("Looking for mobile Number"+list.size());
+         openSession.close();
+        if (list.size() > 0) {
+            return list;
+        } else {
+            return null;
+        }
+    }
 
-    public static boolean loginCheck(String username, String password, String usertype) {
+    public static List<Trainer> loginCheckTrainer(String username, String password, String usertype) {
+        openSession = Operations.getsessionFactory().openSession();
+        beginTransaction = openSession.beginTransaction();
+        Criteria createCriteria = null;
+        createCriteria = openSession.createCriteria(Trainer.class);
+        createCriteria.add(Restrictions.eq("username", username));
+        createCriteria.add(Restrictions.eq("password", password));
+        List<Trainer> list = createCriteria.list();
+         System.out.println("Looking for mobile Number"+list.size());
+         openSession.close();
+        if (list.size() > 0) {
+            return list;
+        } else {
+            return null;
+        }
+    }
+
+    public static List<TrainingPartner> loginCheckTP(String username, String password, String usertype) {
+        openSession = Operations.getsessionFactory().openSession();
+        beginTransaction = openSession.beginTransaction();
+        Criteria createCriteria = null;
+        createCriteria = openSession.createCriteria(TrainingPartner.class);
+        createCriteria.add(Restrictions.eq("username", username));
+        createCriteria.add(Restrictions.eq("password", password));
+        List<TrainingPartner> list = createCriteria.list();
+         System.out.println("Looking for mobile Number"+list.size());
+         openSession.close();
+        if (list.size() > 0) {
+            return list;
+        } else {
+            return null;
+        }
+    }
+
+public static List<RegisterAdmin> loginCheckAdmin(String username, String password, String usertype) {
+        openSession = Operations.getsessionFactory().openSession();
+        beginTransaction = openSession.beginTransaction();
+        Criteria createCriteria = null;
+        createCriteria = openSession.createCriteria(RegisterAdmin.class);
+        createCriteria.add(Restrictions.eq("username", username));
+        createCriteria.add(Restrictions.eq("password", password));
+        List<RegisterAdmin> list = createCriteria.list();
+         System.out.println("Looking for mobile Number"+list.size());
+         openSession.close();
+        if (list.size() > 0) {
+            return list;
+        } else {
+            return null;
+        }
+    }
+
+    public static List loginCheck(String username, String password, String usertype) {
         openSession = Operations.getsessionFactory().openSession();
         beginTransaction = openSession.beginTransaction();
         Criteria createCriteria = null;
         if (usertype.equalsIgnoreCase("tp")) {
+            System.out.println("i am training partner");
             createCriteria = openSession.createCriteria(TrainingPartner.class);
         }
         if (usertype.equalsIgnoreCase("tc")) {
+            System.out.println("i am Training Center");
             createCriteria = openSession.createCriteria(TrainingCenter.class);
         }
         if (usertype.equalsIgnoreCase("trainer")) {
-            createCriteria = openSession.createCriteria(RegisterTrainer.class);
+            System.out.println("i am from trainer");
+            createCriteria = openSession.createCriteria(Trainer.class);
         }
         if (usertype.equalsIgnoreCase("admin")) {
+            System.out.println("i am from Admin");
             createCriteria = openSession.createCriteria(RegisterAdmin.class);
         }
 
-        System.out.println("Looking for mobile Number");
+       
         createCriteria.add(Restrictions.eq("username", username));
         createCriteria.add(Restrictions.eq("password", password));
         List list = createCriteria.list();
+         System.out.println("Looking for mobile Number"+list.size());
+         openSession.close();
         if (list.size() > 0) {
-            return true;
+            return list;
         } else {
-            return false;
+            return null;
         }
     }
 

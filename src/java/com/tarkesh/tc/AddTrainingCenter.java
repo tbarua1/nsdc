@@ -18,6 +18,7 @@ import javax.servlet.annotation.WebServlet;
 import javax.servlet.http.HttpServlet;
 import javax.servlet.http.HttpServletRequest;
 import javax.servlet.http.HttpServletResponse;
+import org.codehaus.jackson.map.ObjectMapper;
 
 /**
  *
@@ -58,18 +59,9 @@ public class AddTrainingCenter extends HttpServlet {
 //         List<Address> add=new ArrayList<>();
 //         add.add(address);
 //       tc.sesetAddress(add);
-       List<JobRole> jobrole=new ArrayList<>();
-        String[] parameterValues = request.getParameterValues("afjobrole");
-        for(String s:parameterValues){
-            String[] split = s.split("@");
-            JobRole jobRole=new JobRole();
-       //jobRole.setSsc("Agriculture");
-       jobRole.setName(split[0]);
-       jobRole.setName(split[1]);
-       jobrole.add(jobRole);
-        }
        
-       tc.setJobrole(jobrole);
+        String[] parameterValues = request.getParameterValues("afjobrole");
+       tc.setJobrole(new ObjectMapper().writeValueAsString(parameterValues));
        tc.setLatitude(Double.parseDouble(request.getParameter("latitute")));
        tc.setLongitude(Double.parseDouble(request.getParameter("longitute")));
       System.out.println("Record Saved "+Operations.addTrainingCenter(tc));

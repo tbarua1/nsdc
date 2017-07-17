@@ -3,15 +3,10 @@
     <editor-bookmarks xmlns="http://www.netbeans.org/ns/editor-bookmarks/2" lastBookmarkId="0"/>
     <open-files xmlns="http://www.netbeans.org/ns/projectui-open-files/2">
         <group>
-            <file>file:/C:/Tarkeshwar/General%20Backup/nsdc/web/addTrainingCenter.jsp</file>
-            <file>file:/C:/Tarkeshwar/General%20Backup/nsdc/web/enableDisable.jsp</file>
-            <file>file:/C:/Tarkeshwar/General%20Backup/nsdc/web/addTrainer.jsp</file>
-            <file>file:/C:/Tarkeshwar/General%20Backup/nsdc/src/java/com/tarkesh/tc/AddTrainingCenter.java</file>
+            <file>file:/C:/Tarkeshwar/General%20Backup/nsdc/src/java/com/tarkesh/entity/BatchCodes.java</file>
             <file>file:/C:/Tarkeshwar/General%20Backup/nsdc/web/addBatchCode.jsp</file>
             <file>file:/C:/Tarkeshwar/General%20Backup/nsdc/src/java/com/tarkesh/operation/Operations.java</file>
-            <file>file:/C:/Tarkeshwar/General%20Backup/nsdc/web/addBatchSchedule.jsp</file>
-            <file>file:/C:/Tarkeshwar/General%20Backup/nsdc/src/java/com/tarkesh/trainer/AddTrainer.java</file>
-            <file>file:/C:/Tarkeshwar/General%20Backup/nsdc/src/java/com/tarkesh/entity/Trainer.java</file>
+            <file>file:/C:/Tarkeshwar/General%20Backup/nsdc/src/java/com/tarkesh/batch/AddBatch.java</file>
         </group>
     </open-files>
 </project-private>

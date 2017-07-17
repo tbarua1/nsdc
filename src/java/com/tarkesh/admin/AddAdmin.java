@@ -35,17 +35,21 @@ public class AddAdmin extends HttpServlet {
             throws ServletException, IOException {
         response.setContentType("text/html;charset=UTF-8");
         RegisterAdmin registerAdmin=new RegisterAdmin();
-        registerAdmin.setComapanyName("EY");
-        registerAdmin.setDesignation("Software Developer");
-        registerAdmin.setDistrict("Firozabad");
-        registerAdmin.setEmailid("tbarua1@gmail.com");
-        registerAdmin.setPassword("admin");
-        registerAdmin.setState("UP");
-        registerAdmin.setUsername("admin");
+        registerAdmin.setComapanyName(request.getParameter("company"));
+        registerAdmin.setDesignation(request.getParameter("designation"));
+        registerAdmin.setDistrict(request.getParameter("district"));
+        registerAdmin.setEmailid(request.getParameter("emailid"));
+        registerAdmin.setPassword(request.getParameter("password"));
+        registerAdmin.setState(request.getParameter("state"));
+        registerAdmin.setUsername(request.getParameter("username"));
         registerAdmin.setUsertype("admin");
-        registerAdmin.setfName("Tarkeshwar");
-        registerAdmin.setlName("Barua");
+        registerAdmin.setfName(request.getParameter("fname"));
+        registerAdmin.setlName(request.getParameter("lname"));
+         registerAdmin.setSkype(request.getParameter("skype"));
+          registerAdmin.setWhatsapp(request.getParameter("txtwhatsapp"));
+          registerAdmin.setMobile(request.getParameter("mobile"));
         Operations.addAdmin(registerAdmin);
+        response.sendRedirect("addAdmin.jsp");
         try (PrintWriter out = response.getWriter()) {
             /* TODO output your page here. You may use following sample code. */
             out.println("<!DOCTYPE html>");

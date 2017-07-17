@@ -5,14 +5,21 @@
  */
 package com.tarkesh.validation;
 
+import com.tarkesh.entity.RegisterAdmin;
+import com.tarkesh.entity.Trainer;
+import com.tarkesh.entity.TrainingCenter;
+import com.tarkesh.entity.TrainingPartner;
 import com.tarkesh.operation.Operations;
 import java.io.IOException;
 import java.io.PrintWriter;
+import java.util.List;
 import javax.servlet.ServletException;
 import javax.servlet.annotation.WebServlet;
 import javax.servlet.http.HttpServlet;
 import javax.servlet.http.HttpServletRequest;
 import javax.servlet.http.HttpServletResponse;
+import javax.servlet.http.HttpSession;
+import org.codehaus.jackson.map.ObjectMapper;
 
 /**
  *
@@ -35,34 +42,39 @@ public class LoginServlet extends HttpServlet {
         String username = request.getParameter("username");
         String password = request.getParameter("password");
         String usertype = request.getParameter("usertype");
-        boolean checkLogin = Operations.loginCheck(username, password, usertype);
-        System.out.println(password+" "+username+" "+usertype+" Login Status " + checkLogin);
-        request.setAttribute("workList", checkLogin);
-
-        if (checkLogin==true) {
-            System.out.println("i am going to find type of user");
-            if (usertype.equalsIgnoreCase("admin")) {
-                request.getRequestDispatcher("/admin.jsp").forward(request, response);
-               
-                //response.sendRedirect("admin.jsp");
-            }
-            if (usertype.equalsIgnoreCase("tp")) {
-                request.getRequestDispatcher("/partner.jsp").forward(request, response);
-                //response.sendRedirect(".html");
-            }
-            if (usertype.equalsIgnoreCase("tc")) {
-                request.getRequestDispatcher("/center.jsp").forward(request, response);
-                
-                //response.sendRedirect("center.html");
-            }
-            if (usertype.equalsIgnoreCase("trainer")) {
-                request.getRequestDispatcher("/trainer.jsp").forward(request, response);
-                
-                //response.sendRedirect("trainer.html");
-            }
-        } else {
-            response.sendRedirect("error.html");
+        System.out.println(password + " " + username + " " + usertype);
+        HttpSession session = request.getSession();
+        session.setAttribute("username", username);
+        session.setAttribute("usertype", usertype);
+        if (usertype.equalsIgnoreCase("admin")) {
+            List<RegisterAdmin> loginCheckAdmin = Operations.loginCheckAdmin(username, password, usertype);
+            session.setAttribute("informationAdmin", loginCheckAdmin);
+            request.setAttribute("workList", true);
+            request.getRequestDispatcher("/admin.jsp").forward(request, response);
         }
+
+        if (usertype.equalsIgnoreCase("tp")) {
+            List<TrainingPartner> loginCheckAdmin = Operations.loginCheckTP(username, password, usertype);
+            session.setAttribute("informationPartner", loginCheckAdmin);
+            request.setAttribute("workList", true);
+            request.getRequestDispatcher("/partner.jsp").forward(request, response);
+        }
+        if (usertype.equalsIgnoreCase("tc")) {
+            List<TrainingCenter> loginCheckAdmin = Operations.loginCheckTC(username, password, usertype);
+            session.setAttribute("informationTC", loginCheckAdmin);
+            request.setAttribute("workList", true);
+            request.getRequestDispatcher("/center.jsp").forward(request, response);
+        }
+        if (usertype.equalsIgnoreCase("trainer")) {
+            List<Trainer> loginCheckTrainer = Operations.loginCheckTrainer(username, password, usertype);
+            session.setAttribute("informationTrainer", loginCheckTrainer);
+            request.setAttribute("workList", true);
+            request.getRequestDispatcher("/trainer.jsp").forward(request, response);
+        }
+
+        request.setAttribute("workList", false);
+        response.sendRedirect("error.html");
+
         response.setContentType("text/html;charset=UTF-8");
         try (PrintWriter out = response.getWriter()) {
             /* TODO output your page here. You may use following sample code. */

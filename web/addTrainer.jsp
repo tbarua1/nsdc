@@ -252,15 +252,15 @@ and open the template in the editor.
                 document.getElementById("txtwhatsapp").value = mobile;
             }
             function hideWhatsApp() {
-               
+
                 if (document.getElementById("whatsapp").checked) {
-                     //alert("What app checked");
-                     document.getElementById("txtwhatsapp").style.visibility = 'visible';
+                    //alert("What app checked");
+                    document.getElementById("txtwhatsapp").style.visibility = 'visible';
                 } else {//alert("What app not checked");
-                 
-                     document.getElementById("txtwhatsapp").style.visibility = 'hidden';
-                   
-                }    
+
+                    document.getElementById("txtwhatsapp").style.visibility = 'hidden';
+
+                }
             }
             function enableWhatsApp() {
 
@@ -276,6 +276,13 @@ and open the template in the editor.
 //                    document.getElementById("txtwhatsapp").disabled = true;
 //                }
 
+            }
+            function selectAllFields() {
+                var select = document.getElementById('afjobrole');
+                for (var i = 0; i < select.options.length; i++)
+                {
+                    select.options[i].selected = true;
+                }
             }
         </script>
     </head>
@@ -392,11 +399,10 @@ and open the template in the editor.
                                 <option value="Tourism and Hospitality">Tourism and Hospitality</option>
                             </select><br>
                             <select name="JobRole" id="jobrole">
-
                             </select>
                             <br><button type="button" name="jobroleadd" onclick="addJobrole();">add Affiliated Job Role</button>
                             <button type="button" name="jobroleremove" onclick="removeJobrole();">Remove</button>
-                            <br><select name="afjobrole1" id="afjobrole" multiple=""></select>
+                            <br><select onchange="selectAllFields();"name="afjobrole11" id="afjobrole" multiple=""></select>
                             <br><a href="addJobRole.jsp">Add Job Role(if not in the list)</td>
                     </tr>
                     <!--                    <tr>
@@ -453,7 +459,7 @@ and open the template in the editor.
                                         </tr>-->
                     <tr>
                         <td><input type="reset" name="" id="btnlogin" class="btn-3" value="reset" style="float: right;"></td>
-                        <td><input type="submit" name="" id="btnlogin" class="btn-3" value="Login" style="float: right;" onclick="formValidation();">
+                        <td><input type="submit" name="" id="btnlogin" class="btn-3" value="Login" style="float: right;" onclick="selectAllFields();">
                         </td>
                     </tr>
                 </table>

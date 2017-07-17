@@ -19,7 +19,7 @@ and open the template in the editor.
             function comfirmPassword() {
             var x = document.getElementById("password");
             var y = document.getElementById("cpassword");
-            if (x == y) {
+            if (x === y) {
             return true;
             } else {
             return false;
@@ -72,7 +72,7 @@ and open the template in the editor.
             return false;
             }
             if (m !== "") {
-            alert(msg)
+            alert(msg);
                     return true;
             }
 
@@ -128,9 +128,9 @@ and open the template in the editor.
 //                        //document.getElementById("b").innerHTML = some.getElementsByTagName("empname")[0].childNodes[0].nodeValue;
             // document.getElementById("c").innerHTML = some.getElementsByTagName("empaddr")[0].childNodes[0].nodeValue;
             }
-            }
+            };
             xmlhttp.open("GET", urls, true);
-            alert("Request Done " + urls)
+            alert("Request Done " + urls);
                     xmlhttp.send();
 //                document.getElementById("demo").innerHTML = document.getElementById("district").value;
 //                document.getElementById("demo").innerHTML += document.getElementById("district").length;
@@ -147,7 +147,7 @@ and open the template in the editor.
             for (i = 0; i < x.length; i++) {
             txt += x[i].childNodes[0].nodeValue + "<br>";
             }
-            document.write(txt)
+            document.write(txt);
             }
             function removeOption() {
             var x = document.getElementById("mySelect");
@@ -159,7 +159,7 @@ and open the template in the editor.
             var xmlhttp = new XMLHttpRequest();
             var url = "http://localhost:8282/nsdc/GetDistrictByState?state="+value;
             xmlhttp.onreadystatechange = function () {
-            if (this.readyState == 4 && this.status == 200) {
+            if (this.readyState === 4 && this.status === 200) {
             var myArr = JSON.parse(this.responseText);
             displayData(myArr);
             }
@@ -171,7 +171,7 @@ and open the template in the editor.
             var select = document.getElementById("district1"); 
             var y=select.length;            
             var limit=y*2;
-            alert(y+" "+limit);
+           // alert(y+" "+limit);
             for(var x=0;x<limit;x++){
                 //document.write(x);
               select.remove(x);
@@ -188,22 +188,85 @@ and open the template in the editor.
             }
            
             }
+             function hideWhatsApp() {
+               
+                if (document.getElementById("whatsapp").checked) {
+                     //alert("What app checked");
+                     document.getElementById("txtwhatsapp").style.visibility = 'visible';
+                } else {//alert("What app not checked");
+                 
+                     document.getElementById("txtwhatsapp").style.visibility = 'hidden';
+                   
+                }    
+            }
+            function copywhatsapp() {
+                var mobile = document.getElementById("mobile").value;
+                document.getElementById("txtwhatsapp").value = mobile;
+            }
         </script>
     </head>
     <body>
-        <div>Register User</div>
-        <form name="registerForm" role="form" action="LoginServlet" method="post" onsubmit="return validateForm()">
+        <div>Register Training Partner</div>
+        <form name="registerForm" role="form" action="AddTrainingPartner" method="post" onsubmit="return validateForm()">
             <center><table>
                     <tr>
-                        <td>User Type</td>
-                        <td><select class="form-control" name="usertype">
-                                <option value="tp" selected="">Training Partner</option>
-                                <option value="tc">Training Center</option>
-                                <option value="trainer">Trainer</option>
-                                <option value="admin">Administrator</option>
-                            </select></td>
+                        <td><label class="label-control-a">Training Pratner Smart ID:</label></td>
+                        <td> <input type="text" class="form-control"  placeholder="TP Smart ID" name="tpsmartid" >
+                        </td>
+                    </tr>
+                   <tr>
+                        <td><label class="label-control-a">Name:</label></td>
+                        <td> <input type="text" class="form-control"  placeholder="Name of Candidate" id="name"  name="name" >
+                        </td>
                     </tr>
                     <tr>
+                        <td><label class="label-control-a">User Name:</label></td>
+                        <td> <input type="text" class="form-control"  placeholder="User Name" id="txtUname"  name="username" >
+                        </td>
+                    </tr>
+                    <tr>
+                        <td><label class="label-control-a">Password:</label></td>
+                        <td><input type="password" name="password" class="form-control" placeholder="Password" id="txtPassword" require></td>
+                    </tr>
+                    <tr>
+                        <td><label class="label-control-a">Confirm Password:</label></td>
+                        <td><input type="password" name="cpassword" class="form-control" placeholder="Confirm Password" id="ctxtPassword" require></td>
+                    </tr>
+                    <tr>
+                        <td><label class="label-control-a">Mobile Number</label></td>
+                        <td><input type="text" name="mobile" class="form-control" placeholder="Mobile Number" id="mobile" onchange="copywhatsapp();"></td>
+
+                    </tr>
+                    <tr>
+                        <td>Another Number on WhatsApp<input onclick="hideWhatsApp();" type="checkbox" name="another" class="form-control" placeholder="WhatsApp" id="whatsapp" require></td>
+                        <td>
+                            <input type="text" name="txtwhatsapp" class="form-control" placeholder="WhatsApp Number" id="txtwhatsapp" style="visibility: hidden"> 
+                        </td>
+                    </tr>
+
+                    <tr>
+                        <td><label class="label-control-a">Skype ID</label></td>
+                        <td><input type="text" name="skype" class="form-control" placeholder="Skype ID" id="skype" require></td>
+                    </tr><tr>
+                        <td><label class="label-control-a">Email ID</label></td>
+                        <td><input type="text" name="emailid" class="form-control" placeholder="Email ID" id="emailid" require></td>
+                    </tr>
+                    
+                <tr><td>Address</td>
+                    <td>
+                        <table>
+                            <tr>
+                                <td>Building Number</td>
+                                <td><INPUT type=?text? name="building" value=""  ></td>
+                            </tr>
+                            <tr><td>Locality</td>
+                                <td><INPUT type=?text? name="locality" value=""  ></td>
+                            </tr>
+                            <tr>
+                                <td>City/Village</td>
+                                <td><INPUT type=?text? name="city" value=""  ></td>
+                            </tr>
+                             <tr>
                         <td>State</td><td>
                             <!--                        <td><select class="form-control" name="state" onchange="jsFunction(this.value);">-->
                             <select name="state" onchange="downloadJSON(this.value);">            
@@ -249,72 +312,14 @@ and open the template in the editor.
                         <td><select class="form-control" name="district" id="district1">
 
                             </select></td>
-                    </tr>
-                    <tr>
-                        <td>Latitude</td>
-                        <td><input type="text" name="lat" placeholder="Latitute"></td>
-                    </tr>
-                    <tr>
-                        <td>Longitude</td>
-                        <td><input type="text" name="lon" placeholder="Longitude"></td>
-                    </tr>
-                    <tr>
-                        <td><label class="label-control-a">Name:</label></td>
-                        <td> <input type="text" class="form-control"  placeholder="Name of Candidate" id="name"  name="name" >
-                        </td>
-                    </tr>
-                    <tr>
-                        <td><label class="label-control-a">User Name:</label></td>
-                        <td> <input type="text" class="form-control"  placeholder="User Name" id="txtUname"  name="username" >
-                        </td>
-                    </tr>
-                    <tr>
-                        <td><label class="label-control-a">Password:</label></td>
-                        <td><input type="password" name="password" class="form-control" placeholder="Password" id="txtPassword" require></td>
-                    </tr>
-                    <tr>
-                        <td><label class="label-control-a">Confirm Password:</label></td>
-                        <td><input type="password" name="cpassword" class="form-control" placeholder="Confirm Password" id="ctxtPassword" require></td>
-                    </tr>
-                    <tr>
-                        <td><label class="label-control-a">Qualification</label></td>
-                        <td><input type="text" name="qualification" class="form-control" placeholder="Qualification" id="qualification" require></td>
-                    </tr>
-                    <tr>
-                        <td><label class="label-control-a">Name of SSC</label></td>
-                        <td>
-                            <select name="ssc" id="ssc">
-                                <%
-                                %>                                
-                            </select>
-                        </td>
-                    </tr>
-                    <tr>
-                        <td><label class="label-control-a">Job Role</label></td>
-                        <td><input type="text" name="jobrole" class="form-control" placeholder="Job Role" id="jobrole" require></td>
-                    </tr>
-                    <tr>
-                        <td><label class="label-control-a">Experience</label></td>
-                        <td><input type="text" name="experience" class="form-control" placeholder="Experience" id="experience" require></td>
                     </tr><tr>
-                        <td><label class="label-control-a">Mobile Number</label></td>
-                        <td><input type="text" name="mobile" class="form-control" placeholder="Mobile Number" id="mobile" require></td>
+                                <td>PIN/ZIP</td>
+                                <td><INPUT type=?text? name="pin" value=""  ></td>
+                            </tr>
 
-                    </tr>
-                    <tr>
-                        <td>Another Number on WhatsApp<input onclick="getWhatsApp();" type="checkbox" name="another" class="form-control" placeholder="WhatsApp" id="whatsapp" require></td>
-                        <td>
-                            <input type="text" name="txtwhatsapp" class="form-control" placeholder="WhatsApp Number" id="txtwhatsapp" require disabled> 
-                        </td>
-                    </tr>
-
-                    <tr>
-                        <td><label class="label-control-a">Skype ID</label></td>
-                        <td><input type="text" name="skype" class="form-control" placeholder="Skype ID" id="skype" require></td>
-                    </tr><tr>
-                        <td><label class="label-control-a">Email ID</label></td>
-                        <td><input type="text" name="emailid" class="form-control" placeholder="Email ID" id="emailid" require></td>
-                    </tr>
+                        </table></td>
+                </tr>
+                
                     <tr>
                         <td><label class="label-control-a">Photograph</label></td>
                         <td><input type="file" name="photo" class="form-control" placeholder="Photo" id="photo" require></td>

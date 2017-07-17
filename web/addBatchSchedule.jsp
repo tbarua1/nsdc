@@ -51,15 +51,18 @@
             document.frm.submit();
             }
             }
+            function setLatLon(trainingcenter){
+            alert("i clicked");
+            }
         </script>
     </head>
     <body><center>
         <form name=frm method="post" action="AddScheduleWeb">
             <table border=”1″>
                 <font size=”3″>Add Batch Schedule</font>
-                <tr><td>University</td>
+                <tr><td>Training Center</td>
                     <td>
-                        <select name="university">
+                        <select name="university" id="university" onchange="setLatLon(this.value);" class="form-control">
                             <%
                                 List<TrainingCenter> list2 = Operations.getTrainingCenterAll();
                                 for (TrainingCenter university : list2) {
@@ -68,10 +71,13 @@
                             <%
                                 }
                             %>
-
-                        </select></td></tr>
-                <tr><td>Trainer</td>
-                    <td><select name="trainer">
+                        </select>
+                    </td>
+                </tr>
+                <tr>
+                    <td>Trainer</td>
+                    <td>
+                        <select name="trainer">
                             <%
                                 List<Trainer> trainerList = Operations.getBatchTrainer();
                                 for (Trainer university : trainerList) {
@@ -80,10 +86,13 @@
                             <%
                                 }
                             %>                            
-                        </select></td>
+                        </select>
+                    </td>
                 </tr>
-                <tr><td>Batch Code</td>
-                    <td><select name="batchcode">
+                <tr>
+                    <td>Job Role</td>
+                    <td>
+                        <select name="batchcode">
                             <%
                                 List<BatchCodes> batchCodeList = Operations.getBatchCode();
                                 for (BatchCodes university : batchCodeList) {
@@ -92,8 +101,8 @@
                             <%
                                 }
                             %>
-
-                        </select></td>
+                        </select>
+                    </td>
                 </tr>
                 <tr>
                     <td>Schedule Date</td>
@@ -144,7 +153,6 @@
                             <option value="10">November</option>
                             <option value="11">December</option>
                         </select>
-
                         <select name="year">
                             <option>2017</option>
                             <option>2018</option>                            
@@ -169,7 +177,6 @@
                             <option>20</option>
                             <option>21</option>
                             <option>22</option>
-
                         </select>
                         <select name="startminute">
                             <option>0</option>                            
@@ -184,7 +191,8 @@
                             <option>45</option>
                             <option>50</option>
                             <option>55</option>
-                        </select> End: <select name="endhour">
+                        </select> 
+                        End: <select name="endhour">
                             <option>8</option>
                             <option>9</option>
                             <option>10</option>
@@ -200,7 +208,6 @@
                             <option>20</option>
                             <option>21</option>
                             <option>22</option>
-
                         </select>
                         <select name="endminute">
                             <option>0</option>                            
@@ -216,7 +223,6 @@
                             <option>50</option>
                             <option>55</option>
                         </select>
-
                     </td>
                 </tr>
                 <tr>
@@ -224,25 +230,43 @@
                         Days
                     </td>
                     <td>
-                        <table><tr><td>Day1 &nbsp;<input type="checkbox" name="day1" value="0"></td> 
+                        <table>
+                            <tr>
+                                <td>Day1 &nbsp;<input type="checkbox" name="day1" value="0"></td> 
                                 <td>Day2 &nbsp;<input type="checkbox" name="day2" value="1"></td> 
                                 <td>Day3 &nbsp;<input type="checkbox" name="day3" value="2"> </td>
                                 <td>Day4 &nbsp;<input type="checkbox" name="day4" value="3"> </td>
-                            </tr><tr> <td>Day5 &nbsp;<input type="checkbox" name="day5" value="4"></td> 
+                            </tr>
+                            <tr> 
+                                <td>Day5 &nbsp;<input type="checkbox" name="day5" value="4"></td> 
                                 <td>Day6 &nbsp;<input type="checkbox" name="day6" value="5"> </td>
                                 <td>Day7 &nbsp;<input type="checkbox" name="day7" value="6"> </td>
                                 <td>Day8 &nbsp;<input type="checkbox" name="day8" value="7"> </td>
-                            </tr><tr><td>Day9 &nbsp;<input type="checkbox" name="day9" value="8"> </td>
+                            </tr>
+                            <tr>
+                                <td>Day9 &nbsp;<input type="checkbox" name="day9" value="8"> </td>
                                 <td>Day10<input type="checkbox" name="day10" value="9"> </td>
                                 <td>Day11<input type="checkbox" name="day11" value="10"> </td>
                                 <td>Day12<input type="checkbox" name="day12" value="11"></td> 
-                            </tr><tr> <td>Day13<input type="checkbox" name="day13" value="12"></td> 
+                            </tr>
+                            <tr> 
+                                <td>Day13<input type="checkbox" name="day13" value="12"></td> 
                                 <td>Day14<input type="checkbox" name="day14" value="13"></td> 
                                 <td>Day15<input type="checkbox" name="day15" value="14"></td> 
                                 <td> Day16<input type="checkbox" name="day16" value="15"></td>
-                                </td></tr></table>
+                                </td>
+                            </tr>
+                        </table>
+                    </td>
                 </tr>
-                <tr><td></td><TD> <input type="submit" value="Add"> 
+                <input type="text" name="lat" id="lat" hidden="">
+                <input type="text" name="lon" id="lon" hidden="">
+                <tr>
+                    <td>
+
+                    </td>
+                    <TD> 
+                        <input type="submit" value="Add"> 
                         <!--<BUTTON type=button value=save name=cmdsave onclick=”save()” >Add</BUTTON>-->
                         <input type="reset" value="Cancel"></form>
                         <form action="editBatchCode.jsp"><input type="submit" value="Edit"></form>
@@ -253,15 +277,14 @@
                 <% List<BatchSchedule> batchScheduleList = Operations.getBatchSchedule();
                     for (BatchSchedule u1 : batchScheduleList) {
                         //if((request.getParameter(“cbousername")!=null)&&(request.getParameter(“cbousername").trim().equalsIgnoreCase(u1.getUserID().trim()))){
-%><tr> <td><%=u1.getStatus()%></td>
-                    <td><%=u1.getBatchcode()%> </td>                
-
+%>
+                <tr> 
+                    <td><%=u1.getStatus()%></td>
+                    <td><%=u1.getBatchcode()%> </td>  
                     <td><%=u1.getTrainer()%></td>
-
                     <td><%=u1.getDate().get(Calendar.DATE) + "-" + (u1.getDate().get(Calendar.MONTH) + 1) + "-" + u1.getDate().get(Calendar.YEAR) + " " + u1.getDate().get(Calendar.HOUR_OF_DAY) + ":" + u1.getDate().get(Calendar.MINUTE)%></td>
                     <td><%=u1.getTill().get(Calendar.DATE) + "-" + (u1.getTill().get(Calendar.MONTH) + 1) + "-" + u1.getTill().get(Calendar.YEAR) + " " + u1.getTill().get(Calendar.HOUR_OF_DAY) + ":" + u1.getTill().get(Calendar.MINUTE)%></td>
-                    <td><%=u1.getUniversity()%></td><!--<td><%=u1.getTill()%></td>-->
-
+                    <td><%=u1.getUniversity()%></td>                    
                 </tr>
                 <%}
                 %>
@@ -279,6 +302,6 @@
                      */
                 %>
             </table>
-
-    </center></body>
+    </center>
+</body>
 </html>

@@ -13,48 +13,273 @@
     <head>
         <meta http-equiv=”Content-Type” content=”text/html; charset=ISO-8859-1″>
         <title>Add Batch</title>
-        <script type=”text/javascript”>
-            function ValidateForm()
-                    {
-
-                    if (document.frm.userName.value == ””)
-                            {
-                            alert(“Please Enter User Name “);
-                            return false;
-                            }
-                    if (document.frm.userAge.value == ””)
-                            {
-                            alert(“Please Enter Age”);
-                            return false;
-                            }
-                    if (document.frm.usercellNO.value == ””)
-                            {
-                            alert(“Please Enter Cell No”);
-                            return false;
-                            }
-                    if (document.frm.userAddress.value == ””)
-                            {
-                            alert(“Please Enter Address “);
-                            return false;
-                            }
-
+        <script>
+            function comfirmPassword() {
+                var x = document.getElementById("password");
+                var y = document.getElementById("cpassword");
+                if (x == y) {
                     return true;
-                    }
-            function save(){
-
-            if (!ValidateForm()) return; {
-            document.frm.action = "AddBatchCode";
-            document.frm.submit();
+                } else {
+                    return false;
+                }
             }
+            function validateForm() {
+                var msg = "";
+                var name = document.forms["registerForm"]["name"].value;
+                var username = document.forms["registerForm"]["username"].value;
+                var qualification = document.forms["registerForm"]["qualification"].value;
+                var jobrole = document.forms["registerForm"]["jobrile"].value;
+                var experience = document.forms["registerForm"]["experience"].value;
+                var mobile = document.forms["registerForm"]["mobile"].value;
+                var skype = document.forms["registerForm"]["skype"].value;
+                var emailid = document.forms["registerForm"]["emailid"].value;
+                if (emailid === "") {
+                    msg += "No Email given";
+                    return false;
+                }
+                if (experience === "") {
+                    msg += "No Experience given";
+                    return false;
+                }
+                if (mobile === "") {
+                    msg += "No Mobile/Contact Number given";
+                    return false;
+                }
+                if (skype === "") {
+                    msg += "No Skype ID given";
+                    return false;
+                }
+                if (qualification === "") {
+                    msg += "No Qualification given";
+                    return false;
+                }
+                if (jobrole === "") {
+                    msg += "No Job Role given";
+                    return false;
+                }
+                if (name === "") {
+                    msg += "No Blank Name allowed";
+                    return false;
+                }
+                if (username === "") {
+                    msg += "No Blank UserName allowed";
+                    return false;
+                }
+                if (comfirmPassword()) {
+                    msg += "No matching Password";
+                    return false;
+                }
+                if (m !== "") {
+                    alert(msg)
+                    return true;
+                }
+
+            }
+
+            function Get(yourUrl) {
+                var Httpreq = new XMLHttpRequest(); // a new request
+                Httpreq.open("GET", yourUrl, false);
+                Httpreq.send(null);
+                return Httpreq.responseText;
+            }
+            function getJSON(url) {
+                alert("Going to connect");
+                var json_obj = JSON.parse(Get(url));
+                alert("i received JSON" + json_obj);
+//console.log("this is the author name: "+json_obj.author_name);
+            }
+            function jsFunction(value)
+            {alert("Welcome");
+                var dist = document.getElementById("district1");
+                var xmlhttp;
+                //var keys = document.dummy.sele.value
+                var urls = "http://192.168.1.24:8282/nsdc/GetDistrictByState?state=" + value;
+                if (window.XMLHttpRequest)
+                {// code for IE7+, Firefox, Chrome, Opera, Safari
+
+                    xmlhttp = new XMLHttpRequest();
+                } else
+                {// code for IE6, IE5
+                    alert("HTTP Request is false " + value);
+                    xmlhttp = new ActiveXObject("Microsoft.XMLHTTP");
+                }
+                xmlhttp.onreadystatechange = function ()
+                {
+                    if (xmlhttp.readyState === 4 && this.status === 200)
+                    {
+                        // myFunction(this);
+                        var some = xmlhttp.responseXML.documentElement;
+                        if (some === null) {
+                            alert("Result Null");
+                        } else {
+                            alert("Not Null");
+                        }
+                        document.getElementById("a").innerHTML = some.getElementsByTagName("districts")[0].childNodes[0].nodeValue;
+//                        //document.getElementById("b").innerHTML = some.getElementsByTagName("empname")[0].childNodes[0].nodeValue;
+                        // document.getElementById("c").innerHTML = some.getElementsByTagName("empaddr")[0].childNodes[0].nodeValue;
+                    }
+                }
+                xmlhttp.open("GET", urls, true);
+                alert("Request Done " + urls)
+                xmlhttp.send();
+//                document.getElementById("demo").innerHTML = document.getElementById("district").value;
+//                document.getElementById("demo").innerHTML += document.getElementById("district").length;
+//                List < Districts > list = Operations.getDistrict(value);
+//                        list.get
+
+            }
+            myFunction(xmldata){
+                var x, i, txt, xmldoc;
+                xmldoc = xmldata.responseXML;
+                txt = "";
+                x = xmldoc.getElementByTagName("districts");
+                document.write(x);
+                for (i = 0; i < x.length; i++) {
+                    txt += x[i].childNodes[0].nodeValue + "<br>";
+                }
+                document.write(txt)
+            }
+            function removeOption() {
+                var x = document.getElementById("mySelect");
+                x.remove(x.selectedIndex);
+            }
+        </script>
+        <script>
+            function downloadJSON1(value) {               
+                var xmlhttp = new XMLHttpRequest();
+                var url = "http://localhost:8282/nsdc/GetDistrictByState?state=" + value;
+                xmlhttp.onreadystatechange = function () {
+                    if (this.readyState === 4 && this.status === 200) {
+                        var myArr = JSON.parse(this.responseText);
+                        displayData1(myArr);
+                    }
+                };
+                xmlhttp.open("GET", url, true);
+                xmlhttp.send();
+            }
+            function displayData1(arr) {
+                var select = document.getElementById("district1");
+                var y = select.length;
+                var limit = y * 2;
+                // alert(y + " " + limit);
+                for (var x = 0; x < limit; x++) {
+                    //document.write(x);
+                    select.remove(x);
+                    // select.removeChild(select.[]);
+                    //select.removeChild(select.firstChild);
+                }
+                //}
+                var out = "";
+                var i;
+                for (i = 0; i < arr.length; i++) {
+                    var option = document.createElement('option');
+                    option.text = option.value = arr[i].district;
+                    select.add(option, 0);
+                }
+
+            }
+            function downloadJSON(value) {
+                var xmlhttp = new XMLHttpRequest();
+                var url = "http://localhost:8282/nsdc/ServeJobRole?qp_code=" + value;
+                xmlhttp.onreadystatechange = function () {
+                    if (this.readyState === 4 && this.status === 200) {
+                        var myArr = JSON.parse(this.responseText);
+                        document.getElementById("ssc1").value = myArr.ssc;
+                        document.getElementById("jobrole").value = myArr.name;
+                        //displayData(myArr);
+                    }
+                };
+                xmlhttp.open("GET", url, true);
+                xmlhttp.send();
+            }
+
+            function addJobrole() {
+                var listToPrepare = document.getElementById("afjobrole");
+                var listToGet = document.getElementById("jobrole").value;
+                var option = document.createElement('option');
+                option.text = option.value = listToGet;
+                listToPrepare.add(option, 0);
+            }
+            function removeJobrole() {
+                var toBeRemove = document.getElementById("afjobrole");
+                var index = toBeRemove.selectedIndex;
+                toBeRemove.removeChild(toBeRemove[index]);
+            }
+            function downloadJSON2(value) {
+                var xmlhttp = new XMLHttpRequest();
+                var url = "http://localhost:8282/nsdc/ServeJobRoleBySSC?ssc=" + value;
+                //  var url = "http://localhost:8282/nsdc/GetDistrictByState?state="+value;
+                xmlhttp.onreadystatechange = function () {
+                    if (this.readyState == 4 && this.status == 200) {
+                        var myArr = JSON.parse(this.responseText);
+                        displayData2(myArr);
+                    }
+                };
+                xmlhttp.open("GET", url, true);
+                xmlhttp.send();
+            }
+            function displayData2(arr) {
+                var select = document.getElementById("jobrole");
+                var y = select.length;
+                var limit = y * 2;
+                //alert(y+" "+limit);
+                for (var x = 0; x < limit; x++) {
+                    //document.write(x);
+                    select.remove(x);
+                    // select.removeChild(select.[]);
+                    //select.removeChild(select.firstChild);
+                }
+                //}
+                var out = "";
+                var i;
+                for (i = 0; i < arr.length; i++) {
+                    var option = document.createElement('option');
+                    option.text = option.value = arr[i].qp_code + "@" + arr[i].name;
+                    select.add(option, 0);
+                }
+
+            }
+
+        </script>
+        <script>
+            function copywhatsapp() {
+                var mobile = document.getElementById("mobile").value;
+                document.getElementById("txtwhatsapp").value = mobile;
+            }
+            function hideWhatsApp() {
+               
+                if (document.getElementById("whatsapp").checked) {
+                     //alert("What app checked");
+                     document.getElementById("txtwhatsapp").style.visibility = 'visible';
+                } else {//alert("What app not checked");
+                 
+                     document.getElementById("txtwhatsapp").style.visibility = 'hidden';
+                   
+                }    
+            }
+            function enableWhatsApp() {
+
+                if (document.getElementById("whatsapp").checked)
+                    document.getElementById("txtwhatsapp").disabled = false;
+                else
+                    document.getElementById("txtwhatsapp").disabled = true;
+//                
+//                document.getElementById("field07").setAttribute("disabled", false);
+//                if (document.getElementById("whatsapp").checked === true) {
+//                    document.getElementById("txtwhatsapp").disabled = false;
+//                } else {
+//                    document.getElementById("txtwhatsapp").disabled = true;
+//                }
+
             }
         </script>
     </head>
     <body><center>
-        <form name=frm method="post" action="AddBatchCode">
+        <form name=frm method="post" action="AddBatch">
             <table border=”1″>
                 <font size=”3″>Add Batch</font>
                 <tr><td>State</td>
-                    <td><select class="form-control" name="state" onchange="jsFunction(this.value);">
+                    <td><select class="form-control" name="state" onchange="downloadJSON1(this.value);">
                                 <option value="AN">Andaman and Nicobar</option>
                                 <option value="AP">Andhra Pradesh</option>
                                 <option value="AR">Arunachal Pradesh</option>
@@ -94,17 +319,41 @@
                         <a href="addDistrict.jsp">Add District</a>
                     </td>
                 </tr>
-                <tr><td>District</td>
-                    <td><INPUT  type=”text” name="district" value="" size=”24″></td>
+                 <tr>
+                        <td>District</td>
+                        <td><select class="form-control" name="district" id="district1">
+
+                            </select></td>
+                    </tr>
+                    <tr><td>Training Center ID(Smart)</td>
+                    <td><INPUT type=”text” name="smarttcid" value="" size=”24″></td>
                 </tr>
-                <tr><td>Training Center</td>
-                    <td><INPUT type=”text” name="tariningcenter" value="" size=”24″></td>
+                <tr><td>Training Center Name</td>
+                    <td><INPUT type=”text” name="tariningcentername" value="" size=”24″></td>
+                </tr>
+                <tr><td>SSC</td>
+                    <td><INPUT type=”text” name="ssc" value="" size=”24″></td>
                 </tr>
                 <tr><td>Job Role</td>
                     <td><INPUT type=”text” name="jobrole" value="" size=”24″></td>
                 </tr>
+                <tr><td>QP Code</td>
+                    <td><INPUT type=”text” name="qpcode" value="" size=”24″></td>
+                </tr>
                 <tr><td>Trainer</td>
                     <td><INPUT type=”text” name="trainer" value="" size=”24″></td>
+                </tr>
+                <tr><td>Trainer Contact (If any other)</td>
+                    <td><INPUT type="text" name="trainercontact" value="" size=”24″></td>
+                </tr>
+                <tr><td>Number of Students(Initialy)</td>
+                    <td><INPUT type="number" name="initstudents" value="" size=”24″></td>
+                </tr>
+                <tr><td>Students on Date</td>
+                    <td><INPUT type="number" name="ondatestudents" value="" size=”24″></td>
+                </tr>
+                <tr><td>Completed Hours</td>
+                    <td><INPUT type="number" name="completedhour" value="" size=”24″></td>
                 </tr>
                 <tr><td></td><TD> <input type="submit" value="Add"> 
                         <!--<BUTTON type=button value=save name=cmdsave onclick=”save()” >Add</BUTTON>-->

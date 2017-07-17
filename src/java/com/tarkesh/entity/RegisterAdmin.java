@@ -23,7 +23,31 @@ public class RegisterAdmin implements Serializable {
     @Id
     @GeneratedValue(strategy = GenerationType.AUTO)
     private Long id;
-    private String username,password, fName,lName, emailid,state,district,comapanyName,designation,usertype;
+    private String username,password, fName,lName, emailid,state,district,comapanyName,designation,usertype,skype,whatsapp,mobile;
+
+    public String getMobile() {
+        return mobile;
+    }
+
+    public void setMobile(String mobile) {
+        this.mobile = mobile;
+    }
+
+    public String getSkype() {
+        return skype;
+    }
+
+    public void setSkype(String skype) {
+        this.skype = skype;
+    }
+
+    public String getWhatsapp() {
+        return whatsapp;
+    }
+
+    public void setWhatsapp(String whatsapp) {
+        this.whatsapp = whatsapp;
+    }
 
     @Override
     public String toString() {

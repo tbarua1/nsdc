@@ -5,7 +5,6 @@
  */
 package com.tarkesh.trainer;
 
-import com.tarkesh.entity.RegisterTrainer;
 import com.tarkesh.entity.Trainer;
 import com.tarkesh.operation.Operations;
 import java.io.IOException;
@@ -16,6 +15,7 @@ import javax.servlet.annotation.WebServlet;
 import javax.servlet.http.HttpServlet;
 import javax.servlet.http.HttpServletRequest;
 import javax.servlet.http.HttpServletResponse;
+import org.codehaus.jackson.map.ObjectMapper;
 
 /**
  *
@@ -39,15 +39,9 @@ public class AddTrainer extends HttpServlet {
         trainer.setState(request.getParameter("state"));
         trainer.setDistrict(request.getParameter("district"));
         trainer.setQualification(request.getParameter("qualification"));
-        String[] parameterValues = request.getParameterValues("afjobrole1");
-        StringBuilder builder=new StringBuilder();
-        for(String s:parameterValues){
-            builder.append(s+"\n");
-            System.out.println(""+s);
-        }
-        System.out.println("we Are Builder "+builder);
+        String[] parameterValues = request.getParameterValues("afjobrole11");       
         trainer.setRegisteredDate(new Date());
-        trainer.setTotQualification(builder.toString());
+        trainer.setTotQualification(new ObjectMapper().writeValueAsString(parameterValues));
         trainer.setMobile(request.getParameter("mobile"));
         trainer.setWhatsapp(request.getParameter("txtwhatsapp"));
         trainer.setExperience(request.getParameter("experience"));
