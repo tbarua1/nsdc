@@ -4,6 +4,7 @@
     Author     : data1
 --%>
 
+<%@page import="org.codehaus.jackson.map.ObjectMapper"%>
 <%@page import="com.tarkesh.entity.TrainingCenter"%>
 <%@page import="java.util.Calendar"%>
 <%@page import="com.tarkesh.entity.BatchSchedule"%>
@@ -85,64 +86,90 @@
         select.add(option, 0);
         }
         }
+        function downloadJSON2() {
+        var xmlhttp = new XMLHttpRequest();
+        var trainercombo = document.getElementById("trainer1");
+        var url = "http://localhost:8282/nsdc/getTrainerByDistrict?district=" + document.getElementById("district").value;
+        xmlhttp.onreadystatechange = function () {
+        if (this.readyState == 4 && this.status == 200) {
+        var myArr = JSON.parse(this.responseText);
+        /*for (i = 0; i < arr.length; i++) {
+         var option = document.createElement('option');
+         option.text = option.value = arr[i].district;
+         select.add(option, 0);
+         }*/
+        for (var i = 0; i < myArr.length; i++){
+        var option = document.createElement('option');
+        option.text = option.value = myArr[i].name;
+        trainercombo.add(option, 0);
+        }
+        }
+        };
+        xmlhttp.open("GET", url, true);
+        xmlhttp.send();
+        }
+        function printDays(value){
+        document.getElementById("dday1").innerHTML = "Day "+parseInt(value);
+        document.getElementById("dday2").innerHTML = "Day "+(parseInt(value)+1);
+        document.getElementById("dday3").innerHTML = "Day "+(parseInt(value)+2);
+        document.getElementById("dday4").innerHTML = "Day "+(parseInt(value)+3);
+        document.getElementById("dday5").innerHTML = "Day "+(parseInt(value)+4);
+        document.getElementById("dday6").innerHTML = "Day "+(parseInt(value)+5);
+        document.getElementById("dday7").innerHTML = "Day "+(parseInt(value)+6);
+        document.getElementById("dday8").innerHTML = "Day "+(parseInt(value)+7);
+        document.getElementById("dday9").innerHTML = "Day "+(parseInt(value)+8);
+        document.getElementById("dday10").innerHTML = "Day "+(parseInt(value)+9);
+        document.getElementById("dday11").innerHTML = "Day "+(parseInt(value)+10);
+        document.getElementById("dday12").innerHTML = "Day "+(parseInt(value)+11);
+        document.getElementById("dday13").innerHTML = "Day "+(parseInt(value)+12);
+        document.getElementById("dday14").innerHTML = "Day "+(parseInt(value)+13);
+        document.getElementById("dday15").innerHTML = "Day "+(parseInt(value)+14);
+        document.getElementById("dday16").innerHTML = "Day "+(parseInt(value)+15);    
+    }
     </script>
-    <body><center>
+    <body onload="downloadJSON2();"><center>
         <form name=frm method="post" action="AddScheduleWeb">
             <table border=”1″>
+                <%List<TrainingCenter> loginCheckAdmin = (List<TrainingCenter>) session.getAttribute("informationTC");
+                   TrainingCenter data= loginCheckAdmin.get(0);
+                    session.getAttribute("usertype");
+                %>
+                <input type="text" name="district" id="district" value="<%=data.getDistrict()%>">
                 <font size=”3″>Add Batch Schedule</font>
-                <tr><td>Training Center</td>
-                    <td>
-                        <select name="university" id="university" onchange="setLatLon(this.value);" class="form-control">
-                            <%
-                                List<TrainingCenter> list2 = Operations.getTrainingCenterAll();
-                                for (TrainingCenter university : list2) {
-                            %>
-                            <option value="<%=university.getName()%>"><%=university.getName()%></option>
-                            <%
-                                }
-                            %>
-                        </select>
-                    </td>
-                </tr>
-                 <tr><td>Batches to Schedule</td>
-                    <td>
-                        <select name="batches" id="batches"></select>
-                        <!--<INPUT type=”text” name="smarttcid" value="" size=”24″>-->
-                    </td>
-                </tr>
                 <tr>
                     <td>Trainer</td>
                     <td>
-                        <select name="trainer">
-                            <%
-                                List<Trainer> trainerList = Operations.getBatchTrainer();
-                                for (Trainer university : trainerList) {
-                            %>
-                            <option value="<%=university.getName()%>"><%=university.getName()%></option>
-                            <%
-                                }
-                            %>                            
+                        <select name="trainer1" id="trainer1">                                                        
                         </select>
                     </td>
                 </tr>
                 <tr>
-                    <td>Job Role</td>
+                    <td>Job Role Qualification(TOT)</td>
                     <td>
-                        <select name="batchcode">
+                        <select name="qpcode" onchange="downloadJSON2(this.value);" id="ssc">
                             <%
-                                List<BatchCodes> batchCodeList = Operations.getBatchCode();
-                                for (BatchCodes university : batchCodeList) {
-                            %>
-                            <option value="<%=university.getBatchCode()%>"><%=university.getBatchCode()%></option>
+                                String sscList = data.getQpcode();
+                                String[] s = new ObjectMapper().readValue(sscList,String[].class);
+                                for (String sss : s) {
+                            %><option value="<%=sss%>"><%=sss%></option>
                             <%
                                 }
-                            %>
-                        </select>
-                    </td>
+                            %>   
+                        </select><br>
+
+
+                </tr>
+                <tr>
+                    <td><label class="label-control-a">SSC Code</label></td>
+                    <td><input type="text" name="ssc" class="form-control" placeholder="Qualification" id="sssc" readonly=""></td>
+                </tr>
+                <tr>
+                    <td><label class="label-control-a">Affiliated Job Role</label></td>
+                    <td><input type="text" name="afjobrole" class="form-control" placeholder="Qualification" id="afjobrole" readonly=""></td>
                 </tr>
                 <tr>
                     <td>Schedule Date</td>
-                    <td><select name="day">
+                    <td><select name="day" onchange="printDays(this.value)">
                             <option>1</option>
                             <option>2</option>
                             <option>3</option>
@@ -268,28 +295,26 @@
                     <td>
                         <table>
                             <tr>
-                                <td>Day1 &nbsp;<input type="checkbox" name="day1" value="0"></td> 
-                                <td>Day2 &nbsp;<input type="checkbox" name="day2" value="1"></td> 
-                                <td>Day3 &nbsp;<input type="checkbox" name="day3" value="2"> </td>
-                                <td>Day4 &nbsp;<input type="checkbox" name="day4" value="3"> </td>
-                            </tr>
-                            <tr> 
-                                <td>Day5 &nbsp;<input type="checkbox" name="day5" value="4"></td> 
-                                <td>Day6 &nbsp;<input type="checkbox" name="day6" value="5"> </td>
-                                <td>Day7 &nbsp;<input type="checkbox" name="day7" value="6"> </td>
-                                <td>Day8 &nbsp;<input type="checkbox" name="day8" value="7"> </td>
+                                <td><p id="dday1">Day 1</p><input type="checkbox" name="day1" value="0"></td> 
+                                <td><p id="dday2">Day 2</p><input type="checkbox" name="day2" value="1"></td> 
+                                <td><p id="dday3">Day 3</p><input type="checkbox" name="day3" value="2"> </td>
+                                <td><p id="dday4">Day 4</p><input type="checkbox" name="day4" value="3"> </td>
+                           
+                                <td><p id="dday5">Day 5</p><input type="checkbox" name="day5" value="4"></td> 
+                                <td><p id="dday6">Day 6</p><input type="checkbox" name="day6" value="5"> </td>
+                                <td><p id="dday7">Day 7</p><input type="checkbox" name="day7" value="6"> </td>
+                                <td><p id="dday8">Day 8</p><input type="checkbox" name="day8" value="7"> </td>
                             </tr>
                             <tr>
-                                <td>Day9 &nbsp;<input type="checkbox" name="day9" value="8"> </td>
-                                <td>Day10<input type="checkbox" name="day10" value="9"> </td>
-                                <td>Day11<input type="checkbox" name="day11" value="10"> </td>
-                                <td>Day12<input type="checkbox" name="day12" value="11"></td> 
-                            </tr>
-                            <tr> 
-                                <td>Day13<input type="checkbox" name="day13" value="12"></td> 
-                                <td>Day14<input type="checkbox" name="day14" value="13"></td> 
-                                <td>Day15<input type="checkbox" name="day15" value="14"></td> 
-                                <td> Day16<input type="checkbox" name="day16" value="15"></td>
+                                <td><p id="dday9">Day 9</p><input type="checkbox" name="day9" value="8"> </td>
+                                <td><p id="dday10">Day 10</p><input type="checkbox" name="day10" value="9"> </td>
+                                <td><p id="dday11">Day 11</p><input type="checkbox" name="day11" value="10"> </td>
+                                <td><p id="dday12">Day 12</p><input type="checkbox" name="day12" value="11"></td> 
+                           
+                                <td><p id="dday13">Day 13</p><input type="checkbox" name="day13" value="12"></td> 
+                                <td><p id="dday14">Day 14</p><input type="checkbox" name="day14" value="13"></td> 
+                                <td><p id="dday15">Day 15</p><input type="checkbox" name="day15" value="14"></td> 
+                                <td><p id="dday16">Day 16</p><input type="checkbox" name="day16" value="15"></td>
                                 </td>
                             </tr>
                         </table>

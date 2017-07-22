@@ -95,7 +95,7 @@
             }
         </style>      
         <div id="left">
-            <a href="addBatchCode.jsp" target="iframe_a">Create TP</a><br>
+            <a href="addTrainingPartner.jsp" target="iframe_a">Create TP</a><br>
             <a href="addTrainingCenter.jsp" target="iframe_a">Create TC</a><br>
             <a href="addAdmin.jsp" target="iframe_a">Create Administrator </a><br>            
             <a href="addTrainer.jsp" target="iframe_a">Create Trainer</a><br>
@@ -104,6 +104,7 @@
             <a href="addDistrict.jsp" target="iframe_a">Add District</a>  <br>
             <a href="addJobRole.jsp" target="iframe_a">Add Job Role</a>  </br>
             <a href="register.jsp" target="iframe_a">Common Register</a>  <br>
+            <a href="ListTrainingPartner" target="iframe_a">List Training Partner</a>  <br>
             <!--            <a href="admin.html" target="iframe_a">Admin App Download</a><br>   
                          <a href="DAR.jsp" target="iframe_a">Daily Activity Report</a><br>  
                          <a href="TodayReport" target="iframe_a">Today Report</a><br>  -->

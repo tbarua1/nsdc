@@ -27,45 +27,139 @@ public class TrainingCenter implements Serializable {
     @Id
     @GeneratedValue(strategy = GenerationType.AUTO)
     private Long id;
-    private String name, university_type, nameSPOC, contactSPOC;
-    private String buildingNo, streetNo, locality, city, district, state, username, password, usertype;
+    private String name,nameSPOC, contactSPOC,buildingNo, 
+            streetNo, locality, city, district, state, username, password, 
+            usertype,creator,jobrole,ssc,qpcode,tpsmartid;
     private Integer pin;
     @Temporal(TemporalType.TIMESTAMP)
-    private Date rdate;
-    //@OneToMany(cascade = CascadeType.ALL)
-    private String jobrole;
+    private Date rdate;   
     private double latitude, longitude;
 
-    public String getJobrole() {
-        return jobrole;
+    public String getTpsmartid() {
+        return tpsmartid;
     }
 
-    public void setJobrole(String jobrole) {
-        this.jobrole = jobrole;
+    public void setTpsmartid(String tpsmartid) {
+        this.tpsmartid = tpsmartid;
     }
 
-    public String getUsername() {
-        return username;
+    public String getSsc() {
+        return ssc;
     }
 
-    public void setUsername(String username) {
-        this.username = username;
+    public void setSsc(String ssc) {
+        this.ssc = ssc;
     }
 
-    public String getPassword() {
-        return password;
+    public String getQpcode() {
+        return qpcode;
     }
 
-    public void setPassword(String password) {
-        this.password = password;
+    public void setQpcode(String qpcode) {
+        this.qpcode = qpcode;
     }
 
-    public String getUsertype() {
-        return usertype;
+    @Override
+    public String toString() {
+        return "TrainingCenter{" + "id=" + id + ", name=" + name + ", university_type=, nameSPOC=" + nameSPOC + ", contactSPOC=" + contactSPOC + ", buildingNo=" + buildingNo + ", streetNo=" + streetNo + ", locality=" + locality + ", city=" + city + ", district=" + district + ", state=" + state + ", username=" + username + ", password=" + password + ", usertype=" + usertype + ", creator=" + creator + ", jobrole=" + jobrole + ", pin=" + pin + ", rdate=" + rdate + ", latitude=" + latitude + ", longitude=" + longitude + '}';
     }
 
-    public void setUsertype(String usertype) {
-        this.usertype = usertype;
+    @Override
+    public int hashCode() {
+        int hash = 7;
+        hash = 41 * hash + Objects.hashCode(this.id);
+        hash = 41 * hash + Objects.hashCode(this.name);
+        hash = 41 * hash + Objects.hashCode(this.nameSPOC);
+        hash = 41 * hash + Objects.hashCode(this.contactSPOC);
+        hash = 41 * hash + Objects.hashCode(this.buildingNo);
+        hash = 41 * hash + Objects.hashCode(this.streetNo);
+        hash = 41 * hash + Objects.hashCode(this.locality);
+        hash = 41 * hash + Objects.hashCode(this.city);
+        hash = 41 * hash + Objects.hashCode(this.district);
+        hash = 41 * hash + Objects.hashCode(this.state);
+        hash = 41 * hash + Objects.hashCode(this.username);
+        hash = 41 * hash + Objects.hashCode(this.password);
+        hash = 41 * hash + Objects.hashCode(this.usertype);
+        hash = 41 * hash + Objects.hashCode(this.creator);
+        hash = 41 * hash + Objects.hashCode(this.jobrole);
+        hash = 41 * hash + Objects.hashCode(this.pin);
+        hash = 41 * hash + Objects.hashCode(this.rdate);
+        hash = 41 * hash + (int) (Double.doubleToLongBits(this.latitude) ^ (Double.doubleToLongBits(this.latitude) >>> 32));
+        hash = 41 * hash + (int) (Double.doubleToLongBits(this.longitude) ^ (Double.doubleToLongBits(this.longitude) >>> 32));
+        return hash;
+    }
+
+    @Override
+    public boolean equals(Object obj) {
+        if (this == obj) {
+            return true;
+        }
+        if (obj == null) {
+            return false;
+        }
+        if (getClass() != obj.getClass()) {
+            return false;
+        }
+        final TrainingCenter other = (TrainingCenter) obj;
+        if (Double.doubleToLongBits(this.latitude) != Double.doubleToLongBits(other.latitude)) {
+            return false;
+        }
+        if (Double.doubleToLongBits(this.longitude) != Double.doubleToLongBits(other.longitude)) {
+            return false;
+        }
+        if (!Objects.equals(this.name, other.name)) {
+            return false;
+        }
+        
+        if (!Objects.equals(this.nameSPOC, other.nameSPOC)) {
+            return false;
+        }
+        if (!Objects.equals(this.contactSPOC, other.contactSPOC)) {
+            return false;
+        }
+        if (!Objects.equals(this.buildingNo, other.buildingNo)) {
+            return false;
+        }
+        if (!Objects.equals(this.streetNo, other.streetNo)) {
+            return false;
+        }
+        if (!Objects.equals(this.locality, other.locality)) {
+            return false;
+        }
+        if (!Objects.equals(this.city, other.city)) {
+            return false;
+        }
+        if (!Objects.equals(this.district, other.district)) {
+            return false;
+        }
+        if (!Objects.equals(this.state, other.state)) {
+            return false;
+        }
+        if (!Objects.equals(this.username, other.username)) {
+            return false;
+        }
+        if (!Objects.equals(this.password, other.password)) {
+            return false;
+        }
+        if (!Objects.equals(this.usertype, other.usertype)) {
+            return false;
+        }
+        if (!Objects.equals(this.creator, other.creator)) {
+            return false;
+        }
+        if (!Objects.equals(this.jobrole, other.jobrole)) {
+            return false;
+        }
+        if (!Objects.equals(this.id, other.id)) {
+            return false;
+        }
+        if (!Objects.equals(this.pin, other.pin)) {
+            return false;
+        }
+        if (!Objects.equals(this.rdate, other.rdate)) {
+            return false;
+        }
+        return true;
     }
 
     public Long getId() {
@@ -83,16 +177,7 @@ public class TrainingCenter implements Serializable {
     public void setName(String name) {
         this.name = name;
     }
-
-    public String getUniversity_type() {
-        return university_type;
-    }
-
-    public void setUniversity_type(String university_type) {
-        this.university_type = university_type;
-    }
-
-    public String getNameSPOC() {
+ public String getNameSPOC() {
         return nameSPOC;
     }
 
@@ -156,6 +241,46 @@ public class TrainingCenter implements Serializable {
         this.state = state;
     }
 
+    public String getUsername() {
+        return username;
+    }
+
+    public void setUsername(String username) {
+        this.username = username;
+    }
+
+    public String getPassword() {
+        return password;
+    }
+
+    public void setPassword(String password) {
+        this.password = password;
+    }
+
+    public String getUsertype() {
+        return usertype;
+    }
+
+    public void setUsertype(String usertype) {
+        this.usertype = usertype;
+    }
+
+    public String getCreator() {
+        return creator;
+    }
+
+    public void setCreator(String creator) {
+        this.creator = creator;
+    }
+
+    public String getJobrole() {
+        return jobrole;
+    }
+
+    public void setJobrole(String jobrole) {
+        this.jobrole = jobrole;
+    }
+
     public Integer getPin() {
         return pin;
     }
@@ -187,95 +312,5 @@ public class TrainingCenter implements Serializable {
     public void setLongitude(double longitude) {
         this.longitude = longitude;
     }
-
-    @Override
-    public int hashCode() {
-        int hash = 5;
-        hash = 67 * hash + Objects.hashCode(this.id);
-        hash = 67 * hash + Objects.hashCode(this.name);
-        hash = 67 * hash + Objects.hashCode(this.university_type);
-        hash = 67 * hash + Objects.hashCode(this.nameSPOC);
-        hash = 67 * hash + Objects.hashCode(this.contactSPOC);
-        hash = 67 * hash + Objects.hashCode(this.buildingNo);
-        hash = 67 * hash + Objects.hashCode(this.streetNo);
-        hash = 67 * hash + Objects.hashCode(this.locality);
-        hash = 67 * hash + Objects.hashCode(this.city);
-        hash = 67 * hash + Objects.hashCode(this.district);
-        hash = 67 * hash + Objects.hashCode(this.state);
-        hash = 67 * hash + Objects.hashCode(this.pin);
-        hash = 67 * hash + Objects.hashCode(this.rdate);
-        // hash = 67 * hash + Objects.hashCode(this.jobrole);
-        hash = 67 * hash + (int) (Double.doubleToLongBits(this.latitude) ^ (Double.doubleToLongBits(this.latitude) >>> 32));
-        hash = 67 * hash + (int) (Double.doubleToLongBits(this.longitude) ^ (Double.doubleToLongBits(this.longitude) >>> 32));
-        return hash;
-    }
-
-    @Override
-    public boolean equals(Object obj) {
-        if (this == obj) {
-            return true;
-        }
-        if (obj == null) {
-            return false;
-        }
-        if (getClass() != obj.getClass()) {
-            return false;
-        }
-        final TrainingCenter other = (TrainingCenter) obj;
-        if (Double.doubleToLongBits(this.latitude) != Double.doubleToLongBits(other.latitude)) {
-            return false;
-        }
-        if (Double.doubleToLongBits(this.longitude) != Double.doubleToLongBits(other.longitude)) {
-            return false;
-        }
-        if (!Objects.equals(this.name, other.name)) {
-            return false;
-        }
-        if (!Objects.equals(this.university_type, other.university_type)) {
-            return false;
-        }
-        if (!Objects.equals(this.nameSPOC, other.nameSPOC)) {
-            return false;
-        }
-        if (!Objects.equals(this.contactSPOC, other.contactSPOC)) {
-            return false;
-        }
-        if (!Objects.equals(this.buildingNo, other.buildingNo)) {
-            return false;
-        }
-        if (!Objects.equals(this.streetNo, other.streetNo)) {
-            return false;
-        }
-        if (!Objects.equals(this.locality, other.locality)) {
-            return false;
-        }
-        if (!Objects.equals(this.city, other.city)) {
-            return false;
-        }
-        if (!Objects.equals(this.district, other.district)) {
-            return false;
-        }
-        if (!Objects.equals(this.state, other.state)) {
-            return false;
-        }
-        if (!Objects.equals(this.id, other.id)) {
-            return false;
-        }
-        if (!Objects.equals(this.pin, other.pin)) {
-            return false;
-        }
-        if (!Objects.equals(this.rdate, other.rdate)) {
-            return false;
-        }
-//        if (!Objects.equals(this.jobrole, other.jobrole)) {
-//            return false;
-//        }
-        return true;
-    }
-
-    @Override
-    public String toString() {
-        return "TrainingCenter{" + "id=" + id + ", name=" + name + ", university_type=" + university_type + ", nameSPOC=" + nameSPOC + ", contactSPOC=" + contactSPOC + ", buildingNo=" + buildingNo + ", streetNo=" + streetNo + ", locality=" + locality + ", city=" + city + ", district=" + district + ", state=" + state + ", pin=" + pin + ", rdate=" + rdate + ", jobrole=, latitude=" + latitude + ", longitude=" + longitude + '}';
-    }
-
+    
 }

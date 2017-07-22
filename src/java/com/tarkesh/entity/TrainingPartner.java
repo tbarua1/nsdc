@@ -6,11 +6,14 @@
 package com.tarkesh.entity;
 
 import java.io.Serializable;
+import java.util.Date;
 import java.util.Objects;
 import javax.persistence.Entity;
 import javax.persistence.GeneratedValue;
 import javax.persistence.GenerationType;
 import javax.persistence.Id;
+import javax.persistence.Temporal;
+import javax.persistence.TemporalType;
 
 /**
  *
@@ -23,44 +26,37 @@ public class TrainingPartner implements Serializable {
     @Id
     @GeneratedValue(strategy = GenerationType.AUTO)
     private Long id;
-    private String name, spocName, spocNumber, tp_smart_id,username,password,usertype,mobile,whatsapp,
-            skype,email,building,locality,city,state,district,pin,tpsmartid;   
-    //private Address address;
-
-    public String getTpsmartid() {
-        return tpsmartid;
-    }
-
-    public void setTpsmartid(String tpsmartid) {
-        this.tpsmartid = tpsmartid;
-    }
+    private String spocName, spocNumber,username,password,usertype,
+            whatsapp,email,building,locality,city,state,district,pin,
+            tpsmartid,creator;   
+    @Temporal(TemporalType.TIMESTAMP)
+    private Date registeredDate;
 
     @Override
     public String toString() {
-        return "TrainingPartner{" + "id=" + id + ", name=" + name + ", spocName=" + spocName + ", spocNumber=" + spocNumber + ", tp_smart_id=" + tp_smart_id + ", username=" + username + ", password=" + password + ", usertype=" + usertype + ", mobile=" + mobile + ", whatsapp=" + whatsapp + ", skype=" + skype + ", email=" + email + ", building=" + building + ", locality=" + locality + ", city=" + city + ", state=" + state + ", district=" + district + ", pin=" + pin + '}';
+        return "TrainingPartner{" + "id=" + id + ", spocName=" + spocName + ", spocNumber=" + spocNumber + ", username=" + username + ", password=" + password + ", usertype=" + usertype + ", whatsapp=" + whatsapp + ", email=" + email + ", building=" + building + ", locality=" + locality + ", city=" + city + ", state=" + state + ", district=" + district + ", pin=" + pin + ", tpsmartid=" + tpsmartid + ", creator=" + creator + ", registeredDate=" + registeredDate + '}';
     }
 
     @Override
     public int hashCode() {
-        int hash = 7;
-        hash = 83 * hash + Objects.hashCode(this.id);
-        hash = 83 * hash + Objects.hashCode(this.name);
-        hash = 83 * hash + Objects.hashCode(this.spocName);
-        hash = 83 * hash + Objects.hashCode(this.spocNumber);
-        hash = 83 * hash + Objects.hashCode(this.tp_smart_id);
-        hash = 83 * hash + Objects.hashCode(this.username);
-        hash = 83 * hash + Objects.hashCode(this.password);
-        hash = 83 * hash + Objects.hashCode(this.usertype);
-        hash = 83 * hash + Objects.hashCode(this.mobile);
-        hash = 83 * hash + Objects.hashCode(this.whatsapp);
-        hash = 83 * hash + Objects.hashCode(this.skype);
-        hash = 83 * hash + Objects.hashCode(this.email);
-        hash = 83 * hash + Objects.hashCode(this.building);
-        hash = 83 * hash + Objects.hashCode(this.locality);
-        hash = 83 * hash + Objects.hashCode(this.city);
-        hash = 83 * hash + Objects.hashCode(this.state);
-        hash = 83 * hash + Objects.hashCode(this.district);
-        hash = 83 * hash + Objects.hashCode(this.pin);
+        int hash = 3;
+        hash = 97 * hash + Objects.hashCode(this.id);
+        hash = 97 * hash + Objects.hashCode(this.spocName);
+        hash = 97 * hash + Objects.hashCode(this.spocNumber);
+        hash = 97 * hash + Objects.hashCode(this.username);
+        hash = 97 * hash + Objects.hashCode(this.password);
+        hash = 97 * hash + Objects.hashCode(this.usertype);
+        hash = 97 * hash + Objects.hashCode(this.whatsapp);
+        hash = 97 * hash + Objects.hashCode(this.email);
+        hash = 97 * hash + Objects.hashCode(this.building);
+        hash = 97 * hash + Objects.hashCode(this.locality);
+        hash = 97 * hash + Objects.hashCode(this.city);
+        hash = 97 * hash + Objects.hashCode(this.state);
+        hash = 97 * hash + Objects.hashCode(this.district);
+        hash = 97 * hash + Objects.hashCode(this.pin);
+        hash = 97 * hash + Objects.hashCode(this.tpsmartid);
+        hash = 97 * hash + Objects.hashCode(this.creator);
+        hash = 97 * hash + Objects.hashCode(this.registeredDate);
         return hash;
     }
 
@@ -76,16 +72,10 @@ public class TrainingPartner implements Serializable {
             return false;
         }
         final TrainingPartner other = (TrainingPartner) obj;
-        if (!Objects.equals(this.name, other.name)) {
-            return false;
-        }
         if (!Objects.equals(this.spocName, other.spocName)) {
             return false;
         }
         if (!Objects.equals(this.spocNumber, other.spocNumber)) {
-            return false;
-        }
-        if (!Objects.equals(this.tp_smart_id, other.tp_smart_id)) {
             return false;
         }
         if (!Objects.equals(this.username, other.username)) {
@@ -97,13 +87,7 @@ public class TrainingPartner implements Serializable {
         if (!Objects.equals(this.usertype, other.usertype)) {
             return false;
         }
-        if (!Objects.equals(this.mobile, other.mobile)) {
-            return false;
-        }
         if (!Objects.equals(this.whatsapp, other.whatsapp)) {
-            return false;
-        }
-        if (!Objects.equals(this.skype, other.skype)) {
             return false;
         }
         if (!Objects.equals(this.email, other.email)) {
@@ -127,7 +111,16 @@ public class TrainingPartner implements Serializable {
         if (!Objects.equals(this.pin, other.pin)) {
             return false;
         }
+        if (!Objects.equals(this.tpsmartid, other.tpsmartid)) {
+            return false;
+        }
+        if (!Objects.equals(this.creator, other.creator)) {
+            return false;
+        }
         if (!Objects.equals(this.id, other.id)) {
+            return false;
+        }
+        if (!Objects.equals(this.registeredDate, other.registeredDate)) {
             return false;
         }
         return true;
@@ -139,14 +132,6 @@ public class TrainingPartner implements Serializable {
 
     public void setId(Long id) {
         this.id = id;
-    }
-
-    public String getName() {
-        return name;
-    }
-
-    public void setName(String name) {
-        this.name = name;
     }
 
     public String getSpocName() {
@@ -163,14 +148,6 @@ public class TrainingPartner implements Serializable {
 
     public void setSpocNumber(String spocNumber) {
         this.spocNumber = spocNumber;
-    }
-
-    public String getTp_smart_id() {
-        return tp_smart_id;
-    }
-
-    public void setTp_smart_id(String tp_smart_id) {
-        this.tp_smart_id = tp_smart_id;
     }
 
     public String getUsername() {
@@ -197,28 +174,12 @@ public class TrainingPartner implements Serializable {
         this.usertype = usertype;
     }
 
-    public String getMobile() {
-        return mobile;
-    }
-
-    public void setMobile(String mobile) {
-        this.mobile = mobile;
-    }
-
     public String getWhatsapp() {
         return whatsapp;
     }
 
     public void setWhatsapp(String whatsapp) {
         this.whatsapp = whatsapp;
-    }
-
-    public String getSkype() {
-        return skype;
-    }
-
-    public void setSkype(String skype) {
-        this.skype = skype;
     }
 
     public String getEmail() {
@@ -276,5 +237,29 @@ public class TrainingPartner implements Serializable {
     public void setPin(String pin) {
         this.pin = pin;
     }
-    
+
+    public String getTpsmartid() {
+        return tpsmartid;
+    }
+
+    public void setTpsmartid(String tpsmartid) {
+        this.tpsmartid = tpsmartid;
+    }
+
+    public String getCreator() {
+        return creator;
+    }
+
+    public void setCreator(String creator) {
+        this.creator = creator;
+    }
+
+    public Date getRegisteredDate() {
+        return registeredDate;
+    }
+
+    public void setRegisteredDate(Date registeredDate) {
+        this.registeredDate = registeredDate;
+    }
+
 }

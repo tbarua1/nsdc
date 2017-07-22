@@ -28,12 +28,45 @@ public class Trainer implements Serializable {
     @Id
     @GeneratedValue(strategy = GenerationType.AUTO)
     private Long id;
-    private String name, qualification,experience, natianality, mobile, 
+    private String ssc,qpcode,jobrole,name, qualification,natianality, mobile, 
             skype, username, password, emailid, usertype,whatsapp,photo,state,district;
     private String totQualification;
     @Temporal(TemporalType.DATE)
     private Date registeredDate;
+    private Double experience;
 
+    public String getSsc() {
+        return ssc;
+    }
+
+    public void setSsc(String ssc) {
+        this.ssc = ssc;
+    }
+
+    public String getQpcode() {
+        return qpcode;
+    }
+
+    public void setQpcode(String qpcode) {
+        this.qpcode = qpcode;
+    }
+
+    public String getJobrole() {
+        return jobrole;
+    }
+
+    public void setJobrole(String jobrole) {
+        this.jobrole = jobrole;
+    }
+
+    public Double getExperience() {
+        return experience;
+    }
+
+    public void setExperience(Double experience) {
+        this.experience = experience;
+    }
+    
     public String getState() {
         return state;
     }
@@ -125,14 +158,6 @@ public class Trainer implements Serializable {
 
     public void setQualification(String qualification) {
         this.qualification = qualification;
-    }
-
-       public String getExperience() {
-        return experience;
-    }
-
-    public void setExperience(String experience) {
-        this.experience = experience;
     }
 
     public String getNatianality() {

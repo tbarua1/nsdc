@@ -234,7 +234,17 @@ public class Operations {
         openSession.close();
         return list;
     }
-
+public static List<TrainingPartner> getTrainingPartnerAll() {
+        openSession = Operations.getsessionFactory().openSession();
+        beginTransaction = openSession.beginTransaction();
+        Criteria createCriteria = openSession.createCriteria(TrainingPartner.class);
+        createCriteria.addOrder(Order.asc("spocName"));
+        //createCriteria.add(Restrictions.eq("district", state));    
+        List list = createCriteria.list();
+        beginTransaction.commit();
+        openSession.close();
+        return list;
+    }
     public static List<TrainingCenter> getTrainingCenterAll() {
         openSession = Operations.getsessionFactory().openSession();
         beginTransaction = openSession.beginTransaction();
@@ -285,6 +295,17 @@ public class Operations {
         openSession.close();
         return list;
     }
+     public static List<BatchCodes> getBatchCode(String trainingCenter) {
+        openSession = Operations.getsessionFactory().openSession();
+        beginTransaction = openSession.beginTransaction();
+        Criteria createCriteria = openSession.createCriteria(BatchCodes.class);
+        createCriteria.addOrder(Order.asc("batchCode"));
+        createCriteria.add(Restrictions.eq("tariningcentername", trainingCenter));
+        List list = createCriteria.list();
+        beginTransaction.commit();
+        openSession.close();
+        return list;
+    }
 
     public static List<JobRole> getJobRole() {
         openSession = Operations.getsessionFactory().openSession();
@@ -312,6 +333,7 @@ public class Operations {
         openSession = Operations.getsessionFactory().openSession();
         beginTransaction = openSession.beginTransaction();
         Criteria createCriteria = openSession.createCriteria(BatchSchedule.class);
+       // createCriteria.add(Restrictions.ge(propertyName, numbers))
         createCriteria.addOrder(Order.desc("date"));
         List<BatchSchedule> list = createCriteria.list();
         beginTransaction.commit();
@@ -845,7 +867,19 @@ public static List<RegisterAdmin> loginCheckAdmin(String username, String passwo
         ObjectMapper mapper = new ObjectMapper();
         openSession.close();
         return mapper.writeValueAsString(list);
-
+    }
+     public static String getAllTrainersByDistrict(String district) throws IOException {
+        //Map<Integer, University> linkedHashMap = new LinkedHashMap<Integer, University>();
+        //sessionFactory = Operations.getsessionFactory();
+        openSession = Operations.getsessionFactory().openSession();
+        beginTransaction = openSession.beginTransaction();
+        Criteria createCriteria = openSession.createCriteria(Trainer.class);
+        createCriteria.add(Restrictions.eq("district", district));
+        List<Trainer> list = createCriteria.list();
+        //List<RegisterTrainer> list = openSession.createQuery("from Trainer f ORDER BY f.name").list();
+        ObjectMapper mapper = new ObjectMapper();
+        openSession.close();
+        return mapper.writeValueAsString(list);
     }
 
 //    public static String todayScheduledBatches() 

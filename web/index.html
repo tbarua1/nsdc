@@ -7,18 +7,18 @@
     </head>
     <body >
         <header id="header" class="main-width" >
-<script>
-function validateForm() {
-    var x = document.forms["loginForm"]["uname"].value;
-     var y = document.forms["loginForm"]["password"].value;
-    if (x == "" || y=="") {
-        alert("UserName and password must be filled out");
-        return false;
-    }
-}
-</script>
             <script>
-                
+                function validateForm() {
+                    var x = document.forms["loginForm"]["uname"].value;
+                    var y = document.forms["loginForm"]["password"].value;
+                    if (x == "" || y == "") {
+                        alert("UserName and password must be filled out");
+                        return false;
+                    }
+                }
+            </script>
+            <script>
+
 
                 function formValidation()
                 {
@@ -42,8 +42,7 @@ function validateForm() {
                         alert("Enter Password!!");
                         event.preventDefault();
 
-                    }
-                    else
+                    } else
                     {
                         return true;
                     }
@@ -80,12 +79,12 @@ function validateForm() {
                         </tr>
                         <tr>                           
                             <td><input type="submit" name="" id="btnlogin" class="btn-3" value="Login" style="float: right;" onclick="formValidation();">
-                   
-                        </td>
+
+                            </td>
                         </tr>
                     </table>
                 </center>
-         
+
             </form>
 
 
@@ -107,14 +106,14 @@ function validateForm() {
 
 <script src="js/jquery.js"></script> 
 <script>
-                      $(window).on("scroll", function () {
-                          if ($(window).scrollTop() > 50) {
-                              $(".header").addClass("active");
-                          } else {
-                              //remove the background property so it comes transparent again (defined in your css)
-                              $(".header").removeClass("active");
-                          }
-                      });
+                                $(window).on("scroll", function () {
+                                    if ($(window).scrollTop() > 50) {
+                                        $(".header").addClass("active");
+                                    } else {
+                                        //remove the background property so it comes transparent again (defined in your css)
+                                        $(".header").removeClass("active");
+                                    }
+                                });
 </script> 
 
 <!-- Include all compiled plugins (below), or include individual files as needed --> 
@@ -151,11 +150,11 @@ function validateForm() {
 
 
 <script type="text/javascript">
-$(".hover").mouseleave(
-        function () {
-            $(this).removeClass("hover");
-        }
-);
+    $(".hover").mouseleave(
+            function () {
+                $(this).removeClass("hover");
+            }
+    );
 </script>
 
 
@@ -243,9 +242,26 @@ $(".hover").mouseleave(
     });
 
     bubbles();
-</script>
-
-
-
+</script><center>
+<table cellspacing="7" cellpadding="7">
+    <tr>
+            <td>
+            <a href="addTrainingPartner.jsp">Training Partner</a>
+        </td>
+            <td>
+        <a href="addTrainingCenter.jsp">Training Center</a>
+        </td>
+        <td>
+           <a href="addTrainer.jsp">Trainers</a> 
+        </td>
+            <td>
+        <a href="addDistrict.jsp">District</a>
+        </td>
+            <td>
+        <a href="addBatchSchedule.jsp">Batch Schedule</a>
+        </td>
+    </tr>
+</table>
+</center>
 </body>
 </html>

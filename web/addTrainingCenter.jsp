@@ -14,28 +14,28 @@
 <!DOCTYPE html>
 <html>
     <head>
-        <meta http-equiv=”Content-Type” content=”text/html; charset=ISO-8859-1″>
+        <meta http-equiv="Content-Type" content="text/html; charset=ISO-8859-1">
         <title>Add Training Center</title>
-        <script type=”text/javascript”>
+        <script type="text/javascript">
             function ValidateForm()
             {
 
-            if (document.frm.userName.value == ””)
+            if (document.frm.userName.value == "")
             {
             alert(“Please Enter User Name “);
             return false;
             }
-            if (document.frm.userAge.value == ””)
+            if (document.frm.userAge.value == "")
             {
-            alert(“Please Enter Age”);
+            alert(“Please Enter Age");
             return false;
             }
-            if (document.frm.usercellNO.value == ””)
+            if (document.frm.usercellNO.value == "")
             {
-            alert(“Please Enter Cell No”);
+            alert(“Please Enter Cell No");
             return false;
             }
-            if (document.frm.userAddress.value == ””)
+            if (document.frm.userAddress.value == "")
             {
             alert(“Please Enter Address “);
             return false;
@@ -81,7 +81,7 @@
             var i;
             for (i = 0; i < arr.length; i++) {
             var option = document.createElement('option');
-            option.text = option.value = arr[i].qp_code + "@" + arr[i].name;
+            option.text = option.value = document.getElementById("ssc").value+"@"+arr[i].qp_code + "@" + arr[i].name;
             select.add(option, 0);
             }
 
@@ -93,30 +93,85 @@
             var option = document.createElement('option');
             option.text = option.value = listToGet;
             listToPrepare.add(option, 0);
+            selectAllOption();
             }
             function removeJobrole(){
             var toBeRemove=document.getElementById("afjobrole");
             var index=toBeRemove.selectedIndex;
              toBeRemove.removeChild(toBeRemove[index]);            
             }
+            function districtListByState(value) {
+                var xmlhttp = new XMLHttpRequest();
+                var url = "http://localhost:8282/nsdc/GetDistrictByState?state=" + value;
+                xmlhttp.onreadystatechange = function () {
+                    if (this.readyState === 4 && this.status === 200) {
+                        var myArr = JSON.parse(this.responseText);
+                        ListByState(myArr);
+                    }
+                };
+                xmlhttp.open("GET", url, true);
+                xmlhttp.send();
+            }
+            function ListByState(arr) {
+                var select = document.getElementById("district1");
+                var y = select.length;
+                var limit = y * 2;
+                // alert(y+" "+limit);
+                for (var x = 0; x < limit; x++) {
+                    //document.write(x);
+                    select.remove(x);
+                    // select.removeChild(select.[]);
+                    //select.removeChild(select.firstChild);
+                }
+                //}
+                var out = "";
+                var i;
+                for (i = 0; i < arr.length; i++) {
+                    var option = document.createElement('option');
+                    option.text = option.value = arr[i].district;
+                    select.add(option, 0);
+                }
+
+            }
+           function selectAllOptions() {
+               alert("chenged Info");
+               var obj=document.getElementById("afjobrole");
+            if (!hasOptions(obj)) {
+                return;
+            }
+            for (var i = 0; i < obj.options.length; i++) {
+                obj.options[i].selected = true;
+            }
+        } 
+function selectAllOption() {
+               //alert("chenged Info oPTIONS");
+               var obj=document.getElementById("afjobrole");
+            for (var i = 0; i < obj.options.length; i++) {
+                obj.options[i].selected = true;
+            }
+        } 
+
         </script>
     </head>
     <body><center>
         <form name=frm method="post" action="AddTrainingCenter">
-            <table border=”1″>
-                <font size=”3″>Add Training Center</font> 
+            <table border="1">
+                <font size="3">Add Training Center</font> 
+                 <tr><td>Training Center Smart ID</td>
+                    <td><INPUT type="text" name="tcsmartid" value=""  ></td>
+                </tr>
                 <tr><td>Training Center Name</td>
-                    <td><INPUT type=”text” name="trainingcenter" value=""  ></td>
+                    <td><INPUT type="text" name="trainingcenter" value=""  ></td>
                 </tr>
                 <tr><td>Spoc Name</td>
-                    <td><INPUT type=”text” name="spoc" value=""  ></td>
+                    <td><INPUT type="text" name="spoc" value=""  ></td>
                 </tr>
                 <tr><td>Spoc Phone</td>
-                    <td><INPUT type=”text” name="spocphone" value=""  ></td>
+                    <td><INPUT type="text" name="spocphone" value=""  ></td>
                 </tr>
                 <tr><td>Affiliated Job Role</td>
                     <td>
-                        <select name="ssc" onchange="downloadJSON(this.value);">
+                        <select name="ssc" onchange="downloadJSON(this.value);" id="ssc">
                             <option value="Agriculture">Agriculture</option>
                             <option value="Apparel, Madeups & Home Furnishing">Apparel, Madeups & Home Furnishing</option>
                             <option value="Automotive">Automotive</option>
@@ -153,96 +208,108 @@
                             <option value="Tourism and Hospitality">Tourism and Hospitality</option>
                         </select><br>
                         <select name="JobRole" id="jobrole">
-
                         </select>
                         <br><button type="button" name="jobroleadd" onclick="addJobrole();">add Affiliated Job Role</button>
                         <button type="button" name="jobroleremove" onclick="removeJobrole();">Remove</button>
-                        <br><select name="afjobrole" id="afjobrole" multiple=""></select>
-                        <br><a href="addJobRole.jsp">Add Job Role(if not in the list)</td>
+                        <br><select name="afjobrole" id="afjobrole" multiple="" onchange="selectAllOptions();"></select>
+                        </td>
                 </tr>
-                <tr><td>Latitude</td>
-                    <td><INPUT type=”text” name="latitute" value=""  ></td>
+                <tr>
+                    <td>Latitude</td>
+                    <td><INPUT type="text" name="latitute" value=""  ></td>
                 </tr>
-                <tr><td>Longitude</td>
-                    <td><INPUT type=”text” name="longitute" value=""  ></td>
+                <tr>
+                    <td>Longitude</td>
+                    <td><INPUT type="text" name="longitute" value=""  ></td>
                 </tr>
-                <tr><td>User Name</td>
-                    <td><INPUT type=”text” name="username" value=""  ></td>
+                <tr>
+                    <td>User Name</td>
+                    <td><INPUT type="text" name="username" value=""  ></td>
                 </tr>
-                <tr><td>Password</td>
-                    <td><INPUT type=”password” name="password" value=""  ></td>
+                <tr>
+                    <td>Password</td>
+                    <td><INPUT type="password" name="password" value=""  ></td>
                 </tr>
-                <tr><td>Confirm Password</td>
-                    <td><INPUT type=”password” name="password1" value=""  ></td>
+                <tr>
+                    <td>Confirm Password</td>
+                    <td><INPUT type="password" name="password1" value=""  ></td>
                 </tr>
-                <tr><td>Address</td>
+                <tr>
+                    <td>Address</td>
                     <td>
                         <table>
                             <tr>
                                 <td>Building Number</td>
-                                <td><INPUT type=”text” name="building" value=""  ></td>
+                                <td><INPUT type="text" name="building" value=""  ></td>
+                            </tr>
+                             <tr>
+                                <td>Street Number</td>
+                                <td><INPUT type="text" name="street" value=""  ></td>
                             </tr>
                             <tr><td>Locality</td>
-                                <td><INPUT type=”text” name="locality" value=""  ></td>
+                                <td><INPUT type="text" name="locality" value=""  ></td>
                             </tr>
                             <tr>
                                 <td>City/Village</td>
-                                <td><INPUT type=”text” name="city" value=""  ></td>
+                                <td><INPUT type="text" name="city" value=""  ></td>
+                            </tr>
+                                <tr>
+                                <td>State</td>
+                                <td>
+                                    <!--                        <td><select class="form-control" name="state" onchange="jsFunction(this.value);">-->
+                                    <select name="state" onchange="districtListByState(this.value);">            
+                                        <option value="AN">Andaman and Nicobar</option>
+                                        <option value="AP">Andhra Pradesh</option>
+                                        <option value="AR">Arunachal Pradesh</option>
+                                        <option value="BR">Bihar</option>
+                                        <option value="CH">Chandigarh</option> 
+                                        <option value="CG">Chhattisgarh</option> 
+                                        <option value="DN">Dadra and Nagar Haveli</option> 
+                                        <option value="DD">Daman and Diu</option> 
+                                        <option value="DL">Delhi</option> 
+                                        <option value="GA">Goa</option>
+                                        <option value="GJ">Gujarat</option> 
+                                        <option value="HR">Haryana</option> 
+                                        <option value="HP">Himachal Pradesh</option> 
+                                        <option value="JK">Jammu and Kashmir</option> 
+                                        <option value="JH">Jharkhand</option> 
+                                        <option value="KA">Karnataka</option> 
+                                        <option value="KL">Kerala</option> 
+                                        <option value="LD">Lakshadweep</option>
+                                        <option value="MP">Madhya Pradesh</option> 
+                                        <option value="MH">Maharashtra</option> 
+                                        <option value="MN">Manipur</option> 
+                                        <option value="ML">Meghalaya</option> 
+                                        <option value="MZ">Mizoram</option> 
+                                        <option value="NL">Nagaland</option> 
+                                        <option value="OD">Odisha</option> 
+                                        <option value="PY">Puducherry</option> 
+                                        <option value="PB">Punjab</option>
+                                        <option value="RJ">Rajathan</option>
+                                        <option value="SK">Sikkim</option>
+                                        <option value="TN">Tamil Nadu</option>
+                                        <option value="TS">Telangana</option>
+                                        <option value="TR">Tripura</option>
+                                        <option value="UP">Uttar Pradesh</option>
+                                        <option value="UK">Uttarakhand</option>
+                                        <option value="WB">West Bengal</option>
+                                    </select><a href="addDistrict.jsp">Add District</a></td>
                             </tr>
                             <tr>
                                 <td>District</td>
-                                <td><select name>
-                                        <INPUT type=”text” name="district" value=""  ></td>
-                            </tr>
-                            <tr>
-                                <td>State</td>
-                                <td><select class="form-control" name="state">
-                                        <option value="Andaman and Nicobar-AN">Andaman and Nicobar</option>
-                                        <option value="Andhra Pradesh-AP">Andhra Pradesh</option>
-                                        <option value="Arunachal Pradesh-AR">Arunachal Pradesh</option>
-                                        <option value="Bihar-BR">Bihar</option>
-                                        <option value="Chandigarh-CH">Chandigarh</option> 
-                                        <option value="Chhattisgarh-CG">Chhattisgarh</option> 
-                                        <option value="Dadra and Nagar Haveli-DN">Dadra and Nagar Haveli</option> 
-                                        <option value="Daman and Diu-DD">Daman and Diu</option> 
-                                        <option value="Delhi-DL">Delhi</option> 
-                                        <option value="Goa-GA">Goa</option>
-                                        <option value="Gujarat-GJ">Gujarat</option> 
-                                        <option value="Haryana-HR">Haryana</option> 
-                                        <option value="Himachal Pradesh-HP">Himachal Pradesh</option> 
-                                        <option value="Jammu and Kashmir-JK">Jammu and Kashmir</option> 
-                                        <option value="Jharkhand-JH">Jharkhand</option> 
-                                        <option value="Karnataka-KA">Karnataka</option> 
-                                        <option value="Kerala-KL">Kerala</option> 
-                                        <option value="Lakshadweep-LD">Lakshadweep</option>
-                                        <option value="Madhya Pradesh-MP">Madhya Pradesh</option> 
-                                        <option value="Maharashtra-MH">Maharashtra</option> 
-                                        <option value="Manipur-MN">Manipur</option> 
-                                        <option value="Meghalaya-ML">Meghalaya</option> 
-                                        <option value="Mizoram-MZ">Mizoram</option> 
-                                        <option value="Nagaland-NL">Nagaland</option> 
-                                        <option value="Odisha-OD">Odisha</option> 
-                                        <option value="Puducherry-PY">Puducherry</option> 
-                                        <option value="Punjab-PB">Punjab</option>
-                                        <option value="Rajathan-RJ">Rajathan</option>
-                                        <option value="Sikkim-SK">Sikkim</option>
-                                        <option value="Tamil Nadu-TN">Tamil Nadu</option>
-                                        <option value="Telangana-TS">Telangana</option>
-                                        <option value="Tripura-TR">Tripura</option>
-                                        <option value="Uttar Pradesh-UP">Uttar Pradesh</option>
-                                        <option value="Uttarakhand-UK">Uttarakhand</option>
-                                        <option value="West Bengal-WB">West Bengal</option>
-                                    </select></td>
+                                <td>
+                                    <select class="form-control" name="district" id="district1"></select>
+                                </td>
                             </tr>
                             <tr>
                                 <td>PIN/ZIP</td>
-                                <td><INPUT type=”text” name="pin" value=""  ></td>
+                                <td><INPUT type="text" name="pin" value=""  ></td>
                             </tr>
 
                         </table></td>
                 </tr>
                 <tr><td></td><TD> <input type="submit" value="Add"> 
-                        <!--<BUTTON type=button value=save name=cmdsave onclick=”save()” >Add</BUTTON>-->
+                        <!--<BUTTON type=button value=save name=cmdsave onclick="save()" >Add</BUTTON>-->
                         <input type="reset" value="Cancel"></form>
                         <form action="editBatchCode.jsp"><input type="submit" value="Edit"></form>
                     </TD>

@@ -4,6 +4,8 @@
     Author     : Abhishek.Sehgal
 --%>
 
+<%@page import="org.codehaus.jackson.map.ObjectMapper"%>
+<%@page import="com.tarkesh.entity.TrainingCenter"%>
 <%@page import="com.tarkesh.entity.JobRole"%>
 <%@page import="java.util.List"%>
 <%@page import="com.tarkesh.operation.Operations"%>
@@ -211,41 +213,24 @@ and open the template in the editor.
                 toBeRemove.removeChild(toBeRemove[index]);
             }
             function downloadJSON2(value) {
+              
                 var xmlhttp = new XMLHttpRequest();
-                var url = "http://localhost:8282/nsdc/ServeJobRoleBySSC?ssc=" + value;
-                //  var url = "http://localhost:8282/nsdc/GetDistrictByState?state="+value;
+                var url = "http://localhost:8282/nsdc/ServeJobRoleByQPCode?qp_code=" + value;
+                  
+                var displayqp1 = document.getElementById("sssc");
+                var displayJobRole = document.getElementById("afjobrole");
                 xmlhttp.onreadystatechange = function () {
                     if (this.readyState == 4 && this.status == 200) {
                         var myArr = JSON.parse(this.responseText);
-                        displayData2(myArr);
+                        displayJobRole.value = myArr.name;
+                        displayqp1.value = myArr.ssc; 
+                        
                     }
                 };
                 xmlhttp.open("GET", url, true);
                 xmlhttp.send();
             }
-            function displayData2(arr) {
-                var select = document.getElementById("jobrole");
-                var y = select.length;
-                var limit = y * 2;
-                //alert(y+" "+limit);
-                for (var x = 0; x < limit; x++) {
-                    //document.write(x);
-                    select.remove(x);
-                    // select.removeChild(select.[]);
-                    //select.removeChild(select.firstChild);
-                }
-                //}
-                var out = "";
-                var i;
-                for (i = 0; i < arr.length; i++) {
-                    var option = document.createElement('option');
-                    option.text = option.value = arr[i].ssc+"@"+arr[i].qp_code + "@" + arr[i].name;
-                    select.add(option, 0);
-                }
-
-            }
-
-        </script>
+            </script>
         <script>
             function copywhatsapp() {
                 var mobile = document.getElementById("mobile").value;
@@ -284,10 +269,16 @@ and open the template in the editor.
                     select.options[i].selected = true;
                 }
             }
+
         </script>
     </head>
     <body>
         <div>Register Trainer</div>
+        <%List<TrainingCenter> loginCheckAdmin = (List<TrainingCenter>) session.getAttribute("informationTC");
+            TrainingCenter data = loginCheckAdmin.get(0);
+            session.getAttribute("usertype");
+        %>
+
         <form name="registerForm" role="form" action="AddTrainer" method="post" onsubmit="return validateForm()">
             <center><table>
                     <tr>
@@ -312,50 +303,29 @@ and open the template in the editor.
                         <td><label class="label-control-a">Qualification</label></td>
                         <td><input type="text" name="qualification" class="form-control" placeholder="Qualification" id="qualification" require></td>
                     </tr>
-                    <tr><td>Job Role Qualification(TOT)</td>
+                    <tr>
+                        <td>Job Role Qualification(TOT)</td>
                         <td>
-                            <select name="ssc" onchange="downloadJSON2(this.value);">
-                                <option value="Agriculture">Agriculture</option>
-                                <option value="Apparel, Madeups & Home Furnishing">Apparel, Madeups & Home Furnishing</option>
-                                <option value="Automotive">Automotive</option>
-                                <option value="Beauty and Wellness">Beauty and Wellness</option>
-                                <option value="BFSI">BFSI</option>
-                                <option value="Capital Goods">Capital Goods</option>
-                                <option value="Construction">Construction</option>
-                                <option value="Domestic Workers">Domestic Workers</option>
-                                <option value="Earthmoving & Infrastructure Building">Earthmoving & Infrastructure Building</option>
-                                <option value="Electronics & Hardware">Electronics & Hardware</option>
-                                <option value="Food Processing">Food Processing</option>
-                                <option value="Furniture & Fittings">Furniture & Fittings</option>
-                                <option value="Gems and Jewellery">Gems and Jewellery</option>
-                                <option value="Green Jobs">Green Jobs</option>
-                                <option value="Handicrafts">Handicrafts</option>
-                                <option value="Healthcare">Healthcare</option>
-                                <option value="Iron and Steel">Iron and Steel</option>
-                                <option value="IT/ITes">IT/ITes</option>
-                                <option value="Leather">Leather</option>
-                                <option value="Life Sciences">Life Sciences</option>
-                                <option value="Logistics">Logistics</option>
-                                <option value="Media & Entertainment">Media & Entertainment</option>
-                                <option value="Mining">Mining</option>
-                                <option value="Paints & Coatings">Paints & Coatings</option>
-                                <option value="People with Disability">People with Disability</option>
-                                <option value="Plumbing">Plumbing</option>
-                                <option value="Power">Power</option>
-                                <option value="Retail">Retail</option>
-                                <option value="Rubber">Rubber</option>
-                                <option value="Security">Security</option> 
-                                <option value="Sports">Sports</option>
-                                <option value="Telecom">Telecom</option>
-                                <option value="Textiles & Handloom">Textiles & Handloom</option>
-                                <option value="Tourism and Hospitality">Tourism and Hospitality</option>
+                            <select name="qpcode" onchange="downloadJSON2(this.value);" id="ssc">
+                                <%
+                                    String sscList = data.getQpcode();
+                                    String[] s = new ObjectMapper().readValue(sscList, String[].class);
+                                    for (String sss : s) {
+                                %><option value="<%=sss%>"><%=sss%></option>
+                                <%
+                                    }
+                                %>   
                             </select><br>
-                            <select name="JobRole" id="jobrole">
-                            </select>
-                            <br><button type="button" name="jobroleadd" onclick="addJobrole();">add Affiliated Job Role</button>
-                            <button type="button" name="jobroleremove" onclick="removeJobrole();">Remove</button>
-                            <br><select onchange="selectAllFields();"name="afjobrole11" id="afjobrole" multiple=""></select>
-                            </td>
+
+
+                    </tr>
+                    <tr>
+                        <td><label class="label-control-a">SSC Code</label></td>
+                        <td><input type="text" name="ssc" class="form-control" placeholder="Qualification" id="sssc" readonly=""></td>
+                    </tr>
+                    <tr>
+                        <td><label class="label-control-a">Affiliated Job Role</label></td>
+                        <td><input type="text" name="afjobrole" class="form-control" placeholder="Qualification" id="afjobrole" readonly=""></td>
                     </tr>
                     <!--                    <tr>
                                             <td><label class="label-control-a">QP Code</label></td>
@@ -416,8 +386,6 @@ and open the template in the editor.
                     </tr>
                 </table>
             </center>
-
         </form>
-
     </body>
 </html>

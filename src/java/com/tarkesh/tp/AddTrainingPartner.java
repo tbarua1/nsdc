@@ -5,13 +5,11 @@
  */
 package com.tarkesh.tp;
 
-import com.tarkesh.entity.Address;
 import com.tarkesh.entity.TrainingPartner;
 import com.tarkesh.operation.Operations;
 import java.io.IOException;
 import java.io.PrintWriter;
-import java.util.ArrayList;
-import java.util.List;
+import java.util.Date;
 import javax.servlet.ServletException;
 import javax.servlet.annotation.WebServlet;
 import javax.servlet.http.HttpServlet;
@@ -40,12 +38,14 @@ public class AddTrainingPartner extends HttpServlet {
         TrainingPartner tp = new TrainingPartner();
         tp.setUsername(request.getParameter("username"));
         tp.setPassword(request.getParameter("password"));
-        tp.setUsertype("tp");
-        tp.setTp_smart_id(request.getParameter("tpsmartid"));
-        tp.setName(request.getParameter("name"));
-        tp.setMobile(request.getParameter("mobile"));
+        tp.setUsertype("tp");  
+        tp.setRegisteredDate(new Date());
+        tp.setCreator(request.getSession().getAttribute("username").toString());
+        tp.setTpsmartid(request.getParameter("tpsmartid"));
+        //tp.setName(request.getParameter("name"));
+        tp.setSpocNumber(request.getParameter("mobile"));
         tp.setWhatsapp(request.getParameter("txtwhatsapp"));
-        tp.setSkype(request.getParameter("skype"));
+        tp.setSpocName(request.getParameter("name"));
         tp.setEmail(request.getParameter("emailid"));
         tp.setBuilding(request.getParameter("building"));
         tp.setCity(request.getParameter("city"));

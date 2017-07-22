@@ -39,7 +39,7 @@ public class ReadingCSV {
                 universiry.setName(split[1]);
 //                universiry.setProgram_fs(true);
                // universiry.setProgram_topup(true);
-                universiry.setUniversity_type("Public");
+               // universiry.setUniversity_type("Public");
             }
 
         } catch (FileNotFoundException ex) {

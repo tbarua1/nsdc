@@ -88,14 +88,12 @@
                 }
             }
         </script>
-        <div id="header">Training Partner</div>
+        <div id="header">WelCome TP <%=session.getAttribute("username")%></div>
         <div id="left">
             <a href="addBatchCode.jsp" target="iframe_a">Add Batch</a><br>
-            <a href="addUniversity.jsp" target="iframe_a">Add Training Center</a><br>   
-            <a href="trainer.html" target="iframe_a">Trainer App Download</a><br>   
-            <a href="admin.html" target="iframe_a">Admin App Download</a><br>   
-            <a href="DAR.jsp" target="iframe_a">Daily Activity Report</a><br>  
-            <a href="TodayReport" target="iframe_a">Today Report</a><br>  
+            <a href="addTrainingCenter.jsp" target="iframe_a">Add Training Center</a><br>   
+            <a href="addBatchSchedule.jsp" target="iframe_a">Add Schedule</a><br>   
+             
         </div>
         <div id="center">
             <iframe height="100%" width="100%" src="addBatchCode.jsp" name="iframe_a"></iframe>

@@ -18,15 +18,14 @@ import javax.servlet.annotation.WebServlet;
 import javax.servlet.http.HttpServlet;
 import javax.servlet.http.HttpServletRequest;
 import javax.servlet.http.HttpServletResponse;
-import javax.servlet.http.HttpSession;
 import org.codehaus.jackson.map.ObjectMapper;
 
 /**
  *
- * @author nsdc-ey
+ * @author Abhishek.Sehgal
  */
-@WebServlet(name = "LoginServlet", urlPatterns = {"/LoginServlet"})
-public class LoginServlet extends HttpServlet {
+@WebServlet(name = "MLoginServlet", urlPatterns = {"/MLoginServlet"})
+public class MLoginServlet extends HttpServlet {
 
     /**
      * Processes requests for both HTTP <code>GET</code> and <code>POST</code>
@@ -43,71 +42,39 @@ public class LoginServlet extends HttpServlet {
         String password = request.getParameter("password");
         String usertype = request.getParameter("usertype");
         System.out.println(password + " " + username + " " + usertype);
-        HttpSession session = request.getSession();
-        session.setAttribute("username", username);
-        session.setAttribute("usertype", usertype);
-        if (usertype.equalsIgnoreCase("admin")) {
-            List<RegisterAdmin> loginCheckAdmin = Operations.loginCheckAdmin(username, password, usertype);
-            if (loginCheckAdmin == null) {
-                getServletConfig().getServletContext()
-                  .getRequestDispatcher("/error.html")
-                  .forward(request, response);
-            }
-            session.setAttribute("informationAdmin", loginCheckAdmin);
-            request.setAttribute("workList", true);
-            request.getRequestDispatcher("/admin.jsp").forward(request, response);
-        }
-
-        if (usertype.equalsIgnoreCase("tp")) {
-            List<TrainingPartner> loginCheckTP = Operations.loginCheckTP(username, password, usertype);
-            if (loginCheckTP == null) {
-                getServletConfig().getServletContext()
-                  .getRequestDispatcher("/error.html")
-                  .forward(request, response);
-            }
-            session.setAttribute("informationPartner", loginCheckTP);
-            request.setAttribute("workList", true);
-            request.getRequestDispatcher("/partner.jsp").forward(request, response);
-        }
-        if (usertype.equalsIgnoreCase("tc")) {
-            List<TrainingCenter> loginCheckTC = Operations.loginCheckTC(username, password, usertype);
-           
-            if (loginCheckTC == null) {
-               getServletConfig().getServletContext()
-                  .getRequestDispatcher("/error.html")
-                  .forward(request, response);
-            }
-            session.setAttribute("informationTC", loginCheckTC);
-            request.setAttribute("workList", true);
-            request.getRequestDispatcher("/center.jsp").forward(request, response);
-        }
-        if (usertype.equalsIgnoreCase("trainer")) {
-            List<Trainer> loginCheckTrainer = Operations.loginCheckTrainer(username, password, usertype);
-            if (loginCheckTrainer == null) {
-                getServletConfig().getServletContext()
-                  .getRequestDispatcher("/error.html")
-                  .forward(request, response);
-            }
-            session.setAttribute("informationTrainer", loginCheckTrainer);
-            request.setAttribute("workList", true);
-            request.getRequestDispatcher("/trainer.jsp").forward(request, response);
-        }
-
-        request.setAttribute("workList", false);
-        response.sendRedirect("error.html");
-
+        
         response.setContentType("text/html;charset=UTF-8");
         try (PrintWriter out = response.getWriter()) {
             /* TODO output your page here. You may use following sample code. */
-            out.println("<!DOCTYPE html>");
-            out.println("<html>");
-            out.println("<head>");
-            out.println("<title>Servlet LoginServlet</title>");
-            out.println("</head>");
-            out.println("<body>");
-            out.println("<h1>Servlet LoginServlet at " + request.getContextPath() + "</h1>");
-            out.println("</body>");
-            out.println("</html>");
+            if (usertype.equalsIgnoreCase("Administrator")) {
+            List<RegisterAdmin> loginCheckAdmin = Operations.loginCheckAdmin(username, password, usertype);
+            if (loginCheckAdmin == null) {
+               out.println("error");
+            }
+            out.println(new ObjectMapper().writeValueAsString(loginCheckAdmin));
+        }
+
+        if (usertype.equalsIgnoreCase("Training_Partner")) {
+            List<TrainingPartner> loginCheckTP = Operations.loginCheckTP(username, password, usertype);
+            if (loginCheckTP == null) {
+                 out.println("error");
+            }
+            out.println(new ObjectMapper().writeValueAsString(loginCheckTP));}
+        if (usertype.equalsIgnoreCase("Tarining_Center")) {
+            List<TrainingCenter> loginCheckTC = Operations.loginCheckTC(username, password, usertype);
+           
+            if (loginCheckTC == null) {
+               out.println("error");
+            }
+           out.println(new ObjectMapper().writeValueAsString(loginCheckTC)); }
+        if (usertype.equalsIgnoreCase("Trainer")) {
+            List<Trainer> loginCheckTrainer = Operations.loginCheckTrainer(username, password, usertype);
+            if (loginCheckTrainer == null) {
+                out.println("error");
+            }
+        out.println(new ObjectMapper().writeValueAsString(loginCheckTrainer));
+        }
+
         }
     }
 

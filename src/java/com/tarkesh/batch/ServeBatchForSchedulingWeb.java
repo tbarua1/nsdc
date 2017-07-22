@@ -3,15 +3,13 @@
  * To change this template file, choose Tools | Templates
  * and open the template in the editor.
  */
-package com.tarkesh.trainer;
+package com.tarkesh.batch;
 
-import com.tarkesh.entity.Trainer;
+import com.tarkesh.entity.BatchCodes;
 import com.tarkesh.operation.Operations;
 import java.io.IOException;
 import java.io.PrintWriter;
-import java.util.Date;
-import java.util.HashSet;
-import java.util.Set;
+import java.util.List;
 import javax.servlet.ServletException;
 import javax.servlet.annotation.WebServlet;
 import javax.servlet.http.HttpServlet;
@@ -23,8 +21,8 @@ import org.codehaus.jackson.map.ObjectMapper;
  *
  * @author Abhishek.Sehgal
  */
-@WebServlet(name = "AddTrainer", urlPatterns = {"/AddTrainer"})
-public class AddTrainer extends HttpServlet {
+@WebServlet(name = "ServeBatchForSchedulingWeb", urlPatterns = {"/ServeBatchForSchedulingWeb"})
+public class ServeBatchForSchedulingWeb extends HttpServlet {
 
     /**
      * Processes requests for both HTTP <code>GET</code> and <code>POST</code>
@@ -37,51 +35,14 @@ public class AddTrainer extends HttpServlet {
      */
     protected void processRequest(HttpServletRequest request, HttpServletResponse response)
             throws ServletException, IOException {
-        Trainer trainer=new Trainer();
-        trainer.setState(request.getParameter("state"));
-        trainer.setDistrict(request.getParameter("district"));
-        trainer.setQualification(request.getParameter("qualification"));
-        String[] parameterValues = request.getParameterValues("afjobrole11");
-        Set<String> sscList=new HashSet<>();
-        Set<String> qpList=new HashSet<>();
-        Set<String> jobroleList=new HashSet<>();
-        for(String p:parameterValues){
-            String[] split = p.split("@");
-            sscList.add(split[0]);
-            qpList.add(split[1]);
-            jobroleList.add(split[2]);
-        }
-        trainer.setJobrole(new ObjectMapper().writeValueAsString(jobroleList));
-        trainer.setSsc(new ObjectMapper().writeValueAsString(sscList));
-        trainer.setQpcode(new ObjectMapper().writeValueAsString(qpList));
-        
-        trainer.setRegisteredDate(new Date());
-        //trainer.setTotQualification(new ObjectMapper().writeValueAsString(parameterValues));
-        trainer.setMobile(request.getParameter("mobile"));
-        trainer.setWhatsapp(request.getParameter("txtwhatsapp"));
-        trainer.setExperience(Double.parseDouble(request.getParameter("experience")));
-        trainer.setName(request.getParameter("name"));
-        trainer.setUsername(request.getParameter("username"));
-        trainer.setPassword(request.getParameter("password"));
-        trainer.setSkype(request.getParameter("skype"));
-        trainer.setEmailid(request.getParameter("emailid"));
-        trainer.setUsertype("trainer");
-        trainer.setNatianality("Indian");
-        Operations.addTrainer(trainer);
-        response.sendRedirect("addTrainer.jsp");
+        String parameter = request.getParameter("trainingcenter");
+        System.out.println("Request for Parameter "+parameter);
         response.setContentType("text/html;charset=UTF-8");
+      
         try (PrintWriter out = response.getWriter()) {
             /* TODO output your page here. You may use following sample code. */
-            out.println("<!DOCTYPE html>");
-            out.println("<html>");
-            out.println("<head>");
-            out.println("<title>Servlet AddTrainer</title>");            
-            out.println("</head>");
-            out.println("<body>");
-            out.println("<h1>Servlet AddTrainer at " + request.getContextPath() + "</h1>");
-            out.println("</body>");
-            out.println("</html>");
-        }
+            out.println(new ObjectMapper().writeValueAsString(Operations.getBatchCode(parameter)));
+          }
     }
 
     // <editor-fold defaultstate="collapsed" desc="HttpServlet methods. Click on the + sign on the left to edit the code.">

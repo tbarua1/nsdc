@@ -4,6 +4,8 @@
     Author     : data1
 --%>
 
+<%@page import="org.codehaus.jackson.map.ObjectMapper"%>
+<%@page import="com.tarkesh.entity.TrainingCenter"%>
 <%@page import="java.util.List"%>
 <%@page import="com.tarkesh.entity.BatchCodes"%>
 <%@page import="com.tarkesh.operation.Operations"%>
@@ -199,42 +201,7 @@
                 var index = toBeRemove.selectedIndex;
                 toBeRemove.removeChild(toBeRemove[index]);
             }
-            function downloadJSON2(value) {
-                var xmlhttp = new XMLHttpRequest();
-                var url = "http://localhost:8282/nsdc/ServeJobRoleBySSC?ssc=" + value;
-                //  var url = "http://localhost:8282/nsdc/GetDistrictByState?state="+value;
-                xmlhttp.onreadystatechange = function () {
-                    if (this.readyState == 4 && this.status == 200) {
-                        var myArr = JSON.parse(this.responseText);
-                        displayData2(myArr);
-                    }
-                };
-                xmlhttp.open("GET", url, true);
-                xmlhttp.send();
-            }
-            function displayData2(arr) {
-                var select = document.getElementById("jobrole");
-                var y = select.length;
-                var limit = y * 2;
-                //alert(y+" "+limit);
-                for (var x = 0; x < limit; x++) {
-                    //document.write(x);
-                    select.remove(x);
-                    // select.removeChild(select.[]);
-                    //select.removeChild(select.firstChild);
-                }
-                //}
-                var out = "";
-                var i;
-                for (i = 0; i < arr.length; i++) {
-                    var option = document.createElement('option');
-                    option.text = option.value = arr[i].qp_code + "@" + arr[i].name;
-                    select.add(option, 0);
-                }
-
-            }
-
-        </script>
+                    </script>
         <script>
             function copywhatsapp() {
                 var mobile = document.getElementById("mobile").value;
@@ -266,11 +233,34 @@
 //                }
 
             }
+            function downloadJSON2(value) {
+                var xmlhttp = new XMLHttpRequest();
+                var url = "http://localhost:8282/nsdc/ServeJobRoleByQPCode?qp_code=" + value;
+                var displayqp1 = document.getElementById("sssc");
+                var displayJobRole = document.getElementById("afjobrole");
+                xmlhttp.onreadystatechange = function () {
+                    if (this.readyState == 4 && this.status == 200) {
+                        var myArr = JSON.parse(this.responseText);
+                        displayJobRole.value = myArr.name;
+                        displayqp1.value = myArr.ssc; 
+                        
+                    }
+                };
+                xmlhttp.open("GET", url, true);
+                xmlhttp.send();
+            }
+            
         </script>
     </head>
     <body><center>
         <form name=frm method="post" action="AddBatch">
             <table border=”1″>
+                 <%List<TrainingCenter> loginCheckAdmin = (List<TrainingCenter>) session.getAttribute("informationTC");
+            TrainingCenter data = loginCheckAdmin.get(0);
+            session.getAttribute("usertype");
+        %>
+
+       
                 <font size=”3″>Add Batch</font>
                     <tr><td>Training Center ID(Smart)</td>
                     <td><INPUT type=”text” name="smarttcid" value="" size=”24″></td>
@@ -278,15 +268,30 @@
                 <tr><td>Training Center Name</td>
                     <td><INPUT type=”text” name="tariningcentername" value="" size=”24″></td>
                 </tr>
-                <tr><td>SSC</td>
-                    <td><INPUT type=”text” name="ssc" value="" size=”24″></td>
-                </tr>
-                <tr><td>Job Role</td>
-                    <td><INPUT type=”text” name="jobrole" value="" size=”24″></td>
-                </tr>
-                <tr><td>QP Code</td>
-                    <td><INPUT type=”text” name="qpcode" value="" size=”24″></td>
-                </tr>
+                <tr>
+                        <td>Job Role Qualification(TOT)</td>
+                        <td>
+                            <select name="qpcode" onchange="downloadJSON2(this.value);" id="ssc">
+                                <%
+                                    String sscList = data.getQpcode();
+                                    String[] s = new ObjectMapper().readValue(sscList, String[].class);
+                                    for (String sss : s) {
+                                %><option value="<%=sss%>"><%=sss%></option>
+                                <%
+                                    }
+                                %>   
+                            </select><br>
+
+
+                    </tr>
+                    <tr>
+                        <td><label class="label-control-a">SSC Code</label></td>
+                        <td><input type="text" name="ssc" class="form-control" placeholder="Qualification" id="sssc" readonly=""></td>
+                    </tr>
+                    <tr>
+                        <td><label class="label-control-a">Affiliated Job Role</label></td>
+                        <td><input type="text" name="afjobrole" class="form-control" placeholder="Qualification" id="afjobrole" readonly=""></td>
+                    </tr>
                 <tr><td>Trainer</td>
                     <td><INPUT type=”text” name="trainer" value="" size=”24″></td>
                 </tr>

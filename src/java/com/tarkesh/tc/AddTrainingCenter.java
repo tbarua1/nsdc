@@ -12,12 +12,16 @@ import com.tarkesh.operation.Operations;
 import java.io.IOException;
 import java.io.PrintWriter;
 import java.util.ArrayList;
+import java.util.Date;
+import java.util.HashSet;
 import java.util.List;
+import java.util.Set;
 import javax.servlet.ServletException;
 import javax.servlet.annotation.WebServlet;
 import javax.servlet.http.HttpServlet;
 import javax.servlet.http.HttpServletRequest;
 import javax.servlet.http.HttpServletResponse;
+import javax.servlet.http.HttpSession;
 import org.codehaus.jackson.map.ObjectMapper;
 
 /**
@@ -39,39 +43,55 @@ public class AddTrainingCenter extends HttpServlet {
     protected void processRequest(HttpServletRequest request, HttpServletResponse response)
             throws ServletException, IOException {
         response.setContentType("text/html;charset=UTF-8");
-        TrainingCenter tc=new TrainingCenter();
+        TrainingCenter tc = new TrainingCenter();
+        tc.setRdate(new Date());
+        HttpSession session = request.getSession();
+        if(session==null){
+        response.sendRedirect("expire.html");
+        }
+        String toString = session.getAttribute("username").toString();
+        tc.setCreator(toString);
+        System.out.println("TP Smart id - "+request.getParameter("tcsmartid"));
+        tc.setTpsmartid(request.getParameter("tcsmartid"));
         tc.setNameSPOC(request.getParameter("spoc"));
         tc.setContactSPOC(request.getParameter("spocphone"));
-      tc.setName(request.getParameter("trainingcenter"));
+        tc.setName(request.getParameter("trainingcenter"));
         tc.setUsername(request.getParameter("username"));
         tc.setPassword(request.getParameter("password"));
         tc.setUsertype("tc");
-        Address address=new Address();
-        address.setBuildingNo(request.getParameter("building"));
-        address.setCity_village(request.getParameter("city"));
-        address.setDistrict(request.getParameter("district"));
-        address.setLat(Double.parseDouble(request.getParameter("latitute")));
-        address.setLat(Double.parseDouble(request.getParameter("longitute")));
-        address.setLocality(request.getParameter("locality"));
-        address.setPin(request.getParameter("pin"));
-        address.setState(request.getParameter("state"));
-        
-//         List<Address> add=new ArrayList<>();
-//         add.add(address);
-//       tc.sesetAddress(add);
-       
+        tc.setSsc(request.getParameter("ssc"));
+        tc.setBuildingNo(request.getParameter("building"));
+        tc.setCity(request.getParameter("city"));
+        tc.setDistrict(request.getParameter("district"));
+        tc.setLatitude(Double.parseDouble(request.getParameter("latitute")));
+        tc.setLongitude(Double.parseDouble(request.getParameter("longitute")));
+        tc.setLocality(request.getParameter("locality"));
+        tc.setPin(Integer.parseInt(request.getParameter("pin")));
+        tc.setState(request.getParameter("state"));
+        tc.setStreetNo(request.getParameter("street"));
         String[] parameterValues = request.getParameterValues("afjobrole");
-       tc.setJobrole(new ObjectMapper().writeValueAsString(parameterValues));
-       tc.setLatitude(Double.parseDouble(request.getParameter("latitute")));
-       tc.setLongitude(Double.parseDouble(request.getParameter("longitute")));
-      System.out.println("Record Saved "+Operations.addTrainingCenter(tc));
-      response.sendRedirect("addTrainingCenter.jsp");
+        Set<String> sscList=new HashSet<>();
+        Set<String> qpList=new HashSet<>();
+        Set<String> jobroleList=new HashSet<>();
+        for(String p:parameterValues){
+            String[] split = p.split("@");
+            sscList.add(split[0]);
+            qpList.add(split[1]);
+            jobroleList.add(split[2]);
+        }
+        tc.setJobrole(new ObjectMapper().writeValueAsString(jobroleList));
+        tc.setSsc(new ObjectMapper().writeValueAsString(sscList));
+        tc.setQpcode(new ObjectMapper().writeValueAsString(qpList));
+        tc.setLatitude(Double.parseDouble(request.getParameter("latitute")));
+        tc.setLongitude(Double.parseDouble(request.getParameter("longitute")));
+        System.out.println("Record Saved " + Operations.addTrainingCenter(tc));
+        response.sendRedirect("addTrainingCenter.jsp");
         try (PrintWriter out = response.getWriter()) {
             /* TODO output your page here. You may use following sample code. */
             out.println("<!DOCTYPE html>");
             out.println("<html>");
             out.println("<head>");
-            out.println("<title>Servlet AddAdmin</title>");            
+            out.println("<title>Servlet AddAdmin</title>");
             out.println("</head>");
             out.println("<body>");
             out.println("<h1>Servlet AddAdmin at " + request.getContextPath() + "</h1>");

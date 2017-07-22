@@ -89,11 +89,13 @@
                 }
             }
         </script>
-        <div id="header">Training Center</div>
+        <div id="header"><%=session.getAttribute("usertype")%> <%=session.getAttribute("username")%></div>
+        <%
+           List<TrainingCenter> inf= (List<TrainingCenter>)session.getAttribute("informationTC");%>
         <div id="left">
-            <a href="addBatchCode.jsp" target="iframe_a">Add Batch</a><br>
-            <a href="addTrainer.jsp" target="iframe_a">Add Trainer Info</a><br>
-            <a href="addBatchSchedule.jsp" target="iframe_a">Add Batch Schedule</a><br>            
+            <a href="addBatchCodeByQP.jsp" target="iframe_a">Add Batch</a><br>
+            <a href="addTrainerByTC.jsp" target="iframe_a">Add Trainer Info</a><br>
+            <a href="addBatchScheduleByQP.jsp" target="iframe_a">Add Batch Schedule</a><br>            
             <a href="trainer.html" target="iframe_a">Trainer App Download</a><br>   
             <a href="admin.html" target="iframe_a">Admin App Download</a><br>   
             <a href="DAR.jsp" target="iframe_a">Daily Activity Report</a><br>  
